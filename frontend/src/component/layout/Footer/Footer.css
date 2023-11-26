@@ -1,0 +1,185 @@
+footer {
+    margin-top: 10vmax;
+    padding: 2vmax;
+    background-color: rgb(34, 33, 33);
+    color: white;
+    display: flex;
+    align-items: center;
+    position: absolute; 
+    left: 0;
+    right: 0;
+}
+
+.leftFooter {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.leftFooter>h4 {
+    font-family: "Roboto";
+    font-size: 1.4vmax;
+    margin-bottom: 10px;
+    text-align: right;
+}
+
+.leftFooter>p {
+    text-align: center;
+    font-size: 1.2vmax;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.subscribe-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.subscribe-container input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-bottom: 2px solid #eb4034;
+    outline: none;
+    font-size: 1.2vmax;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    background: transparent;
+    color: white;
+    /* Set the text color to white */
+}
+
+.subscribe-container input[type="email"]::placeholder {
+    color: white;
+    /* Set the placeholder text color to white */
+}
+
+
+.subscribe-container input[type="email"]:focus {
+    border-bottom: 2px solid #ff5734;
+}
+
+.subscribe-container button {
+    background-color: #eb4034;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1.2vmax;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    transition: background-color 0.5s;
+    text-align: left;
+}
+
+.subscribe-container button:hover {
+    background-color: #ff5734;
+}
+
+.midFooter {
+    width: 60%;
+    text-align: center;
+
+}
+
+.midFooter>h1 {
+    font-size: 4vmax;
+    font-family: "Roboto";
+    color: #baf0e0;
+    margin: 0;
+    letter-spacing: 10px;
+}
+
+.midFooter>p {
+    max-width: 60%;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    margin: 1vmax auto;
+}
+
+.midFooter>h4 {
+    font-family: "Roboto";
+    font-size: 1.4vmax;
+    margin-bottom: 10px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    /* Horizontally center the icons */
+    gap: 20px;
+    /* Adjust the spacing between icons */
+    font-size: 24px;
+    /* Adjust the icon size */
+}
+
+.social-icons a {
+    text-decoration: none;
+    color: #333;
+    /* Adjust the color of the icons */
+    transition: color 0.3s;
+    /* Add a smooth color transition effect */
+}
+.social-icons a {
+    color: #0077B5;
+    /* Change the color on hover for LinkedIn */
+}
+/* Style GitHub and Instagram icons similarly */
+.social-icons a:nth-child(2) {
+    color: white;
+}
+
+.social-icons a:nth-child(3) {
+    color: #E1306C;
+}
+
+.rightFooter {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.rightFooter>h4 {
+    font-family: "Roboto";
+    font-size: 1.4vmax;
+    margin-bottom: 10px;
+    text-align: right;
+}
+
+.rightFooter>a {
+    text-decoration: none;
+    font-size: 1.3vmax;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    color: white;
+    transition: all 0.5s;
+    margin: 0.5vmax;
+}
+
+.rightFooter iframe {
+    width: 100%;
+    height: 300px;
+    border: none;
+    background-color: #f5f5f5;
+    /* Set a background color for the map container */
+}
+
+@media (max-width: 768px) {
+    footer {
+      flex-direction: column;
+    }
+    .leftFooter, .midFooter, .rightFooter {
+      width: 100%;
+      text-align: center;
+    }
+    .subscribe-container input[type="email"] {
+      font-size: 1.0vmax; /* Reduce font size for the email input */
+    }
+    /* Hide social icons on smaller screens */
+    .social-icons {
+      display: none;
+    }
+    /* Add more specific adjustments as needed */
+  }

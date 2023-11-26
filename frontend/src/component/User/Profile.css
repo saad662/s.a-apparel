@@ -1,0 +1,147 @@
+.profileContainer {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    top: 0%;
+    left: 0%;
+    max-width: 100%;
+    background-color: #f4f4f4;
+    position: relative;
+    top: 0%;
+    left: 0%;
+    max-width: 100%;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: -10vmax;
+}
+
+.profileContainer>div {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    max-width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.profileContainer>div:first-child>h1 {
+    margin-left: 18vmax;
+    color: #333;
+    font: 500 2.2vmax 'Poppins', sans-serif;
+    transform: translateX(-10vmax) translateY(-2vmax);
+}
+
+.profileContainer>div:first-child>img {
+    width: 20vmax;
+    height: 20vmax;
+    border-radius: 50%;
+    transition: all 0.5s;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.profileContainer>div:first-child>img:hover {
+    transform: scale(1.05);
+}
+
+.profileContainer>div:first-child>a {
+    border: none;
+    background-color: #e44d26;
+    font: 500 1vmax 'Poppins', sans-serif;
+    color: white;
+    text-decoration: none;
+    padding: 0.5vmax;
+    width: 30%;
+    margin: 4vmax;
+    text-align: center;
+    transition: all 0.5s;
+    border-radius: 8px;
+}
+
+.profileContainer>div:first-child>a:hover {
+    background-color: #c4391e;
+}
+
+.profileContainer>div:last-child {
+    justify-content: space-evenly;
+    align-items: flex-start;
+    padding: 5vmax;
+    box-sizing: border-box;
+    background-color: white;
+    border-radius: 12px;
+}
+
+.profileContainer>div:last-child>div>h4 {
+    color: #333;
+    font: 500 1.2vmax 'Poppins', sans-serif;
+}
+
+.profileContainer>div:last-child>div>p {
+    color: #666;
+    font: 400 1vmax 'Poppins', sans-serif;
+    margin: 0.2vmax;
+}
+
+.profileContainer>div:last-child>div:last-child {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+
+.profileContainer>div:last-child>div:last-child>a {
+    border: none;
+    background-color: #444;
+    font: 500 1vmax 'Poppins', sans-serif;
+    color: white;
+    text-decoration: none;
+    padding: 0.5vmax;
+    text-align: center;
+    transition: all 0.5s;
+    margin: 1vmax 0;
+    border-radius: 8px;
+}
+
+.profileContainer>div:last-child>div:last-child>a:hover {
+    background-color: #222;
+}
+
+@media screen and (max-width: 600px) {
+    .profileContainer {
+        flex-direction: column;
+    }
+
+    .profileContainer>div:first-child>h1 {
+        margin-top: 30px;
+        margin-right: 5vmax;
+        font: 500 3.2vmax 'Poppins', sans-serif;
+        transform: translateY(-2vmax);
+    }
+
+    .profileContainer>div:first-child>a {
+        font: 500 1.7vmax 'Poppins', sans-serif;
+        padding: 1vmax;
+    }
+
+    .profileContainer>div:last-child {
+        text-align: center;
+        align-items: center;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+        border-radius: 12px;
+        background-color: white;
+        padding-right: 0;
+    }
+
+    .profileContainer>div:last-child>div>h4 {
+        font: 500 2.5vmax 'Poppins', sans-serif;
+    }
+
+    .profileContainer>div:last-child>div>p {
+        font: 400 2vmax 'Poppins', sans-serif;
+        margin: 0.5vmax 0;
+    }
+
+    .profileContainer>div:last-child>div:last-child>a {
+        font: 500 1.8vmax 'Poppins', sans-serif;
+        padding: 1vmax;
+        margin: 2vmax 0;
+    }
+}

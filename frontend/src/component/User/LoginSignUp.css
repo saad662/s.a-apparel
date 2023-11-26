@@ -1,0 +1,315 @@
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+h1,
+h4 {
+    font-family: "Montserrat", sans-serif;
+}
+
+p {
+    font-family: "Open Sans", sans-serif;
+}
+
+.LoginSignUpContainer {
+    width: 100vw;
+    min-height: 100vh;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('https://res.cloudinary.com/dyjxikbhc/image/upload/v1699885933/pngtree-3d-shopping-promotion-e-commerce-pink-background-picture-image_1908130_ip8y3x.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-bottom: -10vmax;
+}
+
+.LoginSignUpBox {
+    background-color: white;
+    width: 25vw;
+    height: 70vh;
+    box-sizing: border-box;
+    overflow: hidden;
+    margin-top: 3vmax;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.loginForm,
+.signUpForm {
+    padding: 2vmax;
+}
+
+.login_signUp_toggle {
+    display: flex;
+    height: 3vmax;
+}
+
+.login_signUp_toggle>p {
+    color: rgba(0, 0, 0, 0.678);
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-size: 1.2vmax;
+    transition: all 0.5s;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    width: 100%;
+}
+
+.login_signUp_toggle>p:hover {
+    color: tomato;
+}
+
+.LoginSignUpBox>div>button {
+    background-color: tomato;
+    height: 3px;
+    width: 50%;
+    border: none;
+    transition: all 0.5s;
+}
+
+.loginForm,
+.signUpForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    padding: 2vmax;
+    justify-content: space-evenly;
+    height: 70%;
+    transition: all 0.5s;
+}
+
+.signUpForm {
+    transform: translateY(-100%) translateX(-100vmax);
+}
+
+.loginForm>div,
+.signUpForm>div {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 1.5vmax;
+}
+
+.loginForm>div>input,
+.signUpForm>div>input {
+    padding: 1vmax 2vmax;
+    margin-bottom: 1vmax;
+    padding-right: 1vmax;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.267);
+    border-radius: 4px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-size: 0.9vmax;
+    outline: none;
+}
+
+.loginBtn,
+.signUpBtn {
+    margin-top: 1vmax;
+}
+
+.loginForm>div>svg,
+.signUpForm>div>svg {
+    position: absolute;
+    transform: translateX(1vmax);
+    font-size: 1.6vmax;
+    color: rgba(0, 0, 0, 0.623);
+}
+
+.subscribe-container input[type="email"] {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-size: 1.2vmax;
+}
+
+.subscribe-container button {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-size: 1.2vmax;
+}
+
+.midFooter>h1 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 4vmax;
+    color: #baf0e0;
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+.midFooter>p,
+.midFooter>h4,
+.rightFooter>h4 {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-size: 1.4vmax;
+}
+
+.rightFooter>a {
+    font-family: "Gill Sans", sans-serif;
+    font-weight: 500;
+    font-size: 1.3vmax;
+}
+
+.social-icons a {
+    font-size: 24px;
+}
+
+.loginForm>a {
+    color: rgba(0, 0, 0, 0.651);
+    text-decoration: none;
+    align-self: flex-end;
+    transition: all 0.5s;
+    font-family: "Gill Sans", sans-serif;
+    font-weight: 500;
+    font-size: 0.8vmax;
+}
+
+.loginForm>a:hover {
+    color: black;
+}
+
+#registerImage>img {
+    width: 3vmax;
+    border-radius: 100%;
+}
+
+#registerImage>input {
+    display: flex;
+    padding: 0%;
+}
+
+#registerImage>input::file-selector-button {
+    cursor: pointer;
+    width: 100%;
+    z-index: 2;
+    height: 5vh;
+    border: none;
+    margin: 0%;
+    font: 400 0.8vmax;
+    transition: all 0.5s;
+    padding: 0 1vmax;
+    color: rgba(0, 0, 0, 0.623);
+    background-color: rgb(255, 255, 255);
+}
+
+#registerImage>input::file-selector-button:hover {
+    background-color: rgb(235, 235, 235);
+}
+
+.loginBtn,
+.signUpBtn {
+    border: none;
+    background-color: tomato;
+    color: white;
+    font: 300 0.9vmax "Roboto";
+    width: 100%;
+    padding: 0.8vmax;
+    cursor: pointer;
+    transition: all 0.5s;
+    border-radius: 4px;
+    outline: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.219);
+}
+
+.loginBtn:hover,
+.signUpBtn:hover {
+    background-color: rgb(179, 66, 46);
+}
+
+.shiftToLeft {
+    transform: translateX(-100%);
+}
+
+.shiftToNeutral {
+    transform: translateX(0%);
+}
+
+.shiftToNeutralForm {
+    transform: translateX(0%) translateY(-100%);
+}
+
+.shiftToRight {
+    transform: translateX(100%);
+}
+
+@media screen and (max-width: 600px) {
+    .LoginSignUpContainer {
+        align-items: flex-start;
+        background-color: white;
+    }
+
+    .LoginSignUpBox {
+        margin-top: 10vmax;
+        width: 90vw;
+        height: 95vh;
+    }
+
+    .login_signUp_toggle {
+        height: 5vmax;
+    }
+
+    .login_signUp_toggle>p {
+        font-size: 1.5vmax;
+    }
+
+    .loginForm,
+    .signUpForm {
+        padding: 5vmax;
+    }
+
+    .loginForm>div>input,
+    .signUpForm>div>input {
+        padding: 2.5vmax 5vmax;
+        font-size: 1.7vmax;
+    }
+
+    .loginForm>div>svg,
+    .signUpForm>div>svg {
+        font-size: 2.8vmax;
+    }
+
+    .loginForm>a {
+        font-size: 1.8vmax;
+    }
+
+    #registerImage>img {
+        width: 8vmax;
+        border-radius: 100%;
+    }
+
+    #registerImage>input::file-selector-button {
+        height: 7vh;
+        font-size: 1.8vmax;
+    }
+
+    .midFooter>h1 {
+        font-size: 2.8vmax;
+        letter-spacing: 4px;
+    }
+
+    .midFooter>p,
+    .midFooter>h4,
+    .rightFooter>h4 {
+        font-size: 1.5vmax;
+    }
+
+    .rightFooter>a {
+        font-size: 1.8vmax;
+    }
+
+    .social-icons a {
+        font-size: 1.8vmax;
+    }
+
+    .loginBtn,
+    .signUpBtn {
+        font: 300 1.9vmax "Roboto";
+        padding: 1.8vmax;
+    }
+}

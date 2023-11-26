@@ -1,0 +1,17 @@
+.whatsapp-chat {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25d366;
+    color: #fff;
+    padding: 10px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .whatsapp-icon {
+    width: 30px;
+    height: 30px;
+  }

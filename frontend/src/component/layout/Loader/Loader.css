@@ -1,0 +1,46 @@
+/* BetterLoader.css */
+.better-loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  .better-loader {
+    width: 100px;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .bar {
+    width: 20px;
+    height: 100%;
+    background-color: #3498db;
+    animation: loadingAnimation 1s infinite ease-in-out;
+  }
+  
+  .bar1 {
+    animation-delay: 0.2s;
+  }
+  
+  .bar2 {
+    animation-delay: 0.4s;
+  }
+  
+  .bar3 {
+    animation-delay: 0.6s;
+  }
+  
+  @keyframes loadingAnimation {
+    0%, 80%, 100% {
+      transform: scaleY(0.4);
+      background-color: #3498db;
+    }
+    40% {
+      transform: scaleY(1);
+      background-color: #e74c3c;
+    }
+  }
+  
