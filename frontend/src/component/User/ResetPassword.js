@@ -10,7 +10,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 const ResetPassword = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const { id } = useParams();
+    const { token } = useParams();
 
     const { error, success, loading } = useSelector((state) => state.forgotPassword);
 
@@ -25,12 +25,12 @@ const ResetPassword = () => {
         myForm.set("password", password);
         myForm.set("confirmPassword", confirmPassword);
 
-        console.log(id)
-        // dispatch(resetPassword(id, myForm));
+        // console.log("ID from useParams:", token);
+        dispatch(resetPassword(token, myForm));
     };
 
     useEffect(() => {
-        
+
         if (error) {
             toast.error(error);
             dispatch(clearErrors());
