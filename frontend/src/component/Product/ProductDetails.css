@@ -60,7 +60,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    border-top: 1px solid rgba(0, 0, 0, 0.205);
+    /* border-top: 1px solid rgba(0, 0, 0, 0.205); */
     border-bottom: 1px solid rgba(0, 0, 0, 0.205);
     width: 70%;
     padding: 1vmax 0;
@@ -85,10 +85,20 @@
     width: 70%;
 }
 
+.price-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.tax-info {
+    font-size: 1rem;
+    color: #555;
+    margin-top: -1.1rem;
+}
+
 .detailsBlock-3>h1 {
     color: rgba(17, 17, 17, 0.795);
     font: 400 1.8vmax "Franklin Gothic Medium";
-    margin: 1vmax 0;
 }
 
 .detailsBlock-3-1 {
@@ -120,8 +130,8 @@
     cursor: pointer;
     color: white;
     transition: all 0.5s;
-    margin-right: 5px;
-    margin-left: 5px;
+    margin-right: 15px;
+    margin-left: 15px;
 }
 
 .detailsBlock-3-1-1>button:hover {
@@ -142,17 +152,20 @@
     cursor: pointer;
     color: white;
     transition: all 0.5s;
-    background-color: tomato;
-    font: 500 0.7vmax "Roboto";
+    background-color: #4CAF50;
+    font: 600 0.9vmax "Roboto";
     border-radius: 20px;
-    padding: 0.5vmax 2vmax;
+    padding: 1.5vmax 2vmax;
     margin: 1vmax;
     outline: none;
     margin-left: 5px;
 }
 
 .detailsBlock-3-1>button:last-child:hover {
-    background-color: rgb(214, 84, 61);
+    background-color: #45a049;
+    /* Darker green color on hover */
+    transform: scale(1.1);
+    /* Slight scale effect on hover */
 }
 
 .detailsBlock-3>p {
@@ -223,7 +236,6 @@
 
 .reviewCard {
     flex: none;
-
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.226);
     border: 1px solid rgba(56, 56, 56, 0.116);
     width: 30vmax;

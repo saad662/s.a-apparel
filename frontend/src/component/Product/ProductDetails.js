@@ -120,30 +120,34 @@ const ProductDetails = () => {
                             </div>
 
                             <div className="detailsBlock-3">
-                                <h1 style={{ fontSize: "1.5rem", fontWeight: 600, color: "#FF6347", margin: "1rem 0" }}>
-                                    {product.price ? `Rs. ${product.price.toLocaleString('en-IN')}` : ''}
-                                </h1>
+                                <div className="price-container">
+                                    <h1 style={{ fontSize: "1.5rem", fontWeight: 600, color: "#FF6347", margin: "1rem 0" }}>
+                                        {product.price ? `Rs. ${product.price.toLocaleString('en-IN')} PKR` : ''}
+                                    </h1>
+                                    <p className="tax-info">Tax included.</p>
+                                </div>
                                 <div className="detailsBlock-3-1">
                                     <div className="detailsBlock-3-1-1 quantity-control">
                                         <button onClick={decreaseQuantity}>-</button>
-                                        {/* <input readOnly type="number" value={5} />   */}
                                         <NumericFormat value={quantity} displayType={'text'} thousandSeparator={true} />
                                         <button onClick={increaseQuantity}>+</button>
                                     </div>
-                                    <p className="stock-info"> ( {product.stock} items left in stock )</p>
                                     <button
-                                        className="add-to-cart-button"
+                                        className="add-"
                                         disabled={product.stock < 1 ? true : false}
                                         onClick={addToCartHandler}>
                                         Add to Cart
                                     </button>
                                 </div>
                                 <p className="status-info">
-                                    Status:
+                                    Status: &nbsp;
                                     <b className={product.stock < 1 ? "redColor" : "greenColor"}>
                                         {product.stock < 1 ? "OutOfStock" : "InStock"}
                                     </b>
+                                    &nbsp;
+                                    ( {product.stock} items left in stock )
                                 </p>
+
                             </div>
 
                             <div className="detailsBlock-4">
