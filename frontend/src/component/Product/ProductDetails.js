@@ -11,6 +11,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import StarRatings from 'react-star-ratings';
 import ReviewCard from "./ReviewCard.js";
 import { Button, Modal } from 'react-bootstrap';
+import { NumericFormat } from 'react-number-format';
 // import { addItemsToCart } from "../../actions/cartAction";
 // import { NEW_REVIEW_RESET } from "../../constants/productConstants";
 
@@ -123,19 +124,21 @@ const ProductDetails = () => {
                                     {product.price ? `Rs. ${product.price.toLocaleString('en-IN')}` : ''}
                                 </h1>
                                 <div className="detailsBlock-3-1">
-                                    <div className="detailsBlock-3-1-1">
+                                    <div className="detailsBlock-3-1-1 quantity-control">
                                         <button onClick={decreaseQuantity}>-</button>
-                                        <input readOnly type="number" value={quantity} />
+                                        {/* <input readOnly type="number" value={5} />   */}
+                                        <NumericFormat value={quantity} displayType={'text'} thousandSeparator={true} />
                                         <button onClick={increaseQuantity}>+</button>
                                     </div>
-                                    <p> ( {product.stock} items left in stock )</p>
+                                    <p className="stock-info"> ( {product.stock} items left in stock )</p>
                                     <button
+                                        className="add-to-cart-button"
                                         disabled={product.stock < 1 ? true : false}
                                         onClick={addToCartHandler}>
                                         Add to Cart
                                     </button>
                                 </div>
-                                <p>
+                                <p className="status-info">
                                     Status:
                                     <b className={product.stock < 1 ? "redColor" : "greenColor"}>
                                         {product.stock < 1 ? "OutOfStock" : "InStock"}

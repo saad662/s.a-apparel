@@ -87,6 +87,7 @@
 }
 
 .detailsBlock-3 {
+    margin-top: 20px;
     width: 70%;
 }
 
@@ -99,6 +100,53 @@
 .detailsBlock-3-1 {
     display: flex;
     align-items: center;
+    margin-top: 10px;
+}
+
+.quantity-control button {
+    /* Style for quantity control buttons */
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.quantity-control input {
+    /* Style for the quantity input field */
+    color: black;
+    width: 40px;
+    text-align: center;
+    margin: 0 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.add-to-cart-button {
+    /* Style for the Add to Cart button */
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.stock-info {
+    /* Style for the stock information */
+    margin: 0;
+    font-size: 14px;
+    color: #555;
+}
+
+.status-info {
+    /* Style for the status information */
+    margin: 5px 0 0;
+    font-size: 14px;
+    color: #555;
 }
 
 .redColor {
