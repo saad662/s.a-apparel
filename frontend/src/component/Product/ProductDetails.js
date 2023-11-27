@@ -12,7 +12,7 @@ import StarRatings from 'react-star-ratings';
 import ReviewCard from "./ReviewCard.js";
 import { Button, Modal } from 'react-bootstrap';
 import { NumericFormat } from 'react-number-format';
-// import { addItemsToCart } from "../../actions/cartAction";
+import { addItemsToCart } from "../../actions/cartAction";
 // import { NEW_REVIEW_RESET } from "../../constants/productConstants";
 
 const ProductDetails = () => {
@@ -41,7 +41,7 @@ const ProductDetails = () => {
     };
 
     const addToCartHandler = () => {
-        // dispatch(addItemsToCart(id, quantity));
+        dispatch(addItemsToCart(id, quantity));
         toast.success("Item Added To Cart");
     };
 
@@ -56,7 +56,7 @@ const ProductDetails = () => {
         myForm.set("comment", comment);
         myForm.set("productId", id);
 
-        // toast.success("Form Submitted");
+        toast.success("Form Submitted");
         dispatch(newReview(myForm));
         setOpen(false);
     };

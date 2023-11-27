@@ -2,8 +2,6 @@ import { createStore, combineReducers, applyMiddleware } from "redux";
 import thunk from "redux-thunk"; // Middleware for handling asynchronous actions
 import { composeWithDevTools } from "redux-devtools-extension"; // DevTools for debugging Redux
 
-//import { cartReducer } from "./reducers/cartReducer"; // Reducer for handling the shopping cart
-
 import {
     productsReducer,         // Handles fetching a list of products
     // newProductReducer,       // Handles creating new products
@@ -23,6 +21,8 @@ import {
     userReducer,            // Handles user authentication and user-related actions
 } from "./reducers/userReducer";
 
+import { cartReducer } from "./reducers/cartReducer"; // Reducer for handling the shopping cart
+
 // import {
 //     allOrdersReducer,       // Handles fetching a list of all orders
 //     myOrdersReducer,        // Handles fetching a list of orders for the current user
@@ -37,7 +37,7 @@ const reducer = combineReducers({
     user: userReducer,                     // Manages user-related actions and authentication
     profile: profileReducer,                // Manages user profile data     
     forgotPassword: forgotPasswordReducer, // Manages the password reset process
-    // cart: cartReducer,                     // Manages the shopping cart state
+    cart: cartReducer,                     // Manages the shopping cart state
     // newOrder: newOrderReducer,             // Manages the creation of new orders
     // myOrders: myOrdersReducer,             // Manages user-specific order list
     // orderDetails: orderDetailsReducer,     // Manages detailed information about an order
@@ -54,7 +54,14 @@ const reducer = combineReducers({
 
 // Define the initial state for the application
 let initialState = {
-
+    cart: {
+        cartItems: localStorage.getItem("cartItems")
+            ? JSON.parse(localStorage.getItem("cartItems"))
+            : [],
+        shippingInfo: localStorage.getItem("shippingInfo")
+            ? JSON.parse(localStorage.getItem("shippingInfo"))
+            : {},
+    },
 };
 
 // Middleware setup 
