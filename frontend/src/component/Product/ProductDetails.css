@@ -1,3 +1,7 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
 .ProductDetails {
     background-color: rgb(255, 255, 255);
     width: 100vw;
@@ -40,27 +44,22 @@
 
 .product-title {
     font-size: 2rem;
-    /* Adjust the font size to your preference */
     font-weight: 700;
-    /* Make it bold for a professional look */
     color: #333;
-    /* Choose an appropriate color */
     text-transform: capitalize;
-    /* Capitalize the product name */
     margin-bottom: 1rem;
-    /* Add some spacing for readability */
+    font-family: 'Montserrat', sans-serif;
 }
 
-.detailsBlock-1>p {
+.detailsBlock-1 > p  {
     color: rgba(54, 54, 54, 0.582);
-    font: 200 0.6vmax cursive;
+    font: 200 0.8rem 'Open Sans', sans-serif;
 }
 
 .detailsBlock-2 {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    /* border-top: 1px solid rgba(0, 0, 0, 0.205); */
     border-bottom: 1px solid rgba(0, 0, 0, 0.205);
     width: 70%;
     padding: 1vmax 0;
@@ -72,6 +71,7 @@
     color: #555;
     margin-left: 1rem;
     text-transform: uppercase;
+    font-family: 'Lato', sans-serif;
 }
 
 .product-price {
@@ -79,6 +79,7 @@
     font-weight: 600;
     color: #FF6347;
     margin: 1rem 0;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .detailsBlock-3 {
@@ -94,11 +95,12 @@
     font-size: 1rem;
     color: #555;
     margin-top: -1.1rem;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .detailsBlock-3>h1 {
     color: rgba(17, 17, 17, 0.795);
-    font: 400 1.8vmax "Franklin Gothic Medium";
+    font: 400 1.8vmax 'Montserrat', sans-serif;
 }
 
 .detailsBlock-3-1 {
@@ -132,6 +134,7 @@
     transition: all 0.5s;
     margin-right: 15px;
     margin-left: 15px;
+    font: 500 0.7vmax 'Montserrat', sans-serif;
 }
 
 .detailsBlock-3-1-1>button:hover {
@@ -173,24 +176,24 @@
     border-bottom: 1px solid rgba(0, 0, 0, 0.205);
     padding: 1vmax 0;
     color: rgba(0, 0, 0, 0.651);
-    font: 400 1vmax "Roboto";
+    font: 400 1vmax 'Open Sans', sans-serif;
     margin: 1vmax 0;
 }
 
 .detailsBlock-4 {
     color: rgba(0, 0, 0, 0.897);
-    font: 500 1.2vmax sans-serif;
+    font: 500 1.8vmax 'Montserrat', sans-serif;
 }
 
 .detailsBlock-4>p {
     color: rgba(0, 0, 0, 0.534);
-    font: 300 0.8vmax sans-serif;
+    font: 300 0.8vmax 'Open Sans', sans-serif;
 }
 
 .submitReview {
     border: none;
     background-color: tomato;
-    font: 500 0.7vmax "Roboto";
+    font: 500 0.7vmax 'Montserrat', sans-serif;
     border-radius: 20px;
     padding: 0.6vmax 2vmax;
     margin: 1vmax 0;
@@ -215,12 +218,12 @@
     margin: 1vmax 0;
     outline: none;
     padding: 1rem;
-    font: 300 1rem "Roboto";
+    font: 300 1rem 'Open Sans', sans-serif;
 }
 
 .reviewsHeading {
     color: #000000be;
-    font: 500 1.4vmax "Roboto";
+    font: 500 1.4vmax 'Montserrat', sans-serif;
     text-align: center;
     border-bottom: 1px solid rgba(0, 0, 0, 0.226);
     padding: 1vmax;
@@ -252,16 +255,16 @@
 
 .reviewCard>p {
     color: rgba(0, 0, 0, 0.836);
-    font: 600 0.9vmax "Roboto";
+    font: 600 0.9vmax 'Montserrat', sans-serif;
 }
 
 .reviewCardComment {
     color: rgba(0, 0, 0, 0.445);
-    font: 300 0.8vmax cursive;
+    font: 300 0.8vmax 'Open Sans', sans-serif;
 }
 
 .noReviews {
-    font: 400 1.3vmax "Gill Sans";
+    font: 400 1.3vmax 'Gill Sans', sans-serif;
     text-align: center;
     color: rgba(0, 0, 0, 0.548);
 }
