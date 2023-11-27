@@ -68,15 +68,10 @@
 
 .detailsBlock-2-span {
     font-weight: 500;
-    /* Adjust font weight for a professional look */
     font-size: 1rem;
-    /* Adjust the font size to your preference */
     color: #555;
-    /* Choose an appropriate color */
     margin-left: 1rem;
-    /* Add spacing to separate it from the star ratings */
     text-transform: uppercase;
-    /* Change to uppercase for a professional touch */
 }
 
 .product-price {
@@ -87,7 +82,6 @@
 }
 
 .detailsBlock-3 {
-    margin-top: 20px;
     width: 70%;
 }
 
@@ -100,53 +94,6 @@
 .detailsBlock-3-1 {
     display: flex;
     align-items: center;
-    margin-top: 10px;
-}
-
-.quantity-control button {
-    /* Style for quantity control buttons */
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 5px 10px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.quantity-control input {
-    /* Style for the quantity input field */
-    color: black;
-    width: 40px;
-    text-align: center;
-    margin: 0 10px;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
-}
-
-.add-to-cart-button {
-    /* Style for the Add to Cart button */
-    background-color: #28a745;
-    color: #fff;
-    border: none;
-    padding: 10px 15px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.stock-info {
-    /* Style for the stock information */
-    margin: 0;
-    font-size: 14px;
-    color: #555;
-}
-
-.status-info {
-    /* Style for the status information */
-    margin: 5px 0 0;
-    font-size: 14px;
-    color: #555;
 }
 
 .redColor {
@@ -157,6 +104,14 @@
     color: green;
 }
 
+.detailsBlock-3-1-1 {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    /* Add margin to the right */
+    margin-left: 10px;
+    /* Add margin to the left */
+}
 
 .detailsBlock-3-1-1>button {
     border: none;
@@ -165,6 +120,8 @@
     cursor: pointer;
     color: white;
     transition: all 0.5s;
+    margin-right: 5px;
+    margin-left: 5px;
 }
 
 .detailsBlock-3-1-1>button:hover {
@@ -191,6 +148,7 @@
     padding: 0.5vmax 2vmax;
     margin: 1vmax;
     outline: none;
+    margin-left: 5px;
 }
 
 .detailsBlock-3-1>button:last-child:hover {
@@ -335,11 +293,18 @@
 
     .detailsBlock-3-1-1 {
         padding: 2vmax 0;
+
     }
 
     .detailsBlock-3-1-1>button {
-        padding: 1.2vmax;
-        width: 4vmax;
+        border: none;
+        background-color: rgba(0, 0, 0, 0.616);
+        padding: 0.5vmax;
+        cursor: pointer;
+        color: white;
+        transition: all 0.5s;
+        margin-right: 5px;
+        /* Adjust the margin to your preference */
     }
 
     .detailsBlock-3-1-1>input {
