@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 import "./Header.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from 'react-router-dom';
 import {
   DashboardOutlined,
@@ -16,7 +16,7 @@ import { logout } from "../../../actions/userAction";
 
 const UserOptions = ({ user }) => {
   const navigate = useNavigate();
-  // const { cartItems } = useSelector((state) => state.cart);
+  const { cartItems } = useSelector((state) => state.cart);
 
   const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
@@ -26,12 +26,8 @@ const UserOptions = ({ user }) => {
     { icon: <FileOutlined />, name: "Orders", func: orders },
     { icon: <UserOutlined />, name: "Profile", func: account },
     {
-      icon: (
-        <ShoppingCartOutlined
-        // style={{ color: cartItems.length > 0 ? "tomato" : "unset" }}
-        />
-      ),
-      name: `Cart($)`,
+      icon: <ShoppingCartOutlined style={{ color: cartItems.length > 0 ? "tomato" : "unset" }} />,
+      name: <span style={{ color: cartItems.length > 0 ? "tomato" : "unset" }}>Cart({cartItems.length})</span>,
       func: cart,
     },
     { icon: <LogoutOutlined />, name: "Logout", func: logoutUser },

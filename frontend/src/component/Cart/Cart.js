@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { addItemsToCart, removeItemsFromCart } from "../../actions/cartAction";
 import { Link, useNavigate } from "react-router-dom";
 import { NumericFormat } from 'react-number-format';
+import MetaData from "../layout/MetaData";
 
 const Cart = () => {
     const dispatch = useDispatch();
@@ -21,10 +22,11 @@ const Cart = () => {
 
     const decreaseQuantity = (id, quantity) => {
         const newQty = quantity - 1;
-        if (1 >= quantity) {
-            return;
+        if (newQty <= 0) {
+            deleteCartItems(id);
+        } else {
+            dispatch(addItemsToCart(id, newQty));
         }
-        dispatch(addItemsToCart(id, newQty));
     };
 
     const deleteCartItems = (id) => {
@@ -37,6 +39,7 @@ const Cart = () => {
 
     return (
         <Fragment>
+            <MetaData title={'Cart - S.A APPAREL'} />
             {cartItems.length === 0 ? (
                 <div className="emptyCart">
                     <p>No Product in Your Cart</p>
