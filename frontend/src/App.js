@@ -19,7 +19,7 @@ import UpdateProfile from "./component/User/UpdateProfile.js";
 import UpdatePassword from "./component/User/UpdatePassword.js";
 import ForgotPassword from "./component/User/ForgotPassword.js";
 import ResetPassword from "./component/User/ResetPassword.js";
-
+import Cart from "./component/Cart/Cart.js";
 
 function App() {
 
@@ -61,6 +61,8 @@ function App() {
         <Route path="/password/forgot" element={<ForgotPassword />} />
 
         <Route path="/password/reset/:token" element={<ResetPassword />} />
+
+        <Route path="/cart" element={<Cart />} />
 
         <Route path="/login" element={<LoginSignUp />} />
       </Routes>
