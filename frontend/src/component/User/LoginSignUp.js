@@ -8,7 +8,7 @@ import { clearErrors, login, register } from "../../actions/userAction";
 import MetaData from "../layout/MetaData";
 import { useNavigate } from 'react-router-dom';
 
-const LoginSignup = ({ history }) => {
+const LoginSignup = ({ location }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -87,7 +87,6 @@ const LoginSignup = ({ history }) => {
     }
   };
 
-
   useEffect(() => {
     if (error) {
       toast.error(error);
@@ -95,11 +94,11 @@ const LoginSignup = ({ history }) => {
     }
 
     if (isAuthenticated) {
-      console.log("Redirected")
-      navigate("/account");
+      const redirectPath = location?.search ? location.search.split("=")[1] : "/shipping";
+      navigate(redirectPath === "shipping" ? "/account" : "/shipping");
     }
 
-  }, [dispatch, navigate, error, history, isAuthenticated]);
+  }, [dispatch, navigate, error, isAuthenticated, location]);
 
 
   return (
