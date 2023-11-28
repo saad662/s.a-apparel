@@ -6,7 +6,15 @@ import MetaData from "../layout/MetaData";
 import { Country, State } from "country-state-city";
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
-// import CheckoutSteps from "./CheckoutSteps.js";
+import CheckoutSteps from "./CheckoutSteps.js";
+import {
+    EnvironmentOutlined,
+    HomeOutlined,
+    BankOutlined,
+    GlobalOutlined,
+    PhoneOutlined,
+    SwapOutlined,
+} from "@ant-design/icons";
 
 const Shipping = () => {
     const dispatch = useDispatch();
@@ -37,7 +45,7 @@ const Shipping = () => {
         <Fragment>
             <MetaData title="Shipping Details" />
 
-            {/* <CheckoutSteps activeStep={0} /> */}
+            <CheckoutSteps activeStep={0} />
 
             <div className="shippingContainer">
                 <div className="shippingBox">
@@ -49,7 +57,7 @@ const Shipping = () => {
                         onSubmit={shippingSubmit}
                     >
                         <div>
-
+                            <HomeOutlined />
                             <input
                                 type="text"
                                 placeholder="Address"
@@ -60,7 +68,7 @@ const Shipping = () => {
                         </div>
 
                         <div>
-
+                            <BankOutlined />
                             <input
                                 type="text"
                                 placeholder="City"
@@ -71,7 +79,7 @@ const Shipping = () => {
                         </div>
 
                         <div>
-
+                            <EnvironmentOutlined />
                             <input
                                 type="number"
                                 placeholder="Pin Code"
@@ -82,7 +90,7 @@ const Shipping = () => {
                         </div>
 
                         <div>
-
+                            <PhoneOutlined />
                             <input
                                 type="number"
                                 placeholder="Phone Number"
@@ -94,6 +102,7 @@ const Shipping = () => {
                         </div>
 
                         <div>
+                            <GlobalOutlined />
                             <select
                                 required
                                 value={country}
@@ -111,6 +120,7 @@ const Shipping = () => {
 
                         {country && (
                             <div>
+                                <SwapOutlined />
                                 <select
                                     required
                                     value={state}
