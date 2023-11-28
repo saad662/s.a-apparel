@@ -21,6 +21,7 @@ import ForgotPassword from "./component/User/ForgotPassword.js";
 import ResetPassword from "./component/User/ResetPassword.js";
 import Cart from "./component/Cart/Cart.js";
 import Shipping from "./component/Cart/Shipping.js";
+import ConfirmOrder from "./component/Cart/ConfirmOrder.js";
 
 function App() {
 
@@ -68,6 +69,9 @@ function App() {
         <Route path="/login" element={<LoginSignUp />} />
 
         <Route path="/shipping" element={isAuthenticated ? <Shipping /> : <Navigate to="/login" replace={true} />} />
+
+        <Route path="/order/confirm" element={isAuthenticated ? <ConfirmOrder /> : <Navigate to="/login" replace={true} />} />
+
       </Routes>
       <Footer />
       <WhatsAppChat />
