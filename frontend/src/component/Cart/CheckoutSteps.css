@@ -1,13 +1,66 @@
-.MuiStepConnector-line {
-    display: none !important;
+.checkout-steps-container {
+    margin: 20px 0;
+    font-family: 'Roboto', sans-serif;
 }
 
-.MuiStepConnector-root {
+.step-indicators {
+    display: flex;
+    justify-content: space-between;
+}
+
+.step-indicator {
+    flex: 1;
+    text-align: center;
+    position: relative;
+}
+
+.step-icon {
+    font-size: 30px;
+    margin-bottom: 10px;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.step-label {
+    color: rgba(0, 0, 0, 0.8);
+    /* Adjust the color if needed */
+    font-size: 16px;
+    /* Adjust the font size if needed */
+}
+
+.step-indicator.active {
+    color: tomato;
+    /* Set the active color for both label and icon */
+}
+
+.step-indicator.active .step-label,
+.step-indicator.active .step-icon {
+    color: tomato;
+}
+
+/* Add the following style to create the line */
+.step-indicator:not(:last-child)::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-1px);
     height: 1px;
-    background-color: rgba(0, 0, 0, 0.349);
+    width: 70%;
+    margin-left: 15%; /* Adjust the length of the line */
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
-.MuiStepConnector-active,
-.MuiStepConnector-completed {
-    background-color: tomato;
+
+/* Media query for screens with a maximum width of 600 pixels */
+@media screen and (max-width: 600px) {
+    .step-label {
+        font-size: 14px; /* Adjust the font size for mobile */
+    }
+
+    .step-icon {
+        font-size: 24px; /* Adjust the icon size for mobile */
+    }
+
+    .checkout-steps-container {
+        margin-top: 50px; /* Add margin-top for better spacing on mobile */
+    }
 }

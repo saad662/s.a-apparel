@@ -1,50 +1,41 @@
-import React, { Fragment } from "react";
-import { Typography, Steps } from "antd";
+import React from "react";
+import "./CheckoutSteps.css";
 import {
   ShoppingCartOutlined,
   CheckCircleOutlined,
   CreditCardOutlined,
 } from "@ant-design/icons";
-import "./CheckoutSteps.css";
-
-const { Title } = Typography;
-const { Step } = Steps;
 
 const CheckoutSteps = ({ activeStep }) => {
   const steps = [
     {
-      title: "Shipping Details",
+      label: "Shipping Details",
       icon: <ShoppingCartOutlined />,
     },
     {
-      title: "Confirm Order",
+      label: "Confirm Order",
       icon: <CheckCircleOutlined />,
     },
     {
-      title: "Payment",
+      label: "Payment",
       icon: <CreditCardOutlined />,
     },
   ];
 
-  const stepStyles = {
-    boxSizing: "border-box",
-  };
-
   return (
-    <Fragment>
-      <Title level={4}>Checkout Steps</Title>
-      <Steps current={activeStep} style={stepStyles}>
+    <div className="checkout-steps-container">
+      <div className="step-indicators">
         {steps.map((item, index) => (
-          <Step
+          <div
             key={index}
-            status={
-              activeStep === index ? "process" : activeStep > index ? "finish" : "wait"
-            }
-            icon={item.icon}
-          />
+            className={`step-indicator ${activeStep === index ? "active" : ""}`}
+          >
+            <div className="step-icon">{item.icon}</div>
+            <div className="step-label">{item.label}</div>
+          </div>
         ))}
-      </Steps>
-    </Fragment>
+      </div>
+    </div>
   );
 };
 
