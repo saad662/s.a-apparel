@@ -25,18 +25,19 @@ const Shipping = () => {
     const [city, setCity] = useState(shippingInfo.city);
     const [state, setState] = useState(shippingInfo.state);
     const [country, setCountry] = useState(shippingInfo.country);
-    const [pinCode, setPinCode] = useState(shippingInfo.pinCode);
-    const [phoneNo, setPhoneNo] = useState(shippingInfo.phoneNo);
+    const [postalCode, setpostalCode] = useState(shippingInfo.postalCode);
+    const [phoneNumber, setphoneNumber] = useState(shippingInfo.phoneNumber);
 
     const shippingSubmit = (e) => {
         e.preventDefault();
 
-        if (phoneNo.length < 10 || phoneNo.length > 10) {
-            toast.error("Phone Number should be 10 digits Long");
+        if (phoneNumber.length !== 10) {
+            toast.error("Phone Number should be exactly 10 digits long");
             return;
         }
+
         dispatch(
-            saveShippingInfo({ address, city, state, country, pinCode, phoneNo })
+            saveShippingInfo({ address, city, state, country, postalCode, phoneNumber })
         );
         navigate("/order/confirm");
     };
@@ -84,8 +85,8 @@ const Shipping = () => {
                                 type="number"
                                 placeholder="Pin Code"
                                 required
-                                value={pinCode}
-                                onChange={(e) => setPinCode(e.target.value)}
+                                value={postalCode}
+                                onChange={(e) => setpostalCode(e.target.value)}
                             />
                         </div>
 
@@ -95,8 +96,8 @@ const Shipping = () => {
                                 type="number"
                                 placeholder="Phone Number"
                                 required
-                                value={phoneNo}
-                                onChange={(e) => setPhoneNo(e.target.value)}
+                                value={phoneNumber}
+                                onChange={(e) => setphoneNumber(e.target.value)}
                                 size="10"
                             />
                         </div>
@@ -120,6 +121,7 @@ const Shipping = () => {
 
                         {country && (
                             <div>
+
                                 <SwapOutlined />
                                 <select
                                     required
