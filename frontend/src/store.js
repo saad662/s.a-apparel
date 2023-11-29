@@ -23,13 +23,13 @@ import {
 
 import { cartReducer } from "./reducers/cartReducer"; // Reducer for handling the shopping cart
 
-// import {
-//     allOrdersReducer,       // Handles fetching a list of all orders
-//     myOrdersReducer,        // Handles fetching a list of orders for the current user
-//     newOrderReducer,        // Handles creating a new order
-//     orderDetailsReducer,    // Handles fetching details of a specific order
-//     orderReducer,           // Handles fetching a list of orders
-// } from "./reducers/orderReducer";
+import {
+    // allOrdersReducer,       // Handles fetching a list of all orders
+    // myOrdersReducer,        // Handles fetching a list of orders for the current user
+    newOrderReducer,        // Handles creating a new order
+    // orderDetailsReducer,    // Handles fetching details of a specific order
+    // orderReducer,           // Handles fetching a list of orders
+} from "./reducers/orderReducer";
 
 const reducer = combineReducers({
     products: productsReducer,             // Manages a list of products
@@ -38,7 +38,7 @@ const reducer = combineReducers({
     profile: profileReducer,                // Manages user profile data     
     forgotPassword: forgotPasswordReducer, // Manages the password reset process
     cart: cartReducer,                     // Manages the shopping cart state
-    // newOrder: newOrderReducer,             // Manages the creation of new orders
+    newOrder: newOrderReducer,             // Manages the creation of new orders
     // myOrders: myOrdersReducer,             // Manages user-specific order list
     // orderDetails: orderDetailsReducer,     // Manages detailed information about an order
     newReview: newReviewReducer,           // Manages the creation of new product reviews
