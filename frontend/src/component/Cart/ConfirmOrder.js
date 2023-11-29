@@ -5,8 +5,10 @@ import MetaData from "../layout/MetaData";
 import "./ConfirmOrder.css";
 import { Link } from "react-router-dom";
 import { Typography } from "antd";
+import { useNavigate } from 'react-router-dom';
 
-const ConfirmOrder = ({ history }) => {
+const ConfirmOrder = () => {
+    const navigate = useNavigate();
     const { shippingInfo, cartItems } = useSelector((state) => state.cart);
     const { user } = useSelector((state) => state.user);
 
@@ -33,7 +35,7 @@ const ConfirmOrder = ({ history }) => {
 
         sessionStorage.setItem("orderInfo", JSON.stringify(data));
 
-        history.push("/process/payment");
+        navigate("/process/payment");
     };
 
     return (
@@ -71,7 +73,7 @@ const ConfirmOrder = ({ history }) => {
                                         </Link>{" "}
                                         <span>
                                             {item.quantity} X PKR {item.price} ={" "}
-                                            <b>PKR {item.price * item.quantity}</b>
+                                            <p className="totalhere">PKR {item.price * item.quantity}</p>
                                         </span>
                                     </div>
                                 ))}
@@ -92,15 +94,13 @@ const ConfirmOrder = ({ history }) => {
                                 <span>PKR {shippingCharges}</span>
                             </div>
                             <div>
-                                <p>GST:</p>
+                                <p>VAT, GST, and Sales Tax:</p>
                                 <span>PKR {tax}</span>
                             </div>
                         </div>
 
                         <div className="orderSummaryTotal">
-                            <p>
-                                <b>Total:</b>
-                            </p>
+                            <p>Total:</p>
                             <span>PKR {totalPrice}</span>
                         </div>
 

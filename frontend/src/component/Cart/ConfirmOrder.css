@@ -9,6 +9,12 @@
     border-left: 1px solid rgba(0, 0, 0, 0.247);
 }
 
+:where(.css-dev-only-do-not-override-nllxry).ant-typography {
+    color: rgba(0, 0, 0, 0.88);
+    word-break: break-word;
+    font: 800 2.2vmax 'Poppins', sans-serif;
+}
+
 .confirmshippingArea {
     padding: 5vmax;
     padding-bottom: 0%;
@@ -108,6 +114,14 @@
     justify-content: space-between;
     border-top: 1px solid rgba(0, 0, 0, 0.363);
     padding: 2vmax 0;
+}
+
+.orderSummaryTotal>p {
+    font: 700 1.3vmax "Roboto";
+}
+
+.totalhere{
+    font: 700 1vmax "Roboto";
 }
 
 .orderSummary>button {
