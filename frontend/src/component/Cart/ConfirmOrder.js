@@ -104,7 +104,7 @@ const ConfirmOrder = () => {
                             <span>PKR {totalPrice}</span>
                         </div>
 
-                        <button onClick={proceedToPayment}>Proceed To Payment</button>
+                        <button onClick={proceedToPayment}>Checkout with Stripe</button>
                     </div>
                 </div>
             </div>
