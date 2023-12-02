@@ -26,7 +26,7 @@ import axios from "axios";
 import Payment from "./component/Cart/Payment.js";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
-
+import OrderSuccess from "./component/Cart/OrderSuccess.js";
 
 function App() {
 
@@ -92,6 +92,8 @@ function App() {
         ) : (
           <Navigate to="/login" replace={true} />
         )} />
+
+        <Route path="/success" element={isAuthenticated ? <OrderSuccess /> : <Navigate to="/login" replace={true} />} />
 
       </Routes>
       <Footer />

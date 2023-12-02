@@ -64,8 +64,6 @@ const orderSchema = new mongoose.Schema({
         },
         status: {
             type: String,
-            enum: ["Paid", "Pending"],
-            default: "Pending",
         },
     },
     paidAt: {

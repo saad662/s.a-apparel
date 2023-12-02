@@ -36,7 +36,7 @@ const Payment = () => {
 
     const order = {
         shippingInfo,
-        orderItems: cartItems,
+        OrderItems: cartItems,
         itemsPrice: orderInfo.subtotal,
         taxPrice: orderInfo.tax,
         shippingPrice: orderInfo.shippingCharges,
@@ -84,7 +84,7 @@ const Payment = () => {
             if (result.error) {
                 payBtn.current.disabled = false;
 
-                toast.error(result.error.message);
+                toast.error("saad", result.error.message);
             } else {
                 if (result.paymentIntent.status === "succeeded") {
                     order.paymentInfo = {
@@ -93,7 +93,6 @@ const Payment = () => {
                     };
 
                     dispatch(createOrder(order));
-
                     navigate("/success");
                 } else {
                     toast.error("There's some issue while processing payment ");

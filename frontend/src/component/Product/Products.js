@@ -94,7 +94,7 @@ const Products = () => {
                                 max={25000}
                                 values={price}
                                 onChange={newPrice => setPrice(newPrice)}
-                                renderTrack={({ props, children }) => (
+                                renderTrack={({ props, items }) => (
                                     <div
                                         {...props}
                                         style={{
@@ -104,7 +104,7 @@ const Products = () => {
                                             backgroundColor: '#ccc',
                                         }}
                                     >
-                                        {children}
+                                        {items}
                                     </div>
                                 )}
                                 renderThumb={({ props, isDragged, value }) => (
