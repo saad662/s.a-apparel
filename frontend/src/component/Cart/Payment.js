@@ -83,7 +83,6 @@ const Payment = () => {
 
             if (result.error) {
                 payBtn.current.disabled = false;
-
                 toast.error("saad", result.error.message);
             } else {
                 if (result.paymentIntent.status === "succeeded") {
