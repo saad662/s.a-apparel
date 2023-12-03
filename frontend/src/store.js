@@ -25,7 +25,7 @@ import { cartReducer } from "./reducers/cartReducer"; // Reducer for handling th
 
 import {
     // allOrdersReducer,       // Handles fetching a list of all orders
-    // myOrdersReducer,        // Handles fetching a list of orders for the current user
+    myOrdersReducer,        // Handles fetching a list of orders for the current user
     newOrderReducer,        // Handles creating a new order
     // orderDetailsReducer,    // Handles fetching details of a specific order
     // orderReducer,           // Handles fetching a list of orders
@@ -39,7 +39,7 @@ const reducer = combineReducers({
     forgotPassword: forgotPasswordReducer, // Manages the password reset process
     cart: cartReducer,                     // Manages the shopping cart state
     newOrder: newOrderReducer,             // Manages the creation of new orders
-    // myOrders: myOrdersReducer,             // Manages user-specific order list
+    myOrders: myOrdersReducer,             // Manages user-specific order list
     // orderDetails: orderDetailsReducer,     // Manages detailed information about an order
     newReview: newReviewReducer,           // Manages the creation of new product reviews
     // newProduct: newProductReducer,         // Manages the creation of new products
