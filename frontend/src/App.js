@@ -35,8 +35,14 @@ function App() {
   const [stripeApiKey, setStripeApiKey] = useState("");
 
   async function getStripeApiKey() {
-    const { data } = await axios.get("/api/v1/stripeapikey");
-    setStripeApiKey(data.stripeApiKey);
+    try {
+      console.log("Fetching Stripe API Key...");
+      const { data } = await axios.get("/api/v1/stripeapikey");
+      setStripeApiKey(data.stripeApiKey);
+      // console.log("Stripe API Key:", data.stripeApiKey);
+    } catch (error) {
+      console.error("Error fetching Stripe API Key:", error);
+    }
   }
 
   useEffect(() => {
