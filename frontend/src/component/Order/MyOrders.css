@@ -4,18 +4,21 @@
     padding: 0 7vmax;
     box-sizing: border-box;
     background-color: rgb(235, 235, 235);
-    position: fixed;
     top: 0;
     left: 0;
     height: 100vh;
     display: flex;
     flex-direction: column;
+    box-sizing: border-box;
+    background-color: #f4f4f4;
+    /* Light background color */
+    position: relative;
 }
 
 #myOrdersHeading {
     text-align: center;
-    font: 400 1.2vmax "Roboto";
-    padding: 0.5vmax;
+    font: 400 1.8rem "Roboto";
+    padding: 1rem;
     box-sizing: border-box;
     color: rgb(255, 255, 255);
     transition: all 0.5s;
@@ -24,7 +27,35 @@
 
 .myOrdersTable {
     background-color: white;
+    margin-top: 20px;
+    border-radius: 8px;
+    overflow: hidden;
 }
+
+.myOrdersTable th,
+.myOrdersTable td {
+    padding: 15px;
+    /* Adjust padding as needed */
+    text-align: left;
+}
+
+.myOrdersTable th {
+    background-color: #f0f0f0;
+    /* Header background color */
+}
+
+.myOrdersTable td {
+    border-bottom: 1px solid #ddd;
+    /* Border between rows */
+}
+
+.myOrdersTable a {
+    color: #333;
+    /* Link color */
+    text-decoration: none;
+    transition: color 0.5s;
+}
+
 
 .myOrdersTable div {
     font: 300 1vmax "Roboto";
@@ -32,49 +63,31 @@
     border: none;
 }
 
-.myOrdersTable a {
-    color: rgba(0, 0, 0, 0.527);
-    transition: all 0.5s;
-}
-
 .myOrdersTable a:hover {
     color: tomato;
 }
 
-.MuiDataGrid-columnHeader {
-    background-color: tomato;
-    padding: 1vmax !important;
+.greenColor {
+    color: green;
 }
 
-.MuiDataGrid-columnHeader div {
-    color: rgb(255, 255, 255);
-    font: 500 1.1vmax "Roboto" !important;
-}
-
-.MuiDataGrid-iconSeparator {
-    display: none !important;
+.redColor {
+    color: red;
 }
 
 @media screen and (max-width: 600px) {
-    .myOrdersPage {
-        padding: 0;
-        height: 93vh;
+    .myOrdersTable th,
+    .myOrdersTable td {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
     }
-
-    #myOrdersHeading {
-        font: 400 2.2vmax "Roboto";
-        padding: 4vw;
-    }
-
-    .myOrdersTable div {
-        font: 300 4vw "Roboto";
-    }
-
-    .MuiDataGrid-columnHeader {
-        padding: 20px !important;
-    }
-
-    .MuiDataGrid-columnHeader div {
-        font: 500 5vw "Roboto" !important;
+    
+    .myOrdersTable td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        display: inline-block;
+        width: 50%; /* Adjust as needed */
+        box-sizing: border-box;
     }
 }
