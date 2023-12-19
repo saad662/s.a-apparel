@@ -93,9 +93,14 @@ const LoginSignup = ({ location }) => {
       dispatch(clearErrors());
     }
 
+    // if (isAuthenticated) {
+    //   const redirectPath = location?.search ? location.search.split("=")[1] : "/shipping";
+    //   navigate(redirectPath === "shipping" ? "/account" : "/shipping");
+    // }
+
     if (isAuthenticated) {
-      const redirectPath = location?.search ? location.search.split("=")[1] : "/shipping";
-      navigate(redirectPath === "shipping" ? "/account" : "/shipping");
+      const redirectPath = location?.search ? location.search.split("=")[1] : "/account";
+      navigate(redirectPath === "account" ? "/shipping" : "/account");
     }
 
   }, [dispatch, navigate, error, isAuthenticated, location]);
