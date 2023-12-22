@@ -86,7 +86,7 @@
         content: attr(data-label);
         font-weight: bold;
         display: inline-block;
-        width: 50%; /* Adjust as needed */
+        width: 50%;
         box-sizing: border-box;
     }
 }
