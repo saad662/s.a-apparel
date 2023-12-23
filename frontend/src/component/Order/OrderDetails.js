@@ -22,6 +22,52 @@ const OrderDetails = () => {
         dispatch(getOrderDetails(id));
     }, [dispatch, error, id]);
 
+    const renderShippingInfo = () => (
+        <div className="order-section">
+            <Typography.Title level={3}>Shipping Information</Typography.Title>
+            <p><strong>Name:</strong> {order.user && order.user.name}</p>
+            <p><strong>Phone:</strong> {order.shippingInfo && order.shippingInfo.phoneNumber}</p>
+            <p><strong>Address:</strong> {order.shippingInfo &&
+                `${order.shippingInfo.address}, ${order.shippingInfo.city}, ${order.shippingInfo.state}, ${order.shippingInfo.postalCode}, ${order.shippingInfo.country}`
+            }</p>
+        </div>
+    );
+
+    const renderPaymentInfo = () => (
+        <div className="order-section">
+            <Typography.Title level={3}>Payment</Typography.Title>
+            <p className={order.paymentInfo && order.paymentInfo.status === "succeeded" ? "greenColor" : "redColor"}>
+                {order.paymentInfo && order.paymentInfo.status === "succeeded" ? "PAID" : "NOT PAID"}
+            </p>
+            <p><strong>Total Amount:</strong> {order.totalPrice && order.totalPrice}</p>
+        </div>
+    );
+
+    const renderOrderStatus = () => (
+        <div className="order-section">
+            <Typography.Title level={3}>Order Status</Typography.Title>
+            <p className={order.orderStatus && order.orderStatus === "Delivered" ? "greenColor" : "redColor"}>
+                {order.orderStatus && order.orderStatus}
+            </p>
+        </div>
+    );
+
+    const renderOrderItems = () => (
+        <div className="order-section">
+            <Typography.Title level={3}>Order Items</Typography.Title>
+            <div className="orderDetailsCartItemsContainer">
+                {order.OrderItems &&
+                    order.OrderItems.map((item) => (
+                        <div key={item.product}>
+                            <img src={item.image} alt="Product" />
+                            <Link to={`/product/${item.product}`}>{item.name}</Link>{" "}
+                            <span>{item.quantity} X {item.price} = <b>PKR{item.price * item.quantity}</b></span>
+                        </div>
+                    ))}
+            </div>
+        </div>
+    );
+
     return (
         <Fragment>
             {loading ? (
@@ -31,86 +77,13 @@ const OrderDetails = () => {
                     <MetaData title="Order Details" />
                     <div className="orderDetailsPage">
                         <div className="orderDetailsContainer">
-                            <Typography component="h1">
-                                Order #{order && order._id}
-                            </Typography>
-                            <Typography>Shipping Info</Typography>
-                            <div className="orderDetailsContainerBox">
-                                <div>
-                                    <p>Name:</p>
-                                    <span>{order.user && order.user.name}</span>
-                                </div>
-                                <div>
-                                    <p>Phone:</p>
-                                    <span>
-                                        {order.shippingInfo && order.shippingInfo.phoneNumber}
-                                    </span>
-                                </div>
-                                <div>
-                                    <p>Address:</p>
-                                    <span>
-                                        {order.shippingInfo &&
-                                            `${order.shippingInfo.address}, ${order.shippingInfo.city}, ${order.shippingInfo.state}, ${order.shippingInfo.postalCode}, ${order.shippingInfo.country}`}
-                                    </span>
-                                </div>
-                            </div>
-                            <Typography>Payment</Typography>
-                            <div className="orderDetailsContainerBox">
-                                <div>
-                                    <p
-                                        className={
-                                            order.paymentInfo &&
-                                                order.paymentInfo.status === "succeeded"
-                                                ? "greenColor"
-                                                : "redColor"
-                                        }
-                                    >
-                                        {order.paymentInfo &&
-                                            order.paymentInfo.status === "succeeded"
-                                            ? "PAID"
-                                            : "NOT PAID"}
-                                    </p>
-                                </div>
-
-                                <div>
-                                    <p>Amount:</p>
-                                    <span>{order.totalPrice && order.totalPrice}</span>
-                                </div>
-                            </div>
-
-                            <Typography>Order Status</Typography>
-                            <div className="orderDetailsContainerBox">
-                                <div>
-                                    <p
-                                        className={
-                                            order.orderStatus && order.orderStatus === "Delivered"
-                                                ? "greenColor"
-                                                : "redColor"
-                                        }
-                                    >
-                                        {order.orderStatus && order.orderStatus}
-                                    </p>
-                                </div>
-                            </div>
+                            <Typography.Title level={1}>Order #{order && order._id}</Typography.Title>
+                            {renderShippingInfo()}
+                            {renderPaymentInfo()}
+                            {renderOrderStatus()}
                         </div>
-
                         <div className="orderDetailsCartItems">
-                            <Typography>Order Items:</Typography>
-                            <div className="orderDetailsCartItemsContainer">
-                                {order.OrderItems &&
-                                    order.OrderItems.map((item) => (
-                                        <div key={item.product}>
-                                            <img src={item.image} alt="Product" />
-                                            <Link to={`/product/${item.product}`}>
-                                                {item.name}
-                                            </Link>{" "}
-                                            <span>
-                                                {item.quantity} X PKR{item.price} ={" "}
-                                                <b>PKR{item.price * item.quantity}</b>
-                                            </span>
-                                        </div>
-                                    ))}
-                            </div>
+                            {renderOrderItems()}
                         </div>
                     </div>
                 </Fragment>
@@ -119,4 +92,4 @@ const OrderDetails = () => {
     );
 };
 
-export default OrderDetails
+export default OrderDetails;
