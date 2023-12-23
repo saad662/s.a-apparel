@@ -14,12 +14,18 @@
 
 #myOrdersHeading {
     text-align: center;
-    font: 400 1.2vmax "Roboto";
-    padding: 0.5vmax;
+    font: 400 2vmax "Roboto";
+    /* Adjust the font size */
+    padding: 1vmax;
+    /* Adjust the padding */
     box-sizing: border-box;
     color: rgb(255, 255, 255);
     transition: all 0.5s;
     background-color: rgb(44, 44, 44);
+    margin-top: 16px;
+    /* Adjust the margin-top */
+    border-radius: 8px;
+    /* Add border-radius for rounded corners */
 }
 
 .myOrdersTable {
@@ -47,10 +53,28 @@
     padding: 1vmax !important;
     color: rgb(255, 255, 255);
     font: 500 1.1vmax "Roboto" !important;
+    text-align: center;
+    /* Center align the text */
 }
 
 .ant-table-tbody>tr>td {
     border: none;
+}
+
+
+.ant-table-cell {
+    font: 300 1vmax "Roboto";
+    /* Adjust the font size */
+    color: rgba(0, 0, 0, 0.678);
+}
+
+.ant-table-cell a {
+    color: rgba(0, 0, 0, 0.527);
+    transition: all 0.5s;
+}
+
+.ant-table-cell a:hover {
+    color: tomato;
 }
 
 @media screen and (max-width: 600px) {

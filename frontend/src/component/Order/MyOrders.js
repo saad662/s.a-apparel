@@ -6,7 +6,7 @@ import Loader from "../layout/Loader/Loader";
 import { Link } from "react-router-dom";
 import { toast } from 'react-toastify';
 import MetaData from "../layout/MetaData";
-import { RightOutlined } from '@ant-design/icons';
+import { EyeOutlined } from '@ant-design/icons';
 import { Table, Typography } from "antd";
 
 const MyOrders = () => {
@@ -33,15 +33,15 @@ const MyOrders = () => {
             key: "status",
             width: 150,
             filters: [
-              { text: "Processing", value: "Processing" },
-              { text: "Delivered", value: "Delivered" },
-              // Add more status options as needed
+                { text: "Processing", value: "Processing" },
+                { text: "Delivered", value: "Delivered" },
+                // Add more status options as needed
             ],
             onFilter: (value, record) => record.status === value,
             render: (status) => (
-              <span className={status === "Delivered" ? "greenColor" : "redColor"}>{status}</span>
+                <span className={status === "Delivered" ? "greenColor" : "redColor"}>{status}</span>
             ),
-          },
+        },
         {
             title: "Items Qty",
             dataIndex: "itemsQty",
@@ -50,15 +50,17 @@ const MyOrders = () => {
             sorter: (a, b) => a.itemsQty - b.itemsQty,
             sortDirections: ["ascend", "descend"],
         },
-        { title: "Amount", dataIndex: "amount", key: "amount", width: 270, sorter: (a, b) => a.amount - b.amount,
-        sortDirections: ["ascend", "descend"], },
+        {
+            title: "Amount", dataIndex: "amount", key: "amount", width: 270, sorter: (a, b) => a.amount - b.amount,
+            sortDirections: ["ascend", "descend"],
+        },
         {
             title: "Actions",
             key: "actions",
             width: 150,
             render: (_, record) => (
                 <Link to={`/order/${record.id}`}>
-                    <RightOutlined />
+                    <EyeOutlined />
                 </Link>
             ),
         },
