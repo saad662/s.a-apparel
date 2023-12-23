@@ -77,6 +77,10 @@
     color: tomato;
 }
 
+.table-container {
+    overflow-x: auto;
+}
+
 @media screen and (max-width: 600px) {
     .myOrdersPage {
         padding: 0;

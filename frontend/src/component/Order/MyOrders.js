@@ -6,7 +6,7 @@ import Loader from "../layout/Loader/Loader";
 import { Link } from "react-router-dom";
 import { toast } from 'react-toastify';
 import MetaData from "../layout/MetaData";
-import { EyeOutlined } from '@ant-design/icons';
+import { ExportOutlined } from '@ant-design/icons';
 import { Table, Typography } from "antd";
 
 const MyOrders = () => {
@@ -46,21 +46,25 @@ const MyOrders = () => {
             title: "Items Qty",
             dataIndex: "itemsQty",
             key: "itemsQty",
-            width: 300,
+            width: 150,
             sorter: (a, b) => a.itemsQty - b.itemsQty,
             sortDirections: ["ascend", "descend"],
         },
         {
-            title: "Amount", dataIndex: "amount", key: "amount", width: 270, sorter: (a, b) => a.amount - b.amount,
+            title: "Amount", 
+            dataIndex: "amount", 
+            key: "amount", 
+            width: 150, 
+            sorter: (a, b) => a.amount - b.amount,
             sortDirections: ["ascend", "descend"],
         },
         {
             title: "Actions",
             key: "actions",
-            width: 150,
+            width: 185,
             render: (_, record) => (
                 <Link to={`/order/${record.id}`}>
-                    <EyeOutlined />
+                    <ExportOutlined />
                 </Link>
             ),
         },
@@ -82,13 +86,15 @@ const MyOrders = () => {
             ) : (
                 <div className="myOrdersPage">
                     <Typography id="myOrdersHeading">{user.name}'s Orders</Typography>
-                    <Table
-                        dataSource={data}
-                        columns={columns}
-                        pagination={{ pageSize: 10 }}
-                        rowKey="id"
-                        className="myOrdersTable"
-                    />
+                    <div className="table-container">
+                        <Table
+                            dataSource={data}
+                            columns={columns}
+                            pagination={{ pageSize: 10 }}
+                            rowKey="id"
+                            className="myOrdersTable"
+                        />
+                    </div>
                 </div>
             )}
         </Fragment>
