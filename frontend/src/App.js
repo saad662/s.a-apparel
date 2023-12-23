@@ -28,6 +28,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import OrderSuccess from "./component/Cart/OrderSuccess.js";
 import MyOrders from "./component/Order/MyOrders.js";
+import OrderDetails from "./component/Order/OrderDetails.js";
 
 function App() {
 
@@ -103,6 +104,8 @@ function App() {
         <Route path="/success" element={isAuthenticated ? <OrderSuccess /> : <Navigate to="/login" replace={true} />} />
 
         <Route path="/orders" element={isAuthenticated ? <MyOrders /> : <Navigate to="/login" replace={true} />} />
+
+        <Route path="/order/:id" element={isAuthenticated ? <OrderDetails /> : <Navigate to="/login" replace={true} />} />
 
       </Routes>
       {/* <Footer /> */}
