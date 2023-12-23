@@ -5,9 +5,9 @@ import { clearErrors, myOrders } from "../../actions/orderAction";
 import Loader from "../layout/Loader/Loader";
 import { Link } from "react-router-dom";
 import { toast } from 'react-toastify';
-import { Typography } from "antd";
 import MetaData from "../layout/MetaData";
 import { RightOutlined } from '@ant-design/icons';
+import { Table, Typography } from "antd";
 
 const MyOrders = () => {
     const dispatch = useDispatch();
@@ -24,6 +24,53 @@ const MyOrders = () => {
         dispatch(myOrders());
     }, [dispatch, error]);
 
+
+    const columns = [
+        { title: "Order ID", dataIndex: "id", key: "id", width: 300 },
+        {
+            title: "Status",
+            dataIndex: "status",
+            key: "status",
+            width: 150,
+            filters: [
+              { text: "Processing", value: "Processing" },
+              { text: "Delivered", value: "Delivered" },
+              // Add more status options as needed
+            ],
+            onFilter: (value, record) => record.status === value,
+            render: (status) => (
+              <span className={status === "Delivered" ? "greenColor" : "redColor"}>{status}</span>
+            ),
+          },
+        {
+            title: "Items Qty",
+            dataIndex: "itemsQty",
+            key: "itemsQty",
+            width: 300,
+            sorter: (a, b) => a.itemsQty - b.itemsQty,
+            sortDirections: ["ascend", "descend"],
+        },
+        { title: "Amount", dataIndex: "amount", key: "amount", width: 270, sorter: (a, b) => a.amount - b.amount,
+        sortDirections: ["ascend", "descend"], },
+        {
+            title: "Actions",
+            key: "actions",
+            width: 150,
+            render: (_, record) => (
+                <Link to={`/order/${record.id}`}>
+                    <RightOutlined />
+                </Link>
+            ),
+        },
+    ];
+
+    const data = orders?.map((item) => ({
+        id: item._id,
+        status: item.orderStatus,
+        itemsQty: item.OrderItems.length,
+        amount: item.totalPrice,
+    }));
+
     return (
         <Fragment>
             <MetaData title={`${user.name} - Orders`} />
@@ -33,39 +80,14 @@ const MyOrders = () => {
             ) : (
                 <div className="myOrdersPage">
                     <Typography id="myOrdersHeading">{user.name}'s Orders</Typography>
-
-                    <table className="myOrdersTable">
-                        <thead>
-                            <tr>
-                                <th>Order ID</th>
-                                <th>Status</th>
-                                <th>Items Qty</th>
-                                <th>Amount</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {orders &&
-                                orders.map((item, index) => (
-                                    <tr key={index}>
-                                        <td>{item._id}</td>
-                                        <td className={item.orderStatus === "Delivered" ? "greenColor" : "redColor"}>
-                                            {item.orderStatus}
-                                        </td>
-                                        <td>{item.OrderItems.length}</td>
-                                        <td>{item.totalPrice}</td>
-                                        <td>
-                                            <Link to={`/order/${item._id}`}>
-                                                <RightOutlined />
-                                            </Link>
-                                        </td>
-                                    </tr>
-                                ))}
-                        </tbody>
-                    </table>
-
+                    <Table
+                        dataSource={data}
+                        columns={columns}
+                        pagination={{ pageSize: 10 }}
+                        rowKey="id"
+                        className="myOrdersTable"
+                    />
                 </div>
-
             )}
         </Fragment>
     );
