@@ -75,6 +75,22 @@ export const getAllOrders = () => async (dispatch) => {
     }
 };
 
+// Get Order Details
+export const getOrderDetails = (id) => async (dispatch) => {
+    try {
+        dispatch({ type: ORDER_DETAILS_REQUEST });
+
+        const { data } = await axios.get(`/api/v1/order/${id}`);
+
+        dispatch({ type: ORDER_DETAILS_SUCCESS, payload: data.order });
+    } catch (error) {
+        dispatch({
+            type: ORDER_DETAILS_FAIL,
+            payload: error.response.data.message,
+        });
+    }
+};
+
 // Update Order
 export const updateOrder = (id, order) => async (dispatch) => {
     try {
@@ -111,22 +127,6 @@ export const deleteOrder = (id) => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: DELETE_ORDER_FAIL,
-            payload: error.response.data.message,
-        });
-    }
-};
-
-// Get Order Details
-export const getOrderDetails = (id) => async (dispatch) => {
-    try {
-        dispatch({ type: ORDER_DETAILS_REQUEST });
-
-        const { data } = await axios.get(`/api/v1/order/${id}`);
-
-        dispatch({ type: ORDER_DETAILS_SUCCESS, payload: data.order });
-    } catch (error) {
-        dispatch({
-            type: ORDER_DETAILS_FAIL,
             payload: error.response.data.message,
         });
     }
