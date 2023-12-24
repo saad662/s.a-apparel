@@ -4,11 +4,11 @@
     padding: 0 7vmax;
     box-sizing: border-box;
     background-color: rgb(235, 235, 235);
-    position: fixed;
     top: 0;
     left: 0;
     height: 100vh;
     display: flex;
+    margin-bottom: -10vmax;
     flex-direction: column;
 }
 
@@ -60,7 +60,6 @@
 .ant-table-tbody>tr>td {
     border: none;
 }
-
 
 .ant-table-cell {
     font: 300 1vmax "Roboto";

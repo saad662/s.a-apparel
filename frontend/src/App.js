@@ -108,7 +108,7 @@ function App() {
         <Route path="/order/:id" element={isAuthenticated ? <OrderDetails /> : <Navigate to="/login" replace={true} />} />
 
       </Routes>
-      {/* <Footer /> */}
+      <Footer />
       <WhatsAppChat />
     </Router>
   );
