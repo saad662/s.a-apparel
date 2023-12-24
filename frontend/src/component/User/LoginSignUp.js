@@ -7,6 +7,7 @@ import { toast } from 'react-toastify';
 import { clearErrors, login, register } from "../../actions/userAction";
 import MetaData from "../layout/MetaData";
 import { useNavigate } from 'react-router-dom';
+import { MailOutlined, UnlockOutlined, UserOutlined } from '@ant-design/icons';
 
 const LoginSignup = ({ location }) => {
   const dispatch = useDispatch();
@@ -126,7 +127,7 @@ const LoginSignup = ({ location }) => {
                 ref={loginTab}
                 onSubmit={loginSubmit}>
                 <div className="loginEmail">
-
+                  <MailOutlined />
                   <input
                     type="email"
                     placeholder="Email"
@@ -136,7 +137,7 @@ const LoginSignup = ({ location }) => {
                   />
                 </div>
                 <div className="loginPassword">
-
+                  <UnlockOutlined />
                   <input
                     type="password"
                     placeholder="Password"
@@ -155,7 +156,7 @@ const LoginSignup = ({ location }) => {
                 onSubmit={registerSubmit}
               >
                 <div className="signUpName">
-
+                  <UserOutlined />
                   <input
                     type="text"
                     placeholder="Name"
@@ -166,7 +167,7 @@ const LoginSignup = ({ location }) => {
                   />
                 </div>
                 <div className="signUpEmail">
-
+                  <MailOutlined />
                   <input
                     type="email"
                     placeholder="Email"
@@ -177,7 +178,7 @@ const LoginSignup = ({ location }) => {
                   />
                 </div>
                 <div className="signUpPassword">
-
+                  <UnlockOutlined />
                   <input
                     type="password"
                     placeholder="Password"

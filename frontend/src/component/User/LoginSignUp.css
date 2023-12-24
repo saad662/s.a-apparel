@@ -96,7 +96,7 @@ p {
 
 .loginForm>div>input,
 .signUpForm>div>input {
-    padding: 1vmax 2vmax;
+    padding: 1vmax 4vmax;
     width: 100%;
     box-sizing: border-box;
     border: 1px solid rgba(0, 0, 0, 0.267);
