@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, forgotPassword } from "../../actions/userAction";
 import { toast } from 'react-toastify';
 import MetaData from "../layout/MetaData";
-
+import { MailOutlined } from '@ant-design/icons';
 
 const ForgotPassword = () => {
     const dispatch = useDispatch();
@@ -50,7 +50,7 @@ const ForgotPassword = () => {
                                 onSubmit={forgotPasswordSubmit}
                             >
                                 <div className="forgotPasswordEmail">
-
+                                    <MailOutlined />
                                     <input
                                         type="email"
                                         placeholder="Email"
