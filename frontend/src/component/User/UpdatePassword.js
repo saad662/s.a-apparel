@@ -7,6 +7,7 @@ import { UPDATE_PASSWORD_RESET } from "../../constants/userConstants";
 import MetaData from "../layout/MetaData";
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { UnlockOutlined, LockOutlined, KeyOutlined } from '@ant-design/icons';
 
 const UpdatePassword = () => {
     const dispatch = useDispatch();
@@ -63,7 +64,7 @@ const UpdatePassword = () => {
                                 onSubmit={updatePasswordSubmit}
                             >
                                 <div className="loginPassword">
-
+                                    <KeyOutlined />
                                     <input
                                         type="password"
                                         placeholder="Old Password"
@@ -74,7 +75,7 @@ const UpdatePassword = () => {
                                 </div>
 
                                 <div className="loginPassword">
-
+                                    <LockOutlined />
                                     <input
                                         type="password"
                                         placeholder="New Password"
@@ -84,7 +85,7 @@ const UpdatePassword = () => {
                                     />
                                 </div>
                                 <div className="loginPassword">
-
+                                    <UnlockOutlined />
                                     <input
                                         type="password"
                                         placeholder="Confirm Password"
