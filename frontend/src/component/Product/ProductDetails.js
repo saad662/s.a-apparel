@@ -192,8 +192,6 @@ const ProductDetails = () => {
                         />
                     </Modal>
 
-
-
                     {product.reviews && product.reviews[0] ? (
                         <div className="reviews">
                             {product.reviews &&
