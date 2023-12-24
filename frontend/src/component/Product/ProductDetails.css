@@ -51,7 +51,7 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
-.detailsBlock-1 > p  {
+.detailsBlock-1>p {
     color: rgba(54, 54, 54, 0.582);
     font: 200 0.8rem 'Open Sans', sans-serif;
 }
@@ -193,10 +193,10 @@ body {
 .submitReview {
     border: none;
     background-color: tomato;
-    font: 500 0.7vmax 'Montserrat', sans-serif;
+    font: 500 0.8vmax "Roboto";
     border-radius: 20px;
-    padding: 0.6vmax 2vmax;
-    margin: 1vmax 0;
+    padding: 1.5vmax 3vmax;
+    margin: 2vmax 0;
     color: white;
     cursor: pointer;
     transition: all 0.5s;
@@ -361,6 +361,6 @@ body {
     }
 
     .reviewCardComment {
-        font: 300 5vw cursive;
+        font: 300 5vw;
     }
 }

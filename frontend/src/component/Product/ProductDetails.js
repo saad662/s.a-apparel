@@ -13,12 +13,12 @@ import ReviewCard from "./ReviewCard.js";
 import { Modal, Button, Rate, Input } from "antd";
 import { NumericFormat } from 'react-number-format';
 import { addItemsToCart } from "../../actions/cartAction";
-// import { NEW_REVIEW_RESET } from "../../constants/productConstants";
+import { NEW_REVIEW_RESET } from "../../constants/productConstants";
 
 const ProductDetails = () => {
     const dispatch = useDispatch();
     const { product, loading, error } = useSelector((state) => state.productDetails);
-    //const { success, error: reviewError } = useSelector((state) => state.newReview);
+    const { success, error: reviewError } = useSelector((state) => state.newReview);
     const { id } = useParams();
 
     const [quantity, setQuantity] = useState(1);
@@ -60,7 +60,6 @@ const ProductDetails = () => {
         myForm.set("comment", comment);
         myForm.set("productId", id);
 
-        toast.success("Form Submitted");
         dispatch(newReview(myForm));
         setModalVisible(false);
     };
@@ -71,18 +70,18 @@ const ProductDetails = () => {
             dispatch(clearErrors());
         }
 
-        // if (reviewError) {
-        //     toast.error(reviewError);
-        //     dispatch(clearErrors());
-        //   }
+        if (reviewError) {
+            toast.error(reviewError);
+            dispatch(clearErrors());
+          }
 
-        // if (success) {
-        //     toast.success("Review Submitted Successfully");
-        //     dispatch({ type: NEW_REVIEW_RESET });
-        // }
+        if (success) {
+            toast.success("Review Submitted Successfully");
+            dispatch({ type: NEW_REVIEW_RESET });
+        }
 
         dispatch(getProductDetails(id));
-    }, [dispatch, id, error]);
+    }, [dispatch, id, error, reviewError, success]);
 
 
     return (
