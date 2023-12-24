@@ -41,8 +41,12 @@ const ProductDetails = () => {
     };
 
     const addToCartHandler = () => {
-        dispatch(addItemsToCart(id, quantity));
-        toast.success("Item Added To Cart");
+        if (product.stock < 1) {
+            toast.error("Sorry, this item is out of stock.");
+        } else {
+            dispatch(addItemsToCart(id, quantity));
+            toast.success("Item Added To Cart");
+        }
     };
 
     const submitReviewToggle = () => {
@@ -134,7 +138,7 @@ const ProductDetails = () => {
                                     </div>
                                     <button
                                         className="add-"
-                                        disabled={product.stock < 1 ? true : false}
+                                        
                                         onClick={addToCartHandler}>
                                         Add to Cart
                                     </button>
