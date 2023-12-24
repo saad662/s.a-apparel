@@ -18,7 +18,7 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url('https://res.cloudinary.com/dyjxikbhc/image/upload/v1699885933/pngtree-3d-shopping-promotion-e-commerce-pink-background-picture-image_1908130_ip8y3x.png');
+    background-image: url('https://res.cloudinary.com/dyjxikbhc/image/upload/v1703427596/travel-accessories-white-table_zwu77l.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     margin-bottom: -10vmax;
@@ -69,7 +69,6 @@ p {
     border: none;
     transition: all 0.5s;
 }
-
 .loginForm,
 .signUpForm {
     display: flex;
@@ -84,6 +83,7 @@ p {
 
 .signUpForm {
     transform: translateY(-100%) translateX(-100vmax);
+    margin-top: 30px;
 }
 
 .loginForm>div,
@@ -97,14 +97,12 @@ p {
 .loginForm>div>input,
 .signUpForm>div>input {
     padding: 1vmax 2vmax;
-    margin-bottom: 1vmax;
-    padding-right: 1vmax;
     width: 100%;
     box-sizing: border-box;
     border: 1px solid rgba(0, 0, 0, 0.267);
     border-radius: 4px;
     font-family: "Roboto", sans-serif;
-    font-weight: 300;
+    font-weight: 250;
     font-size: 0.9vmax;
     outline: none;
 }
@@ -114,8 +112,8 @@ p {
     margin-top: 1vmax;
 }
 
-.loginForm>div>svg,
-.signUpForm>div>svg {
+.loginForm>div>span,
+.signUpForm>div>span {
     position: absolute;
     transform: translateX(1vmax);
     font-size: 1.6vmax;
@@ -269,8 +267,8 @@ p {
         font-size: 1.7vmax;
     }
 
-    .loginForm>div>svg,
-    .signUpForm>div>svg {
+    .loginForm>div>span,
+    .signUpForm>div>span {
         font-size: 2.8vmax;
     }
 

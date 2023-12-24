@@ -31,7 +31,6 @@ const LoginSignup = ({ location }) => {
   const { name, email, password } = user;
 
   const loginSubmit = (e) => {
-    //console.log("Login Submitted");
     e.preventDefault();
     dispatch(login(loginEmail, loginPassword));
   };
