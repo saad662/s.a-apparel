@@ -10,7 +10,7 @@ import { Carousel } from "react-responsive-carousel";
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import StarRatings from 'react-star-ratings';
 import ReviewCard from "./ReviewCard.js";
-import { Button, Modal } from 'react-bootstrap';
+import { Modal, Button, Rate, Input } from "antd";
 import { NumericFormat } from 'react-number-format';
 import { addItemsToCart } from "../../actions/cartAction";
 // import { NEW_REVIEW_RESET } from "../../constants/productConstants";
@@ -22,7 +22,7 @@ const ProductDetails = () => {
     const { id } = useParams();
 
     const [quantity, setQuantity] = useState(1);
-    const [open, setOpen] = useState(false);
+    const [modalVisible, setModalVisible] = useState(false);
     const [rating, setRating] = useState(0);
     const [comment, setComment] = useState("");
 
@@ -50,7 +50,7 @@ const ProductDetails = () => {
     };
 
     const submitReviewToggle = () => {
-        open ? setOpen(false) : setOpen(true);
+        setModalVisible(!modalVisible);
     };
 
     const reviewSubmitHandler = () => {
@@ -62,7 +62,7 @@ const ProductDetails = () => {
 
         toast.success("Form Submitted");
         dispatch(newReview(myForm));
-        setOpen(false);
+        setModalVisible(false);
     };
 
     useEffect(() => {
@@ -138,7 +138,7 @@ const ProductDetails = () => {
                                     </div>
                                     <button
                                         className="add-"
-                                        
+
                                         onClick={addToCartHandler}>
                                         Add to Cart
                                     </button>
@@ -166,42 +166,33 @@ const ProductDetails = () => {
 
                     <h3 className="reviewsHeading">Customer Reviews</h3>
 
-                    <Modal show={open} onHide={submitReviewToggle}>
-                        <Modal.Header closeButton>
-                            <Modal.Title>Submit Review</Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body>
 
-                            <StarRatings
-                                rating={rating} // Use 'rating' to display the current rating
-                                starRatedColor="gold"
-                                numberOfStars={5}
-                                name="rating"
-                                starDimension="20px"
-                                starSpacing="5px"
-                                changeRating={(newRating) => setRating(newRating)} // Use 'changeRating' to update the 'rating' state
-                                size="large"
-                            />
-
-                            <textarea
-                                className="submitDialogTextArea"
-                                cols="30"
-                                rows="5"
-                                value={comment}
-                                onChange={(e) => setComment(e.target.value)}
-                            ></textarea>
-
-                        </Modal.Body>
-                        <Modal.Footer>
-                            <Button onClick={submitReviewToggle} color="secondary">
+                    <Modal
+                        title="Submit Review"
+                        visible={modalVisible}
+                        onCancel={submitReviewToggle}
+                        footer={[
+                            <Button key="cancel" onClick={submitReviewToggle}>
                                 Cancel
-                            </Button>
-                            <Button onClick={reviewSubmitHandler} color="primary">
+                            </Button>,
+                            <Button key="submit" type="primary" onClick={reviewSubmitHandler}>
                                 Submit
-                            </Button>
-                        </Modal.Footer>
-
+                            </Button>,
+                        ]}
+                    >
+                        <Rate
+                            onChange={(value) => setRating(value)}
+                            value={rating}
+                            allowHalf
+                        />
+                        <Input.TextArea
+                            className="submitDialogTextArea"
+                            rows={5}
+                            value={comment}
+                            onChange={(e) => setComment(e.target.value)}
+                        />
                     </Modal>
+
 
 
                     {product.reviews && product.reviews[0] ? (
