@@ -8,6 +8,7 @@ import { clearErrors, login, register } from "../../actions/userAction";
 import MetaData from "../layout/MetaData";
 import { useNavigate } from 'react-router-dom';
 import { MailOutlined, UnlockOutlined, UserOutlined } from '@ant-design/icons';
+import profilePng from "../../images/Profile.png";
 
 const LoginSignup = ({ location }) => {
   const dispatch = useDispatch();
@@ -21,8 +22,8 @@ const LoginSignup = ({ location }) => {
 
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
-  const [avatar, setAvatar] = useState("/Profile.png");
-  const [avatarPreview, setAvatarPreview] = useState("/Profile.png");
+  const [avatar, setAvatar] = useState(profilePng);
+  const [avatarPreview, setAvatarPreview] = useState(profilePng);
   const [user, setUser] = useState({
     name: "",
     email: "",
