@@ -212,7 +212,7 @@ const updateProfile = catchAsyncErrors(
             email: req.body.email
         }
 
-        if (req.body.avatar !== "") {
+        if (req.body.avatar) {
             const user = await User.findById(req.user.id);
 
             const imageId = user.avatar.public_id;
@@ -234,15 +234,16 @@ const updateProfile = catchAsyncErrors(
             };
         }
 
-        const user = await User.findByIdAndUpdate(req.user.id, newUserData, {
+        const updatedUser = await User.findByIdAndUpdate(req.user.id, newUserData, {
             new: true,
             runValidators: true,
             useFindAndModify: false,
         });
+
         res.status(200).json({
             success: true,
             message: "Profile updated successfully",
-            user,
+            user: updatedUser,
         });
     }
 );

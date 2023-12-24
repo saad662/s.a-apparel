@@ -7,6 +7,7 @@ import { UPDATE_PROFILE_RESET } from "../../constants/userConstants";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import { MailOutlined, UserOutlined } from '@ant-design/icons';
 
 const UpdateProfile = () => {
   const dispatch = useDispatch();
@@ -27,11 +28,14 @@ const UpdateProfile = () => {
 
     myForm.set("name", name);
     myForm.set("email", email);
-    myForm.set("avatar", avatar);
+    if (avatar) {
+      myForm.set("avatar", avatar);
+    }
     dispatch(updateProfile(myForm));
   };
 
   const updateProfileDataChange = (e) => {
+
     const reader = new FileReader();
 
     reader.onload = () => {
@@ -86,7 +90,7 @@ const UpdateProfile = () => {
             onSubmit={updateProfileSubmit}
           >
             <div className="updateProfileName">
-
+              <UserOutlined />
               <input
                 type="text"
                 placeholder="Name"
@@ -97,7 +101,7 @@ const UpdateProfile = () => {
               />
             </div>
             <div className="updateProfileEmail">
-
+              <MailOutlined />
               <input
                 type="email"
                 placeholder="Email"
