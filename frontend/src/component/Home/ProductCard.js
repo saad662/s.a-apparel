@@ -6,8 +6,9 @@ const ProductCard = ({ product }) => {
 
     const options = {
         value: product.ratings,
-        readOnly: true,
+        edit: false,
         precision: 0.5,
+        
     }
 
     return (
