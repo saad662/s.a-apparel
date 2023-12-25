@@ -70,8 +70,11 @@ function App() {
         <Route path="/product/:id" element={<ProductDetails />} />
 
         <Route path="/products" element={<Products />} />
+
         <Route path="/products/:category" element={<Products />} />
+
         <Route path="/search" element={<Search />} />
+        
         <Route path="/products/search/:keyword" element={<Products />} />
 
         <Route path="/account" element={isAuthenticated ? <Account /> : <Navigate to="/login" replace={true} />} />

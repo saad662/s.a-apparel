@@ -7,13 +7,19 @@ import { Link } from 'react-router-dom';
 const Header = () => {
   const [isOpen, setIsOpen] = useState(localStorage.getItem('navbarOpen') === 'true' || false);
 
-  useEffect(() => {
-    localStorage.setItem('navbarOpen', isOpen);
-  }, [isOpen]);
+  const closeNavbar = () => {
+    setIsOpen(false);
+  };
 
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
   };
+
+  useEffect(() => {
+    localStorage.setItem('navbarOpen', isOpen);
+  }, [isOpen]);
+
+  
 
   return (
     <div className={`header ${isOpen ? 'active' : ''}`}>
@@ -35,31 +41,31 @@ const Header = () => {
             <div className="links-and-icons">
               <ul className="navbar-nav">
                 <li className="nav-item">
-                  <Link to="/" className="nav-link">Home</Link>
+                  <Link to="/" className="nav-link" onClick={closeNavbar}>Home</Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="/products" className="nav-link">Products</Link>
+                  <Link to="/products" className="nav-link" onClick={closeNavbar}>Products</Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="/contact" className="nav-link">Contact</Link>
+                  <Link to="/contact" className="nav-link" onClick={closeNavbar}>Contact</Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="/about" className="nav-link">About</Link>
+                  <Link to="/about" className="nav-link" onClick={closeNavbar}>About</Link>
                 </li>
               </ul>
               <div className="icons">
                 <div className="icon-wrapper">
-                  <Link to="/search" className="icon-link">
+                  <Link to="/search" className="icon-link" onClick={closeNavbar}>
                     <FontAwesomeIcon icon={faSearch} size="lg" className="black-icon" />
                   </Link>
                 </div>
                 <div className="icon-wrapper">
-                  <Link to="/login" className="icon-link">
+                  <Link to="/login" className="icon-link" onClick={closeNavbar}>
                     <FontAwesomeIcon icon={faUser} size="lg" className="black-icon" />
                   </Link>
                 </div>
                 <div className="icon-wrapper">
-                  <Link to="/cart" className="icon-link">
+                  <Link to="/cart" className="icon-link" onClick={closeNavbar}>
                     <FontAwesomeIcon icon={faShoppingCart} size="lg" className="black-icon" />
                   </Link>
                 </div>
