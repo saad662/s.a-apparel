@@ -5,10 +5,11 @@ import { clearErrors, getProduct } from "../../actions/productAction";
 import Loader from "../layout/Loader/Loader";
 import ProductCard from "../Home/ProductCard";
 import MetaData from "../layout/MetaData";
-import { useParams,useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
 import Pagination from "react-js-pagination";
 import { Range } from 'react-range';
+import { SearchOutlined } from '@ant-design/icons';
 
 const categories = [
     "All Products",
@@ -32,6 +33,7 @@ const Products = () => {
     const [ratings, setRatings] = useState([0]);
     const [sort, setSort] = useState("");
     const [activeCategory, setActiveCategory] = useState("All Products");
+    const [searchKeyword, setSearchKeyword] = useState("");
 
     const {
         products,
@@ -46,13 +48,13 @@ const Products = () => {
             setSelectedCategory("");
             setActiveCategory("All Products");
             navigate("/products");
-          } else {
+        } else {
             setSelectedCategory(selectedCategory);
             setActiveCategory(selectedCategory);
             navigate(`/products/${selectedCategory}`);
-          }
-          setCurrentPage(1);
-      };
+        }
+        setCurrentPage(1);
+    };
 
     const setCurrentPageNo = (e) => {
         setCurrentPage(e);
@@ -71,7 +73,7 @@ const Products = () => {
         if (urlCategory) {
             setSelectedCategory(urlCategory);
             setActiveCategory(urlCategory);
-          }        
+        }
 
         dispatch(getProduct(keyword, currentPage, price, selectedCategory === "" ? urlCategory : selectedCategory, ratings, sort));
     }, [dispatch, keyword, currentPage, price, selectedCategory, urlCategory, ratings, error, sort]);
@@ -84,6 +86,26 @@ const Products = () => {
                 <Fragment>
                     <MetaData title="PRODUCTS - S.A APPAREL" />
                     <h2 className="productsHeading">Products</h2>
+
+                    <div className="search-bar">
+                        <input
+                            type="text"
+                            placeholder="Search products..."
+                            value={searchKeyword}
+                            onChange={(e) => setSearchKeyword(e.target.value)}
+                        />
+                        <button
+                            onClick={() => {
+                                if (searchKeyword.trim()) {
+                                    navigate(`/products/search/${searchKeyword}`);
+                                } else {
+                                    toast.error("Please enter a search keyword");
+                                }
+                            }}
+                        >
+                            <SearchOutlined />
+                        </button>
+                    </div>
 
                     <div className="products-container">
                         <div className="products">
