@@ -13,7 +13,6 @@ import { useDispatch, useSelector } from "react-redux"
 import Loader from '../layout/Loader/Loader';
 import { toast } from 'react-toastify';
 
-
 const Home = () => {
     const dispatch = useDispatch();
     
