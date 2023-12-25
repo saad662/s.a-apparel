@@ -10,9 +10,7 @@
 
 .category-link.active {
   color: tomato;
-  /* Change the color to your desired highlight color */
   font-weight: bold;
-  /* Make the text bold */
 }
 
 .products-container {

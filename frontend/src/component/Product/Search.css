@@ -21,7 +21,7 @@
   width: 50%;
   outline: none;
   border-radius: 0%;
-  font: 300 1.1vmax cursive;
+  font: 300 1.1vmax;
   box-sizing: border-box;
   height: 8%;
 }
@@ -46,7 +46,7 @@
 @media screen and (max-width: 600px) {
   .searchBox > input[type="text"] {
     width: 100%;
-    font: 300 4vw cursive;
+    font: 300 4vw;
     height: 10%;
   }
 

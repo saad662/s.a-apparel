@@ -5,7 +5,7 @@ import { clearErrors, getProduct } from "../../actions/productAction";
 import Loader from "../layout/Loader/Loader";
 import ProductCard from "../Home/ProductCard";
 import MetaData from "../layout/MetaData";
-import { useParams } from "react-router-dom";
+import { useParams,useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
 import Pagination from "react-js-pagination";
 import { Range } from 'react-range';
@@ -23,10 +23,12 @@ const categories = [
 
 const Products = () => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const { category: urlCategory, keyword } = useParams();
 
     const [currentPage, setCurrentPage] = useState(1);
     const [price, setPrice] = useState([0, 25000]);
-    const [category, setCategory] = useState("");
+    const [selectedCategory, setSelectedCategory] = useState("");
     const [ratings, setRatings] = useState([0]);
     const [sort, setSort] = useState("");
     const [activeCategory, setActiveCategory] = useState("All Products");
@@ -39,7 +41,18 @@ const Products = () => {
         resultPerPage,
     } = useSelector((state) => state.products);
 
-    const { keyword } = useParams();
+    const handleCategoryChange = (selectedCategory) => {
+        if (selectedCategory === "All Products") {
+            setSelectedCategory("");
+            setActiveCategory("All Products");
+            navigate("/products");
+          } else {
+            setSelectedCategory(selectedCategory);
+            setActiveCategory(selectedCategory);
+            navigate(`/products/${selectedCategory}`);
+          }
+          setCurrentPage(1);
+      };
 
     const setCurrentPageNo = (e) => {
         setCurrentPage(e);
@@ -47,7 +60,6 @@ const Products = () => {
 
     const handleSortChange = (e) => {
         setSort(e.target.value);
-        // You may want to clear other filters like category and ratings here if necessary.
     };
 
     useEffect(() => {
@@ -56,10 +68,14 @@ const Products = () => {
             dispatch(clearErrors());
         }
 
-        dispatch(getProduct(keyword, currentPage, price, category, ratings, sort));
-    }, [dispatch, keyword, currentPage, price, category, ratings, error, sort]);
+        if (urlCategory) {
+            setSelectedCategory(urlCategory);
+            setActiveCategory(urlCategory);
+          }        
 
-    //console.log(currentPage, resultPerPage, productsCount);
+        dispatch(getProduct(keyword, currentPage, price, selectedCategory === "" ? urlCategory : selectedCategory, ratings, sort));
+    }, [dispatch, keyword, currentPage, price, selectedCategory, urlCategory, ratings, error, sort]);
+
     return (
         <Fragment>
             {loading ? (
@@ -142,16 +158,7 @@ const Products = () => {
                                     <li
                                         className={`category-link ${activeCategory === category ? "active" : ""}`}
                                         key={category}
-                                        onClick={() => {
-                                            if (category === "All Products") {
-                                                setActiveCategory("All Products");
-                                                setCategory(""); // Reset the category filter
-                                            } else {
-                                                setCategory(category);
-                                                setActiveCategory(category);
-                                            }
-                                            setCurrentPage(1);
-                                        }}
+                                        onClick={() => handleCategoryChange(category)}
                                     >
                                         {category}
                                     </li>
@@ -188,7 +195,7 @@ const Products = () => {
                                                 width: '16px',
                                                 backgroundColor: isDragged ? '#007bff' : '#aaa',
                                                 borderRadius: '50%',
-                                                transform: `translateX(${props.value - 8}px)`, // Adjust the value to center the thumb
+                                                transform: `translateX(${props.value - 8}px)`,
                                                 transition: 'transform 0.1s',
                                                 display: 'flex',
                                                 justifyContent: 'center',

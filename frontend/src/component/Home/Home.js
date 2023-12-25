@@ -16,6 +16,7 @@ import { toast } from 'react-toastify';
 
 const Home = () => {
     const dispatch = useDispatch();
+    
     const { loading, error, products } = useSelector(state => state.products)
 
     useEffect(() => {
@@ -35,19 +36,18 @@ const Home = () => {
 
                     <MetaData title="S.A APPAREL - Home" />
 
-
                     <div className='firstBanner'>
                         <img src={logo} alt="Your Logo" className="logo" />
                     </div>
 
                     <div className='imageContainer'>
                         <div className='image'>
-                            <Link to="/product1">
+                            <Link to="/products/apparel">
                                 <img src={image1} alt="Product 1 - A high-quality electronic device" className="image1" />
                             </Link>
                         </div>
                         <div className='image'>
-                            <Link to="/product2">
+                            <Link to="/products/Laptop">
                                 <img src={image2} alt="Product 2 - A sleek and modern technology gadget" className="image2" />
                             </Link>
                         </div>
