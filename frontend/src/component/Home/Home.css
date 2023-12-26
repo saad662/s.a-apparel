@@ -141,6 +141,46 @@
     transform: translateY(-1vmax);
 }
 
+
+.categoryContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.category {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-right: 25px;
+}
+
+.category img {
+    width: 16vw;
+    height: 50vh;
+}
+
+.category button {
+    margin-top: 10px;
+    display: block;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    padding: 8px 15px;
+    text-decoration: none !important;
+    /* Add !important to ensure it takes precedence */
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.category button:hover {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+
 /* Mobile CSS */
 @media (max-width: 768px) {
 
@@ -186,5 +226,6 @@
         margin: 0 0.5vmax;
         font: 300 1vmax "Roboto";
     }
+
 
 }

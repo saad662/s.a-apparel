@@ -2,8 +2,6 @@ import React, { Fragment, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import "./Home.css";
 import logo from "../../images/banner.png";
-import image1 from "../../images/download.webp";
-import image2 from "../../images/download2.webp";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShirt, faFlag, faPerson } from '@fortawesome/free-solid-svg-icons';
 import ProductCard from "./ProductCard.js";
@@ -12,10 +10,17 @@ import { clearErrors, getProduct } from '../../actions/productAction';
 import { useDispatch, useSelector } from "react-redux"
 import Loader from '../layout/Loader/Loader';
 import { toast } from 'react-toastify';
+import image1 from "../../images/download.webp";
+import image2 from "../../images/download2.webp";
+import girlImage from "../../images/HOL236214_Girls_DESK.jpeg";
+import boyImage from "../../images/HOL236214_Boys_DESK.jpeg";
+import toddlerImage from "../../images/HOL236214_Toddler_DESK.jpeg";
+import babyImage from "../../images/HOL236214_Baby_DESK.jpeg";
+import maternityImage from "../../images/cn28151191.avif";
 
 const Home = () => {
     const dispatch = useDispatch();
-    
+
     const { loading, error, products } = useSelector(state => state.products)
 
     useEffect(() => {
@@ -89,6 +94,42 @@ const Home = () => {
                                 <ProductCard key={product._id} product={product} />)
                         }
                     </div>
+
+
+                    <div className="categoryContainer">
+                        <div className="category">
+                            <Link to="/girls">
+                                <img src={girlImage} alt="Girls" />
+                                <button>Girls</button>
+                            </Link>
+                        </div>
+                        <div className="category">
+                            <Link to="/boys">
+                                <img src={boyImage} alt="Boys" />
+                                <button>Boys</button>
+                            </Link>
+                        </div>
+                        <div className="category">
+                            <Link to="/toddlers">
+                                <img src={toddlerImage} alt="Toddlers" />
+                                <button>Toddlers</button>
+                            </Link>
+                        </div>
+                        <div className="category">
+                            <Link to="/baby">
+                                <img src={babyImage} alt="Baby" />
+                                <button>Baby</button>
+                            </Link>
+                        </div>
+                        <div className="category">
+                            <Link to="/maternity">
+                                <img src={maternityImage} alt="Maternity" />
+                                <button>Maternity</button>
+                            </Link>
+                        </div>
+                    </div>
+
+
                 </Fragment>}
         </Fragment>
     );
