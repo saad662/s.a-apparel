@@ -59,6 +59,10 @@
   font-weight: bold;
 }
 
+.date {
+  margin-top: 15px;
+}
+
 .products-container {
   margin-left: 10vmax;
   min-height: 65vh;

@@ -131,8 +131,8 @@ const Products = () => {
                                 min={0}
                                 max={25000}
                                 values={price}
-                                onChange={newPrice => setPrice(newPrice)}
-                                renderTrack={({ props, items }) => (
+                                onChange={(newPrice) => setPrice(newPrice)}
+                                renderTrack={({ props, children }) => (
                                     <div
                                         {...props}
                                         style={{
@@ -142,7 +142,7 @@ const Products = () => {
                                             backgroundColor: '#ccc',
                                         }}
                                     >
-                                        {items}
+                                        {children}
                                     </div>
                                 )}
                                 renderThumb={({ props, isDragged, value }) => (
@@ -154,7 +154,7 @@ const Products = () => {
                                             width: '16px',
                                             backgroundColor: isDragged ? '#007bff' : '#aaa',
                                             borderRadius: '50%',
-                                            transform: `translateX(${props.value}px)`,
+                                            transform: `translateX(${props.style.left})`,
                                             transition: 'transform 0.1s',
                                             display: 'flex',
                                             justifyContent: 'center',
@@ -167,7 +167,7 @@ const Products = () => {
                                 )}
                             />
 
-                            <p>Date</p>
+                            <p className="date">Date</p>
                             <select className="filter-select" value={sort} onChange={handleSortChange}>
                                 <option value="">Sort By Date</option>
                                 <option value="createdAt">Newest to Oldest</option>
