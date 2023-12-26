@@ -17,6 +17,7 @@ import boyImage from "../../images/HOL236214_Boys_DESK.jpeg";
 import toddlerImage from "../../images/HOL236214_Toddler_DESK.jpeg";
 import babyImage from "../../images/HOL236214_Baby_DESK.jpeg";
 import maternityImage from "../../images/cn28151191.avif";
+import sale from "../../images/HOL235848_copy_DESK.svg";
 
 const Home = () => {
     const dispatch = useDispatch();
@@ -95,6 +96,9 @@ const Home = () => {
                         }
                     </div>
 
+                    <div className="saleImage">
+                        <img src={sale} alt="Sale" />
+                    </div>
 
                     <div className="categoryContainer">
                         <div className="category">

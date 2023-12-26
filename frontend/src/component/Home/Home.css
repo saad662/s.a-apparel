@@ -142,6 +142,18 @@
 }
 
 
+.saleImage {
+    width: 100%;
+    margin: 20px 0;
+    /* Adjust the margin as needed */
+}
+
+.saleImage img {
+    width: 90%;
+    margin-left: 70px;
+}
+
+
 .categoryContainer {
     display: flex;
     flex-wrap: wrap;
