@@ -6,16 +6,27 @@ import { toast } from 'react-toastify';
 
 const Footer = () => {
 
-  const handleSubscribe = () => {
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-  
-    if (emailRegex.test(email)) {
-      // Valid email address, proceed with subscription
-      toast.success('Subscription successful!');
-      setEmail('');
-    } else {
-      // Invalid email address, show an error message or handle it accordingly
-      toast.error('Invalid email address. Please enter a valid email.');
+  const handleSubscribe = async () => {
+    try {
+      const response = await fetch('/api/v1/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        toast.success(data.message);
+        setEmail('');
+      } else {
+        toast.error(data.message);
+      }
+    } catch (error) {
+      console.error('Error subscribing:', error.message);
+      toast.error('An error occurred while subscribing.');
     }
   };
 
@@ -53,7 +64,7 @@ const Footer = () => {
             placeholder="Enter your Email*"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-          />  
+          />
           <button onClick={handleSubscribe}>Subscribe</button>
         </div>
         <p>Stay informed with our latest news and exclusive content.</p>
