@@ -1,9 +1,25 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./Footer.css";
 import "mapbox-gl/dist/mapbox-gl.css";
 import mapboxgl from 'mapbox-gl';
+import { toast } from 'react-toastify';
 
 const Footer = () => {
+
+  const handleSubscribe = () => {
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  
+    if (emailRegex.test(email)) {
+      // Valid email address, proceed with subscription
+      toast.success('Subscription successful!');
+      setEmail('');
+    } else {
+      // Invalid email address, show an error message or handle it accordingly
+      toast.error('Invalid email address. Please enter a valid email.');
+    }
+  };
+
+  const [email, setEmail] = useState('');
 
   const MAPBOX_ACCESS_TOKEN = 'pk.eyJ1IjoiZGlhbmVrYXA2NjIiLCJhIjoiY2xucmo1djR6MHhxNzJqbnpiaHV5YjlhcSJ9.-tQRPYjz-JX6gSHAM_frJw';
 
@@ -12,12 +28,12 @@ const Footer = () => {
     const map = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/mapbox/streets-v11',
-      center: [67.0425, 24.8790], // Karachi coordinates
+      center: [67.0425, 24.8790],
       zoom: 14
     });
 
     const marker = new mapboxgl.Marker()
-      .setLngLat([67.0425, 24.8790]) // Coordinates of the marker's position
+      .setLngLat([67.0425, 24.8790])
       .addTo(map);
     marker.setLngLat([67.0425, 24.8790]);
 
@@ -32,8 +48,13 @@ const Footer = () => {
       <div className="leftFooter">
         <h4>Get New Updates</h4>
         <div className="subscribe-container">
-          <input type="email" placeholder="Enter your Email*" />
-          <button>Subscribe</button>
+          <input
+            type="email"
+            placeholder="Enter your Email*"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <button onClick={handleSubscribe}>Subscribe</button>
         </div>
         <p>Stay informed with our latest news and exclusive content.</p>
       </div>
