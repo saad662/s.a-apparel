@@ -53,7 +53,7 @@ const Footer = () => {
             placeholder="Enter your Email*"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-          />
+          />  
           <button onClick={handleSubscribe}>Subscribe</button>
         </div>
         <p>Stay informed with our latest news and exclusive content.</p>
