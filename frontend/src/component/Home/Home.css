@@ -199,12 +199,15 @@
         max-width: 100%;
     }
 
-    .image1 {
-        margin-right: 0;
-    }
-
+    
+    .image1,
     .image2 {
         max-width: 100%;
+    }
+
+    .saleImage img {
+        width: 100%; /* Adjust to center the image */
+        margin-left: 0; /* Remove the margin */
     }
 
     .feature {
@@ -217,22 +220,31 @@
     }
 
     .productCard>p {
-        font-size: 1.7vmax;
+        font-size: 1.5vmax; /* Increase font size for better readability */
     }
 
     .productCard>div {
-        margin: 0vmax;
+        margin: 1vmax 0; /* Update margin for better spacing */
         display: block;
     }
 
     .productCard>span {
-        font-size: 1.5vmax;
+        font-size: 1.2vmax; /* Adjust font size */
     }
 
     .productCard>div>span {
-        margin: 0 0.5vmax;
+        margin: 0.5vmax 0.5vmax; /* Update margin */
         font: 300 1vmax "Roboto";
     }
 
+    .category img {
+        width: 100%; /* Make category images responsive */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    .category {
+        margin-bottom: 10px; /* Adjust spacing for better visibility */
+        margin-right: 0; /* Remove right margin for the last category in a row */
+    }
 
 }
