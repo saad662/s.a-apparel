@@ -1,47 +1,61 @@
 .orderSuccess {
     margin: auto;
     text-align: center;
-    padding: 10vmax;
-    height: 50vh;
+    padding: 5% 10%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease-out forwards;
+    margin-bottom: -10vmax;
 }
 
-.orderSuccess>svg {
-    font-size: 7vmax;
-    color: tomato;
+.successIcon {
+    font-size: 5rem;
+    color: #52c41a;
+    margin-bottom: 20px;
 }
 
-.orderSuccess>p {
-    font-size: 2vmax;
+.successTitle {
+    margin-bottom: 20px;
 }
 
-.orderSuccess>a {
-    background-color: rgb(51, 51, 51);
-    color: white;
+.successText {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.viewOrdersBtn {
+    background-color: #1890ff;
+    color: #fff;
     border: none;
-    padding: 1vmax 3vmax;
+    padding: 12px 24px;
+    font-size: 1rem;
     cursor: pointer;
-    font: 400 1vmax "Roboto";
-    text-decoration: none;
-    margin: 2vmax;
+    border-radius: 4px;
+    line-height: 0.5;
+    transition: background-color 0.3s ease;
 }
 
-@media screen and (max-width: 600px) {
-    .orderSuccess>a {
-        padding: 3vw 6vw;
-        font: 400 4vw "Roboto";
-        margin: 2vmax;
+.viewOrdersBtn:hover {
+    background-color: #096dd9;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
     }
 
-    .orderSuccess>svg {
-        font-size: 20vw;
-    }
-
-    .orderSuccess>p {
-        margin: 2vmax;
-        font-size: 5vw;
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
