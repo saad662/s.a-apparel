@@ -26,7 +26,6 @@
     max-width: 100%;
     height: auto;
     margin-right: 10px;
-    /* Add a margin to create a gap */
 }
 
 .image2 {
@@ -93,8 +92,6 @@
     max-width: 100%;
 }
 
-
-/* NOW product.js CSS  */
 .productCard {
     width: 14vmax;
     display: flex;
@@ -145,7 +142,6 @@
 .saleImage {
     width: 100%;
     margin: 20px 0;
-    /* Adjust the margin as needed */
 }
 
 .saleImage img {
@@ -180,7 +176,6 @@
     border: 1px solid black;
     padding: 8px 15px;
     text-decoration: none !important;
-    /* Add !important to ensure it takes precedence */
     font-family: "Montserrat", sans-serif;
     font-size: 16px;
     font-weight: 500;
