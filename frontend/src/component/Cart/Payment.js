@@ -86,10 +86,14 @@ const Payment = () => {
                 toast.error("saad", result.error.message);
             } else {
                 if (result.paymentIntent.status === "succeeded") {
+
                     order.paymentInfo = {
                         id: result.paymentIntent.id,
                         status: result.paymentIntent.status,
                     };
+
+                    // Clear cartItems from localStorage
+                    localStorage.removeItem("cartItems");
 
                     dispatch(createOrder(order));
                     navigate("/success");
