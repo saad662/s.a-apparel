@@ -92,8 +92,12 @@ const Payment = () => {
                         status: result.paymentIntent.status,
                     };
 
+                    // Dispatch action to clear cart items from Redux store
+                    dispatch({ type: "CLEAR_CART" });
+
                     // Clear cartItems from localStorage
                     localStorage.removeItem("cartItems");
+
 
                     dispatch(createOrder(order));
                     navigate("/success");

@@ -2,6 +2,7 @@ import {
     ADD_TO_CART,
     REMOVE_CART_ITEM,
     SAVE_SHIPPING_INFO,
+    CLEAR_CART,
 } from "../constants/cartConstants";
 
 export const cartReducer = (state = { cartItems: [], shippingInfo: {} }, action) => {
@@ -38,6 +39,13 @@ export const cartReducer = (state = { cartItems: [], shippingInfo: {} }, action)
                 ...state,
                 shippingInfo: action.payload,
             };
+
+        case CLEAR_CART:  // Add this case
+            return {
+                ...state,
+                cartItems: [],
+            };
+
 
         default:
             return state;
