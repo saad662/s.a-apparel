@@ -8,6 +8,7 @@ import {
   LogoutOutlined,
   FileOutlined,
   ShoppingCartOutlined,
+  HomeOutlined
 } from "@ant-design/icons";
 import "antd/dist/reset.css";
 import { Dropdown, Avatar, Drawer, Menu } from "antd";
@@ -23,6 +24,7 @@ const UserOptions = ({ user }) => {
   const [drawerVisible, setDrawerVisible] = useState(false);
 
   const options = [
+    { icon: <HomeOutlined />, name: "Home", func: Home },
     { icon: <FileOutlined />, name: "Orders", func: orders },
     { icon: <UserOutlined />, name: "Profile", func: account },
     {
@@ -43,6 +45,10 @@ const UserOptions = ({ user }) => {
 
   function dashboard() {
     navigate("/admin/dashboard");
+  }
+
+  function Home() {
+    navigate("/");
   }
 
   function orders() {
