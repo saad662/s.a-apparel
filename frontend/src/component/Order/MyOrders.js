@@ -90,7 +90,7 @@ const MyOrders = () => {
                         <Table
                             dataSource={data}
                             columns={columns}
-                            pagination={{ pageSize: 10 }}
+                            pagination={{ pageSize: 9 }}
                             rowKey="id"
                             className="myOrdersTable"
                         />

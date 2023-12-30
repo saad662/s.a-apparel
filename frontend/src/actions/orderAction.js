@@ -35,11 +35,47 @@ export const createOrder = (order) => async (dispatch) => {
         const { data } = await axios.post("/api/v1/order/new", order, config);
 
         dispatch({ type: CREATE_ORDER_SUCCESS, payload: data });
+
+        // Update product stock
+        if (data.success && data.order && data.order.OrderItems) {
+            const orderItems = data.order.OrderItems;
+
+            for (const orderItem of orderItems) {
+                // Extract product ID and quantity
+                const { product: productId, quantity } = orderItem;
+
+                // Call the function to update stock
+                await updateProductStock(productId, quantity);
+            }
+        }
+
     } catch (error) {
         dispatch({
             type: CREATE_ORDER_FAIL,
             payload: error.response.data.message,
         });
+    }
+};
+
+// Define a separate function to update product stock
+const updateProductStock = async (productId, quantity) => {
+    try {
+        // Retrieve the product by ID
+        const { data: productData } = await axios.get(`/api/v1/product/${productId}`);
+
+        // Check if the product exists
+        if (productData && productData.product) {
+            const product = productData.product;
+
+            // Update the product stock
+            product.stock -= quantity;
+
+            // Save the updated product
+            await axios.put(`/api/v1/admin/product/${productId}`, product);
+        }
+    } catch (error) {
+        // Handle any errors that occur during the stock update
+        console.error(`Error updating stock for product ${productId}:`, error);
     }
 };
 
