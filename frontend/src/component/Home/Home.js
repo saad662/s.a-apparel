@@ -47,12 +47,12 @@ const Home = () => {
 
                     <div className='imageContainer'>
                         <div className='image'>
-                            <Link to="/products/apparel">
+                            <Link to="/products/MEN">
                                 <img src={image1} alt="Product 1 - A high-quality electronic device" className="image1" />
                             </Link>
                         </div>
                         <div className='image'>
-                            <Link to="/products/Laptop">
+                            <Link to="/products/WOMEN">
                                 <img src={image2} alt="Product 2 - A sleek and modern technology gadget" className="image2" />
                             </Link>
                         </div>
@@ -102,31 +102,31 @@ const Home = () => {
 
                     <div className="categoryContainer">
                         <div className="category">
-                            <Link to="/girls">
+                            <Link to="/products/GIRLS">
                                 <img src={girlImage} alt="Girls" />
                                 <button>Girls</button>
                             </Link>
                         </div>
                         <div className="category">
-                            <Link to="/boys">
+                            <Link to="/products/BOYS">
                                 <img src={boyImage} alt="Boys" />
                                 <button>Boys</button>
                             </Link>
                         </div>
                         <div className="category">
-                            <Link to="/toddlers">
+                            <Link to="/products/TODDLERS">
                                 <img src={toddlerImage} alt="Toddlers" />
                                 <button>Toddlers</button>
                             </Link>
                         </div>
                         <div className="category">
-                            <Link to="/baby">
+                            <Link to="/products/BABY">
                                 <img src={babyImage} alt="Baby" />
                                 <button>Baby</button>
                             </Link>
                         </div>
                         <div className="category">
-                            <Link to="/maternity">
+                            <Link to="/products/MATERNITY">
                                 <img src={maternityImage} alt="Maternity" />
                                 <button>Maternity</button>
                             </Link>

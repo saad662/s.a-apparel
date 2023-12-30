@@ -13,13 +13,13 @@ import { SearchOutlined } from '@ant-design/icons';
 
 const categories = [
     "All Products",
-    "Laptop",
-    "Footwear",
-    "Bottom",
-    "Tops",
-    "Attire",
-    "apparel",
-    "phone",
+    "MEN",
+    "WOMEN",
+    "GIRLS",
+    "BOYS",
+    "TODDLERS",
+    "BABY",
+    "MATERNITY",
 ];
 
 const Products = () => {
