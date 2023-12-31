@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import "./Cart.css";
 import CartItemCard from "./CartItemCard.js";
 import { useSelector, useDispatch } from "react-redux";
-import { addItemsToCart, removeItemsFromCart } from "../../actions/cartAction";
+import { removeItemsFromCart, updateQuantity } from "../../actions/cartAction";
 import { Link, useNavigate } from "react-router-dom";
 import { NumericFormat } from 'react-number-format';
 import MetaData from "../layout/MetaData";
@@ -14,10 +14,12 @@ const Cart = () => {
 
     const increaseQuantity = (id, quantity, stock) => {
         const newQty = quantity + 1;
-        if (stock <= quantity) {
-            return;
+        if (stock >= newQty) {
+            dispatch(updateQuantity(id, newQty));
+        } else {
+            // Optionally, you can show a message or handle the case where stock is not sufficient.
+            console.error("Insufficient stock for increaseQuantity");
         }
-        dispatch(addItemsToCart(id, newQty));
     };
 
     const decreaseQuantity = (id, quantity) => {
@@ -25,7 +27,7 @@ const Cart = () => {
         if (newQty <= 0) {
             deleteCartItems(id);
         } else {
-            dispatch(addItemsToCart(id, newQty));
+            dispatch(updateQuantity(id, newQty));
         }
     };
 

@@ -29,16 +29,15 @@ const ProductDetails = () => {
     const increaseQuantity = () => {
         if (product.stock <= quantity) return;
 
-        const qty = quantity + 1;
-        setQuantity(qty);
+        setQuantity((prevQuantity) => prevQuantity + 1);
     };
 
     const decreaseQuantity = () => {
-        if (1 >= quantity) return;
+        if (quantity <= 1) return;
 
-        const qty = quantity - 1;
-        setQuantity(qty);
+        setQuantity((prevQuantity) => prevQuantity - 1);
     };
+
 
     const addToCartHandler = () => {
         if (product.stock < 1) {
@@ -73,7 +72,7 @@ const ProductDetails = () => {
         if (reviewError) {
             toast.error(reviewError);
             dispatch(clearErrors());
-          }
+        }
 
         if (success) {
             toast.success("Review Submitted Successfully");

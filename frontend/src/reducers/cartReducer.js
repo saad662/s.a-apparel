@@ -3,28 +3,32 @@ import {
     REMOVE_CART_ITEM,
     SAVE_SHIPPING_INFO,
     CLEAR_CART,
+    UPDATE_QUANTITY
 } from "../constants/cartConstants";
 
 export const cartReducer = (state = { cartItems: [], shippingInfo: {} }, action) => {
     switch (action.type) {
         case ADD_TO_CART:
-            const item = action.payload;
+            const newItem = action.payload;
+            const existingItem = state.cartItems.find(item => item.product === newItem.product);
 
-            const isItemExist = state.cartItems.find(
-                (i) => i.product === item.product
-            );
+            if (existingItem) {
+                // If the item already exists, update the quantity
+                const updatedCartItems = state.cartItems.map(item =>
+                    item.product === existingItem.product
+                        ? { ...item, quantity: Math.min(item.quantity + newItem.quantity, item.stock) }
+                        : item
+                );
 
-            if (isItemExist) {
                 return {
                     ...state,
-                    cartItems: state.cartItems.map((i) =>
-                        i.product === isItemExist.product ? item : i
-                    ),
+                    cartItems: updatedCartItems,
                 };
             } else {
+                // If the item does not exist, add it to the cart
                 return {
                     ...state,
-                    cartItems: [...state.cartItems, item],
+                    cartItems: [...state.cartItems, newItem],
                 };
             }
 
@@ -38,6 +42,16 @@ export const cartReducer = (state = { cartItems: [], shippingInfo: {} }, action)
             return {
                 ...state,
                 shippingInfo: action.payload,
+            };
+
+        case UPDATE_QUANTITY:
+            const { product, quantity } = action.payload;
+
+            return {
+                ...state,
+                cartItems: state.cartItems.map(item =>
+                    item.product === product ? { ...item, quantity: Math.min(quantity, item.stock) } : item
+                ),
             };
 
         case CLEAR_CART:  // Add this case
