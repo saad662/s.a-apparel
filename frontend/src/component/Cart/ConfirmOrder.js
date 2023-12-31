@@ -17,7 +17,7 @@ const ConfirmOrder = () => {
         0
     );
 
-    const shippingCharges = subtotal > 1000 ? 0 : 200;
+    const shippingCharges = subtotal > 2500 ? 0 : 250;
 
     const tax = subtotal * 0.18;
 
@@ -57,7 +57,7 @@ const ConfirmOrder = () => {
                             </div>
                             <div>
                                 <p>Address:</p>
-                                <span>{address}</span>
+                                <span>{address}.<br/>(Free delivery over 2500 shopping in all over Pakistan)</span>
                             </div>
                         </div>
                     </div>
@@ -93,6 +93,7 @@ const ConfirmOrder = () => {
                                 <p>Shipping Charges:</p>
                                 <span>PKR {shippingCharges}</span>
                             </div>
+                            
                             <div>
                                 <p>VAT, GST, and Sales Tax:</p>
                                 <span>PKR {tax}</span>
