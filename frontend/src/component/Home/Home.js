@@ -133,6 +133,19 @@ const Home = () => {
                         </div>
                     </div>
 
+                    {/* <h2 className="homeHeading">Most Rated Products</h2>
+
+                    <div className='container' id="container">
+                        {
+                            // Sort products by ratings in descending order directly in the map function
+                            products && products
+                                .slice()
+                                .sort((a, b) => b.ratings - a.ratings)
+                                .map((product) => (
+                                    <ProductCard key={product._id} product={product} />
+                                ))
+                        }
+                    </div> */}
 
                 </Fragment>}
         </Fragment>
