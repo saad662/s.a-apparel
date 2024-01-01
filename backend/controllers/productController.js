@@ -37,6 +37,27 @@ const getAllProducts = catchAsyncErrors(async (req, res, next) => {
     });
 });
 
+
+// Get all products.
+const getProducts = catchAsyncErrors(async (req, res, next) => {
+    const resultPerPage = 12;
+
+    const apiFeature = new ApiFeatures(Product.find(), req.query)
+        .search()
+        .filter()
+
+    const products = await apiFeature.query;
+
+    const productsCount = await Product.countDocuments(apiFeature.query.getQuery());
+
+    res.status(200).json({
+        success: true,
+        products,
+        productsCount,
+        resultPerPage,
+    });
+});
+
 // Update a product (Admin only).
 const updateProduct = (
     async (req, res, next) => {
@@ -203,5 +224,6 @@ module.exports = {
     getProduct,
     createProductReview,
     getAllProductReviews,
-    deleteProductReview
+    deleteProductReview,
+    getProducts
 };

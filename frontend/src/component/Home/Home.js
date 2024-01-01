@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShirt, faFlag, faPerson } from '@fortawesome/free-solid-svg-icons';
 import ProductCard from "./ProductCard.js";
 import MetaData from '../layout/MetaData';
-import { clearErrors, getProduct } from '../../actions/productAction';
+import { clearErrors, getAllProducts } from '../../actions/productAction';
 import { useDispatch, useSelector } from "react-redux"
 import Loader from '../layout/Loader/Loader';
 import { toast } from 'react-toastify';
@@ -29,8 +29,8 @@ const Home = () => {
             toast.error(error);
             dispatch(clearErrors());
         } else {
-            // Dispatch the action to get products
-            dispatch(getProduct());
+            // Dispatch the action to get all products
+            dispatch(getAllProducts());
         }
     }, [dispatch, error]);
 
@@ -91,7 +91,7 @@ const Home = () => {
                     <div className='container' id="container">
                         {
                             products &&
-                            products.map((product) =>
+                            products.slice(0, 8).map((product) =>
                                 <ProductCard key={product._id} product={product} />)
                         }
                     </div>
@@ -133,19 +133,18 @@ const Home = () => {
                         </div>
                     </div>
 
-                    {/* <h2 className="homeHeading">Most Rated Products</h2>
+                    <h2 className="homeHeading">Most Rated Products</h2>
 
                     <div className='container' id="container">
-                        {
-                            // Sort products by ratings in descending order directly in the map function
-                            products && products
+                        {products &&
+                            products
                                 .slice()
                                 .sort((a, b) => b.ratings - a.ratings)
+                                .slice(0, 8) // Take the first 8 products after sorting
                                 .map((product) => (
                                     <ProductCard key={product._id} product={product} />
-                                ))
-                        }
-                    </div> */}
+                                ))}
+                    </div>
 
                 </Fragment>}
         </Fragment>

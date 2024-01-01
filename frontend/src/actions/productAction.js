@@ -64,7 +64,23 @@ export const getProduct =
         }
     };
 
+// productAction.js
+export const getAllProducts = () => async (dispatch) => {
+    try {
+        dispatch({ type: ALL_PRODUCT_REQUEST });
 
+        const { data } = await axios.get("/api/v1/Allproducts");
+        dispatch({
+            type: ALL_PRODUCT_SUCCESS,
+            payload: data,
+        });
+    } catch (error) {
+        dispatch({
+            type: ALL_PRODUCT_FAIL,
+            payload: error.response.data.message,
+        });
+    }
+};
 
 // Get Products Details
 export const getProductDetails =
