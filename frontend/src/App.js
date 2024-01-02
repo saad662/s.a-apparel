@@ -29,11 +29,19 @@ import { loadStripe } from "@stripe/stripe-js";
 import OrderSuccess from "./component/Cart/OrderSuccess.js";
 import MyOrders from "./component/Order/MyOrders.js";
 import OrderDetails from "./component/Order/OrderDetails.js";
+import Modal from "./component/Modal/Modal.js";
 
 function App() {
 
   const { isAuthenticated, user } = useSelector((state) => state.user);
   const [stripeApiKey, setStripeApiKey] = useState("");
+  const [showModal, setShowModal] = useState(false);
+
+  const closeModal = () => {
+    setShowModal(false);
+    // Set a flag in local storage indicating that the modal has been shown
+    localStorage.setItem('modalShown', 'true');
+  };
 
   async function getStripeApiKey() {
     try {
@@ -52,11 +60,20 @@ function App() {
         families: ["Roboto", "Droid Sans", "Chilanka"]
       }
     })
+    if (showModal) {
+      document.body.style.overflow = 'hidden';
+    }
+    // Check if the modal has been shown before
+    const modalShown = localStorage.getItem('modalShown');
+    if (!modalShown) {
+      setShowModal(true);
+      document.body.style.overflow = 'hidden';
+    }
 
     store.dispatch(loadUser());
 
     getStripeApiKey();
-  }, [])
+  }, [showModal])
 
   return (
     <Router>
@@ -112,6 +129,7 @@ function App() {
       </Routes>
       <Footer />
       <WhatsAppChat />
+      {showModal && <Modal onClose={closeModal} />}
     </Router>
   );
 }

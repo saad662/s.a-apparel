@@ -1,0 +1,88 @@
+/* Modal.css */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Adjusted to align content to the top */
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    margin-top: 10px;
+    background: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    max-width: 450px;
+    max-height: 250px;
+    display: flex;
+  }
+
+.modal-image {
+    flex: 0.4;
+    text-align: left;
+}
+
+.modal-image img {
+    width: 50px;
+    height: 50px;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.modal-text {
+    flex: 2;
+    text-align: left;
+}
+
+.modal-text h3 {
+    margin: 0; /* Remove the default margin for h3 */
+    margin-bottom: 5px;
+  }
+
+  .modal-text p {
+    color: #777; /* Adjust the color to a lighter shade as needed */
+    font-size: 14px;
+}
+
+.modal-buttons button {
+    padding: 10px 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    border: none;
+    background: #e5e5e5;
+    color: #333;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.modal-buttons button.yes-button {
+    background-color: #2E5FDC !important;
+    color: white; /* Set text color to white */
+}
+
+.modal-buttons button.later-button {
+    padding: 10px 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    border: none;
+    background: transparent; /* Set background to transparent */
+    color: #333;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.modal-buttons button:hover {
+    background: #d1d1d1;
+}
