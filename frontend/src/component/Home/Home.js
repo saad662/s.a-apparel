@@ -18,6 +18,7 @@ import toddlerImage from "../../images/HOL236214_Toddler_DESK.jpeg";
 import babyImage from "../../images/HOL236214_Baby_DESK.jpeg";
 import maternityImage from "../../images/cn28151191.avif";
 import sale from "../../images/HOL235848_copy_DESK.svg";
+import banner_home from "../../images/banner_home.webp";
 
 const Home = () => {
     const dispatch = useDispatch();
@@ -145,6 +146,13 @@ const Home = () => {
                                     <ProductCard key={product._id} product={product} />
                                 ))}
                     </div>
+
+                    <div className="banner_home">
+                        <Link to="/products">
+                            <img src={banner_home} alt="Banner" />
+                        </Link>
+                    </div>
+
 
                 </Fragment>}
         </Fragment>

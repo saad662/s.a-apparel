@@ -187,6 +187,20 @@
     cursor: pointer;
 }
 
+.banner_home {
+    width: 100%;
+}
+
+.banner_home a {
+    display: block; /* Make the link take the full width of its container */
+}
+
+.banner_home img {
+    width: 100%;
+    height: auto; /* To maintain the aspect ratio of the image */
+    display: block; /* Remove any default spacing below the image */
+}
+
 
 /* Mobile CSS */
 @media (max-width: 768px) {
@@ -206,8 +220,8 @@
     }
 
     .saleImage img {
-        width: 100%; /* Adjust to center the image */
-        margin-left: 0; /* Remove the margin */
+        width: 100%; 
+        margin-left: 0; 
     }
 
     .feature {
@@ -220,31 +234,36 @@
     }
 
     .productCard>p {
-        font-size: 1.5vmax; /* Increase font size for better readability */
+        font-size: 1.5vmax; 
     }
 
     .productCard>div {
-        margin: 1vmax 0; /* Update margin for better spacing */
+        margin: 1vmax 0; 
         display: block;
     }
 
     .productCard>span {
-        font-size: 1.2vmax; /* Adjust font size */
+        font-size: 1.2vmax; 
     }
 
     .productCard>div>span {
-        margin: 0.5vmax 0.5vmax; /* Update margin */
+        margin: 0.5vmax 0.5vmax;
         font: 300 1vmax "Roboto";
     }
 
     .category img {
-        width: 100%; /* Make category images responsive */
-        height: auto; /* Maintain aspect ratio */
+        width: 100%; 
+        height: auto; 
     }
 
     .category {
-        margin-bottom: 10px; /* Adjust spacing for better visibility */
-        margin-right: 0; /* Remove right margin for the last category in a row */
+        margin-bottom: 10px; 
+        margin-right: 0; 
+    }
+
+    .banner_home img {
+        width: 100%; 
+        height: auto;
     }
 
 }
