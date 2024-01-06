@@ -19,6 +19,7 @@ import babyImage from "../../images/HOL236214_Baby_DESK.jpeg";
 import maternityImage from "../../images/cn28151191.avif";
 import sale from "../../images/HOL235848_copy_DESK.svg";
 import banner_home from "../../images/banner_home.webp";
+import banner_home_2 from "../../images/banner_home_2.webp";
 
 const Home = () => {
     const dispatch = useDispatch();
@@ -152,6 +153,11 @@ const Home = () => {
                             <img src={banner_home} alt="Banner" />
                         </Link>
                     </div>
+                    
+                    <div className="banner_home">
+                        <img src={banner_home_2} alt="Banner 2" />
+                    </div>
+
 
 
                 </Fragment>}
