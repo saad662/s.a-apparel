@@ -30,18 +30,24 @@ import OrderSuccess from "./component/Cart/OrderSuccess.js";
 import MyOrders from "./component/Order/MyOrders.js";
 import OrderDetails from "./component/Order/OrderDetails.js";
 import Modal from "./component/Modal/Modal.js";
+// import WebBanner from "./component/WebBanner/WebBanner.js";
 
 function App() {
 
   const { isAuthenticated, user } = useSelector((state) => state.user);
   const [stripeApiKey, setStripeApiKey] = useState("");
   const [showModal, setShowModal] = useState(false);
+  // const [showBanner, setShowBanner] = useState(true);
 
   const closeModal = () => {
     setShowModal(false);
     // Set a flag in local storage indicating that the modal has been shown
     localStorage.setItem('modalShown', 'true');
   };
+
+  // const closeBanner = () => {
+  //   setShowBanner(false);
+  // };
 
   async function getStripeApiKey() {
     try {
@@ -78,7 +84,6 @@ function App() {
   return (
     <Router>
       <Header />
-
       {isAuthenticated && <UserOptions user={user} />}
 
       <Routes>
@@ -129,6 +134,7 @@ function App() {
       </Routes>
       <Footer />
       <WhatsAppChat />
+      {/* {showBanner && <WebBanner onClose={closeBanner} />} */}
       {showModal && <Modal onClose={closeModal} />}
     </Router>
   );
