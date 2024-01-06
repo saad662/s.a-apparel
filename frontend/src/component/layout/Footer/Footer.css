@@ -26,6 +26,7 @@ footer {
 
 .leftFooter>p {
     text-align: center;
+    margin-top: 15px;
     font-size: 1.2vmax;
     font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
         "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
