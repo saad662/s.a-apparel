@@ -205,12 +205,10 @@
 }
 
 
-
-
 .reviews-slider {
     overflow-x: hidden;
     white-space: nowrap;
-    max-width: 600px;
+    max-width: 700px;
     margin: 0 auto;
     text-align: center;
 }
