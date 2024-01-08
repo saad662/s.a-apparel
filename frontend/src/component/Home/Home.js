@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import "./Home.css";
 import logo from "../../images/banner.png";
@@ -20,18 +20,48 @@ import maternityImage from "../../images/cn28151191.avif";
 import sale from "../../images/HOL235848_copy_DESK.svg";
 import banner_home from "../../images/banner_home.webp";
 import banner_home_2 from "../../images/banner_home_2.webp";
+import ReactStars from "react-rating-stars-component";
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 const Home = () => {
     const dispatch = useDispatch();
 
     const { loading, error, products } = useSelector(state => state.products)
 
+    const [reviewSliderSettings, setReviewSliderSettings] = useState({
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        autoplay: true,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: true,
+                },
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                },
+            },
+        ],
+    });
+
     useEffect(() => {
         if (error) {
             toast.error(error);
             dispatch(clearErrors());
         } else {
-            // Dispatch the action to get all products
             dispatch(getAllProducts());
         }
     }, [dispatch, error]);
@@ -153,12 +183,36 @@ const Home = () => {
                             <img src={banner_home} alt="Banner" />
                         </Link>
                     </div>
-                    
+
                     <div className="banner_home">
                         <img src={banner_home_2} alt="Banner 2" />
                     </div>
 
+                    <h1>Let Customers Speak For Us</h1>
 
+                    <Slider {...reviewSliderSettings} className="review-container">
+                        {products &&
+                            products
+                                .filter(product => product.reviews && product.reviews.length > 0) // Filter out products without reviews
+                                .map(product => (
+                                    <div key={product._id}>
+                                        {product.reviews
+                                            .filter(review => review.rating === 5) // Filter only 5-star reviews
+                                            .map(review => (
+                                                <div key={review._id} className="product-with-review">
+                                                    <div className="review-card">
+                                                        <img src={product.images[0].url} alt={product.name} />
+                                                        <h3>{review.name}</h3>
+                                                        <div className="stars">
+                                                            <ReactStars value={5} size={10} edit={false} />
+                                                        </div>
+                                                        <p>{review.comment}</p>
+                                                    </div>
+                                                </div>
+                                            ))}
+                                    </div>
+                                ))}
+                    </Slider>
 
                 </Fragment>}
         </Fragment>
