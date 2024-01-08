@@ -175,8 +175,15 @@ const Home = () => {
 
                     <h1 className='slick-heading'>Let Customers Speak For Us</h1>
 
-                    <Slider className="reviews-slider" slidesToShow={5} slidesToScroll={5} nextArrow={<NextArrow />}
-                        prevArrow={<PrevArrow />}>
+                    <Slider
+                        className="reviews-slider"
+                        slidesToShow={5}
+                        slidesToScroll={5}
+                        nextArrow={<NextArrow />}
+                        prevArrow={<PrevArrow />}
+                        autoplay={true}
+                        autoplaySpeed={3000}
+                    >
                         {products &&
                             products
                                 .filter((product) => product.reviews && product.reviews.length > 0)
@@ -194,7 +201,7 @@ const Home = () => {
                                         ))}
                                     </div>
                                 ))}
-                                
+
                     </Slider>
                 </Fragment>}
         </Fragment>
