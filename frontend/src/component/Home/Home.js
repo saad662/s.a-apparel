@@ -21,41 +21,11 @@ import sale from "../../images/HOL235848_copy_DESK.svg";
 import banner_home from "../../images/banner_home.webp";
 import banner_home_2 from "../../images/banner_home_2.webp";
 import ReactStars from "react-rating-stars-component";
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
 
 const Home = () => {
     const dispatch = useDispatch();
 
     const { loading, error, products } = useSelector(state => state.products)
-
-    const [reviewSliderSettings, setReviewSliderSettings] = useState({
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        autoplay: true,
-        responsive: [
-            {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                    infinite: true,
-                    dots: true,
-                },
-            },
-            {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                },
-            },
-        ],
-    });
 
     useEffect(() => {
         if (error) {
@@ -190,7 +160,6 @@ const Home = () => {
 
                     <h1>Let Customers Speak For Us</h1>
 
-                    <Slider {...reviewSliderSettings} className="review-container">
                         {products &&
                             products
                                 .filter(product => product.reviews && product.reviews.length > 0) // Filter out products without reviews
@@ -212,7 +181,6 @@ const Home = () => {
                                             ))}
                                     </div>
                                 ))}
-                    </Slider>
 
                 </Fragment>}
         </Fragment>
