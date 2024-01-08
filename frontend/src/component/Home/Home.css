@@ -207,14 +207,25 @@
 
 
 
+.reviews-slider {
+    overflow-x: hidden;
+    white-space: nowrap;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
 
-
+.review-container {
+    display: inline-flex;
+    align-items: center; 
+}
 
 .review-card {
-    margin-top: 20px;
+    margin: 0 10px;
     text-align: center;
     max-width: 70px;
-    position: relative;
+    flex-direction: column;
+    align-items: center;
 }
 
 .review-card img {
@@ -234,17 +245,30 @@
     font-size: 0.7rem;
 }
 
-.review-container {
-    overflow: hidden;
-}
-
-.stars {
+.review-card .stars {
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
+.arrow {
+    font-size: 24px;
+    color: #555;
+    cursor: pointer;
+  }
+  .prev{
+    margin-bottom: 15px;
+  }
 
+  .slick-heading {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 20px;
+    margin-top: 50px;
+    color: #333;
+    font-weight: bold;
+    text-decoration: underline;
+  }
+  
 
 
 /* Mobile CSS */

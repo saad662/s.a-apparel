@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react'
+import React, { Fragment, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import "./Home.css";
 import logo from "../../images/banner.png";
@@ -21,11 +21,26 @@ import sale from "../../images/HOL235848_copy_DESK.svg";
 import banner_home from "../../images/banner_home.webp";
 import banner_home_2 from "../../images/banner_home_2.webp";
 import ReactStars from "react-rating-stars-component";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 const Home = () => {
     const dispatch = useDispatch();
 
     const { loading, error, products } = useSelector(state => state.products)
+    const NextArrow = ({ onClick }) => (
+        <div className="arrow next" onClick={onClick}>
+            <FontAwesomeIcon icon={faArrowRight} />
+        </div>
+    );
+
+    const PrevArrow = ({ onClick }) => (
+        <div className="arrow prev" onClick={onClick}>
+            <FontAwesomeIcon icon={faArrowLeft} />
+        </div>
+    );
 
     useEffect(() => {
         if (error) {
@@ -158,30 +173,29 @@ const Home = () => {
                         <img src={banner_home_2} alt="Banner 2" />
                     </div>
 
-                    <h1>Let Customers Speak For Us</h1>
+                    <h1 className='slick-heading'>Let Customers Speak For Us</h1>
 
+                    <Slider className="reviews-slider" slidesToShow={5} slidesToScroll={5} nextArrow={<NextArrow />}
+                        prevArrow={<PrevArrow />}>
                         {products &&
                             products
-                                .filter(product => product.reviews && product.reviews.length > 0) // Filter out products without reviews
-                                .map(product => (
-                                    <div key={product._id}>
-                                        {product.reviews
-                                            .filter(review => review.rating === 5) // Filter only 5-star reviews
-                                            .map(review => (
-                                                <div key={review._id} className="product-with-review">
-                                                    <div className="review-card">
-                                                        <img src={product.images[0].url} alt={product.name} />
-                                                        <h3>{review.name}</h3>
-                                                        <div className="stars">
-                                                            <ReactStars value={5} size={10} edit={false} />
-                                                        </div>
-                                                        <p>{review.comment}</p>
-                                                    </div>
+                                .filter((product) => product.reviews && product.reviews.length > 0)
+                                .map((product) => (
+                                    <div key={product._id} className="review-container">
+                                        {product.reviews.map((review) => (
+                                            <div className="review-card">
+                                                <img src={product.images[0].url} alt={product.name} />
+                                                <h3>{review.name}</h3>
+                                                <div className="stars">
+                                                    <ReactStars value={5} size={10} edit={false} />
                                                 </div>
-                                            ))}
+                                                <p>{review.comment}</p>
+                                            </div>
+                                        ))}
                                     </div>
                                 ))}
-
+                                
+                    </Slider>
                 </Fragment>}
         </Fragment>
     );
