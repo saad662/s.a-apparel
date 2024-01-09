@@ -253,6 +253,10 @@
 
 .prev {
     margin-bottom: 15px;
+    margin-left: -49vw;
+}
+.next{
+    margin-right: -49vw;
 }
 
 .slick-heading {
