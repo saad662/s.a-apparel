@@ -15,10 +15,11 @@ import { NumericFormat } from 'react-number-format';
 import { addItemsToCart } from "../../actions/cartAction";
 import { NEW_REVIEW_RESET } from "../../constants/productConstants";
 import sale from "../../images/banner-detailspage.webp";
-
+import ProductCard from "../Home/ProductCard.js";
 
 const ProductDetails = () => {
     const dispatch = useDispatch();
+    const { products } = useSelector(state => state.products)
     const { product, loading, error } = useSelector((state) => state.productDetails);
     const { success, error: reviewError } = useSelector((state) => state.newReview);
     const { id } = useParams();
@@ -209,6 +210,15 @@ const ProductDetails = () => {
                     ) : (
                         <p className="noReviews">No Reviews Yet</p>
                     )}
+
+                    <h1 className="mayLikeHeading">You may also like</h1>
+                    <div className='container' id="container">
+                        {
+                            products &&
+                            products.slice(0, 4).map((product) =>
+                                <ProductCard key={product._id} product={product} />)
+                        }
+                    </div>
 
                 </Fragment>
             )}
