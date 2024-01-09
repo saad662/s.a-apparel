@@ -178,7 +178,7 @@ const Home = () => {
                     <Slider
                         className="reviews-slider"
                         slidesToShow={5}
-                        slidesToScroll={5}
+                        slidesToScroll={1}  // Set slidesToScroll to 1 to show one review at a time
                         nextArrow={<NextArrow />}
                         prevArrow={<PrevArrow />}
                         autoplay={true}
@@ -187,21 +187,19 @@ const Home = () => {
                         {products &&
                             products
                                 .filter((product) => product.reviews && product.reviews.length > 0)
-                                .map((product) => (
-                                    <div key={product._id} className="review-container">
-                                        {product.reviews.map((review) => (
-                                            <div className="review-card">
-                                                <img src={product.images[0].url} alt={product.name} />
-                                                <h3>{review.name}</h3>
-                                                <div className="stars">
-                                                    <ReactStars value={5} size={10} edit={false} />
-                                                </div>
-                                                <p>{review.comment}</p>
+                                .map((product) =>
+                                    product.reviews.map((review) => (
+                                        <div key={review._id} className="review-card">
+                                            <img src={product.images[0].url} alt={product.name} />
+                                            <h3>{review.name}</h3>
+                                            <div className="stars">
+                                                <ReactStars value={product.ratings} size={10} edit={false} />
                                             </div>
-                                        ))}
-                                    </div>
-                                ))}
-
+                                            <p>{review.comment}</p>
+                                        </div>
+                                    ))
+                                )
+                        }
                     </Slider>
                 </Fragment>}
         </Fragment>
