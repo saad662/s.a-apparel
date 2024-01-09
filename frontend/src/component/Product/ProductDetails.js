@@ -14,6 +14,8 @@ import { Modal, Button, Rate, Input } from "antd";
 import { NumericFormat } from 'react-number-format';
 import { addItemsToCart } from "../../actions/cartAction";
 import { NEW_REVIEW_RESET } from "../../constants/productConstants";
+import sale from "../../images/banner-detailspage.webp";
+
 
 const ProductDetails = () => {
     const dispatch = useDispatch();
@@ -90,6 +92,11 @@ const ProductDetails = () => {
             ) : (
                 <Fragment>
                     <MetaData title={`${product.name} - S.A APPAREL`} />
+
+                    <div className="banner_home">
+                            <img src={sale} alt="Banner" /> 
+                    </div>
+
                     <div className="ProductDetails">
                         <div >
                             <Carousel showArrows={true}>

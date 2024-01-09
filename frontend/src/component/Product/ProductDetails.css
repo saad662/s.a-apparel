@@ -2,11 +2,15 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+.banner_home {
+    margin-top: 70px;
+}
+
 .ProductDetails {
     background-color: rgb(255, 255, 255);
     width: 100vw;
     max-width: 100%;
-    padding: 6vmax;
+    padding: 1vmax;
     box-sizing: border-box;
     display: flex;
 
