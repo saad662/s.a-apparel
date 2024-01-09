@@ -3,6 +3,7 @@
     align-items: center;
     justify-content: center;
     width: 100%;
+    margin-bottom: -10vw;
 }
 
 .logo {
@@ -274,6 +275,10 @@
 
 /* Mobile CSS */
 @media (max-width: 768px) {
+
+    .firstBanner {
+        margin-bottom: 10vw !important;
+    }
 
     .imageContainer {
         flex-direction: column;

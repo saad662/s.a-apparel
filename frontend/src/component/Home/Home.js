@@ -57,7 +57,7 @@ const Home = () => {
                 <Fragment>
 
                     <MetaData title="S.A APPAREL - Home" />
-
+                    
                     <div className='firstBanner'>
                         <img src={logo} alt="Your Logo" className="logo" />
                     </div>

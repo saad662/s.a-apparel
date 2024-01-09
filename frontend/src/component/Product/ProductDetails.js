@@ -102,7 +102,7 @@ const ProductDetails = () => {
                 <Fragment>
                     <MetaData title={`${product.name} - S.A APPAREL`} />
 
-                    <div className="banner_home">
+                    <div className="bannerdetails">
                         <img src={sale} alt="Banner" />
                     </div>
 

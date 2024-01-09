@@ -2,8 +2,11 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-.banner_home {
+.bannerdetails {
     margin-top: 70px;
+}
+.bannerdetails img{
+    max-width: 100%;
 }
 
 .ProductDetails {
@@ -13,7 +16,6 @@ body {
     padding: 1vmax;
     box-sizing: border-box;
     display: flex;
-
 }
 
 .ProductDetails>div {
@@ -281,17 +283,6 @@ body {
     text-align: center;
     font-family: 'Montserrat', sans-serif;
 }
-
-#container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin-top: 20px;
-    padding: 20px;
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
-}
-
 
 @media screen and (max-width: 600px) {
     .ProductDetails {
