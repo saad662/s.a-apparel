@@ -66,6 +66,14 @@ const ProductDetails = () => {
         setModalVisible(false);
     };
 
+    // Extract category from the current product
+    const currentProductCategory = product.category;
+
+    // Filter products based on the category of the current product
+    const relatedProducts = products.filter(
+        (relatedProduct) => relatedProduct.category === currentProductCategory
+    );
+
     useEffect(() => {
         if (error) {
             toast.error(error);
@@ -95,7 +103,7 @@ const ProductDetails = () => {
                     <MetaData title={`${product.name} - S.A APPAREL`} />
 
                     <div className="banner_home">
-                            <img src={sale} alt="Banner" /> 
+                        <img src={sale} alt="Banner" />
                     </div>
 
                     <div className="ProductDetails">
@@ -214,9 +222,10 @@ const ProductDetails = () => {
                     <h1 className="mayLikeHeading">You may also like</h1>
                     <div className='container' id="container">
                         {
-                            products &&
-                            products.slice(0, 4).map((product) =>
-                                <ProductCard key={product._id} product={product} />)
+                            relatedProducts &&
+                            relatedProducts.slice(0, 4).map((relatedProduct) => (
+                                <ProductCard key={relatedProduct._id} product={relatedProduct} />
+                            ))
                         }
                     </div>
 
