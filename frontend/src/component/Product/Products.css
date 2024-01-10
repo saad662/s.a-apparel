@@ -52,6 +52,12 @@
 
 .search-bar input::placeholder {
   color: #aaa;
+  opacity: 1; /* Initial opacity when not focused */
+  transition: opacity 0.3s ease-in-out;
+}
+
+.search-bar input:focus::placeholder {
+  opacity: 1;
 }
 
 .category-link.active {

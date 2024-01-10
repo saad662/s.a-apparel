@@ -34,6 +34,31 @@ const Products = () => {
     const [sort, setSort] = useState("");
     const [activeCategory, setActiveCategory] = useState("All Products");
     const [searchKeyword, setSearchKeyword] = useState("");
+    const placeholderTexts = [
+        "Search for Men's Apparel",
+        "Explore Women's Fashion",
+        "Find Trendy Girls' Styles",
+        "Discover Boys' Fashion",
+        "Browse Cute Toddler Outfits",
+        "Shop for Baby Essentials",
+        "Explore Maternity Wear",
+        "Find the Latest Trends",
+        "Discover Exclusive Deals",
+        "Search by Brand or Category",
+        "Shop Sustainable Fashion",
+        "Fashion for Every Occasion",
+        "Find Your Perfect Style",
+        "Stay Fashionable and Comfortable",
+        "Trending Styles at Your Fingertips",
+        "Express Your Unique Personality",
+        "Elevate Your Wardrobe",
+        "Find Fashion Inspiration Here",
+        "Discover New Arrivals",
+        "Quality Fashion, Affordable Prices",
+      ];
+    
+      // State to track the current index of the placeholder text
+      const [placeholderIndex, setPlaceholderIndex] = useState(0);
 
     const {
         products,
@@ -64,7 +89,7 @@ const Products = () => {
         setSort(e.target.value);
     };
 
-    useEffect(() => {
+    useEffect(() => {  
         if (error) {
             toast.error(error);
             dispatch(clearErrors());
@@ -76,7 +101,15 @@ const Products = () => {
         }
 
         dispatch(getProduct(keyword, currentPage, price, selectedCategory === "" ? urlCategory : selectedCategory, ratings, sort));
-    }, [dispatch, keyword, currentPage, price, selectedCategory, urlCategory, ratings, error, sort]);
+
+        const intervalId = setInterval(() => {
+            setPlaceholderIndex((prevIndex) =>
+              prevIndex === placeholderTexts.length - 1 ? 0 : prevIndex + 1
+            );
+          }, 3000)
+
+        return () => clearInterval(intervalId);
+    }, [dispatch, keyword, currentPage, price, selectedCategory, urlCategory, ratings, error, sort, placeholderTexts.length]);
 
     return (
         <Fragment>
@@ -90,7 +123,7 @@ const Products = () => {
                     <div className="search-bar">
                         <input
                             type="text"
-                            placeholder="Search products..."
+                            placeholder={placeholderTexts[placeholderIndex]}
                             value={searchKeyword}
                             onChange={(e) => setSearchKeyword(e.target.value)}
                         />
