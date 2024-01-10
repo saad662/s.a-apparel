@@ -42,7 +42,6 @@ function App() {
 
   const closeModal = () => {
     setShowModal(false);
-    // Set a flag in local storage indicating that the modal has been shown
     localStorage.setItem('modalShown', 'true');
   };
 
@@ -84,8 +83,11 @@ function App() {
 
   return (
     <Router>
+
       <CalloutBanner />
+
       <Header />
+      
       {isAuthenticated && <UserOptions user={user} />}
 
       <Routes>
