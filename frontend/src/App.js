@@ -31,6 +31,7 @@ import MyOrders from "./component/Order/MyOrders.js";
 import OrderDetails from "./component/Order/OrderDetails.js";
 import Modal from "./component/Modal/Modal.js";
 // import WebBanner from "./component/WebBanner/WebBanner.js";
+import CalloutBanner from "./component/Banner/CalloutBanner.js";
 
 function App() {
 
@@ -83,6 +84,7 @@ function App() {
 
   return (
     <Router>
+      <CalloutBanner />
       <Header />
       {isAuthenticated && <UserOptions user={user} />}
 
@@ -96,7 +98,7 @@ function App() {
         <Route path="/products/:category" element={<Products />} />
 
         <Route path="/search" element={<Search />} />
-        
+
         <Route path="/products/search/:keyword" element={<Products />} />
 
         <Route path="/account" element={isAuthenticated ? <Account /> : <Navigate to="/login" replace={true} />} />
