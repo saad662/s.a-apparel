@@ -34,6 +34,7 @@ import Modal from "./component/Modal/Modal.js";
 import CalloutBanner from "./component/Banner/CalloutBanner.js";
 import ChatBot from "./component/ChatBot/ChatBot.js";
 import About from "./component/About/AboutPage.js";
+import Contact from "./component/Contact/Contact.js";
 
 function App() {
 
@@ -96,6 +97,8 @@ function App() {
         <Route path="/" element={<Home />} />
 
         <Route  path="about" element={<About />}/>
+
+        <Route path="/contact" element={<Contact />}/>
 
         <Route path="/product/:id" element={<ProductDetails />} />
 
