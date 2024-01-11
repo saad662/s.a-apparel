@@ -32,6 +32,7 @@ import OrderDetails from "./component/Order/OrderDetails.js";
 import Modal from "./component/Modal/Modal.js";
 // import WebBanner from "./component/WebBanner/WebBanner.js";
 import CalloutBanner from "./component/Banner/CalloutBanner.js";
+import ChatBot from "./component/ChatBot/ChatBot.js";
 
 function App() {
 
@@ -87,7 +88,7 @@ function App() {
       <CalloutBanner />
 
       <Header />
-      
+
       {isAuthenticated && <UserOptions user={user} />}
 
       <Routes>
@@ -136,9 +137,15 @@ function App() {
         <Route path="/order/:id" element={isAuthenticated ? <OrderDetails /> : <Navigate to="/login" replace={true} />} />
 
       </Routes>
+
       <Footer />
+
       <WhatsAppChat />
+
+      <ChatBot />
+
       {/* {showBanner && <WebBanner onClose={closeBanner} />} */}
+
       {showModal && <Modal onClose={closeModal} />}
     </Router>
   );

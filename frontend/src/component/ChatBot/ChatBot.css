@@ -1,0 +1,34 @@
+/* Chatbot.css */
+.chatbot-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 300px;
+  transition: width 0.3s;
+}
+
+.chatbot-container.open {
+  width: 350px;
+}
+
+.chatbot-content {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.user {
+  text-align: right;
+}
+
+.chatbot-toggle {
+  position: fixed;
+  bottom: 6vw;
+  right: 18px;
+  cursor: pointer;
+}
+
+.chatbot-toggle img {
+  width: 60px;
+  height: 60px;
+}
