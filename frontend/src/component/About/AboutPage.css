@@ -1,0 +1,68 @@
+.about-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.about-heading {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: #333;
+    /* Adjust the color as needed */
+}
+
+.about-subheading {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #666;
+    /* Adjust the color as needed */
+}
+
+.about-description {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+.author-section,
+.tech-stack-section,
+.contact-section {
+    margin-bottom: 40px;
+}
+
+.author-heading,
+.tech-stack-heading,
+.contact-heading,
+.placeholder-heading {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.author-description,
+.tech-stack-description,
+.contact-description,
+.placeholder-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.tech-stack-list {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+.tech-stack-list li {
+    font-size: 1rem;
+    margin-bottom: 8px;
+}
+
+.contact-email,
+.contact-github {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.contact-github a {
+    color: #007bff;
+    text-decoration: none;
+}
