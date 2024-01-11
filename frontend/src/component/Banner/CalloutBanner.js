@@ -14,7 +14,7 @@ const CalloutBanner = () => {
     useEffect(() => {
         const intervalId = setInterval(() => {
             setAnnouncementIndex((prevIndex) => (prevIndex + 1) % announcements.length);
-        }, 5000); 
+        }, 3000); 
 
         return () => clearInterval(intervalId);
     }, [announcementIndex, announcements.length]);

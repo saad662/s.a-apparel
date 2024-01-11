@@ -1,10 +1,15 @@
-/* Chatbot.css */
+/* ChatBot.css */
+
 .chatbot-container {
   position: fixed;
   bottom: 20px;
   right: 20px;
   width: 300px;
   transition: width 0.3s;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .chatbot-container.open {
@@ -12,13 +17,40 @@
 }
 
 .chatbot-content {
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  overflow: hidden;
+  border-radius: 10px;
 }
 
-.user {
-  text-align: right;
+.question {
+  margin-left: 12px;
+  cursor: pointer;
+  padding: 15px;
+  border-bottom: 1px solid #ccc;
+  transition: background-color 0.3s;
+  font-size: 16px;
+  color: #333;
+  /* Adjust the color as needed */
+}
+
+.question:hover {
+  background-color: #f5f5f5;
+}
+
+.answer {
+  padding: 15px;
+}
+
+.back-button {
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.back-button:hover {
+  background-color: #2980b9;
 }
 
 .chatbot-toggle {
@@ -31,4 +63,6 @@
 .chatbot-toggle img {
   width: 60px;
   height: 60px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
