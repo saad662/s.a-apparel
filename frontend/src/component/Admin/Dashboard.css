@@ -15,6 +15,7 @@
     color: rgba(0, 0, 0, 0.733);
     font: 300 2rem "Roboto";
     text-align: left; /* Adjusted alignment */
+    padding-left: 20vw;
   }
   
   .dashboardSummary {
