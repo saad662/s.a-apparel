@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import webfont from "webfontloader";
 import Header from "./component/layout/Header/Header.js"
-import Footer from "./component/layout/Footer/Footer.js"
+// import Footer from "./component/layout/Footer/Footer.js"
 import Home from "./component/Home/Home.js"
 import WhatsAppChat from "./component/WhatsAppChat/WhatsAppChat.js"
 import ProductDetails from "./component/Product/ProductDetails";
@@ -35,6 +35,7 @@ import CalloutBanner from "./component/Banner/CalloutBanner.js";
 import ChatBot from "./component/ChatBot/ChatBot.js";
 import About from "./component/About/AboutPage.js";
 import Contact from "./component/Contact/Contact.js";
+import Dashboard from './component/Admin/Dashboard.js';
 
 function App() {
 
@@ -142,9 +143,10 @@ function App() {
 
         <Route path="/order/:id" element={isAuthenticated ? <OrderDetails /> : <Navigate to="/login" replace={true} />} />
 
+        <Route path="/admin/dashboard" element={isAuthenticated ? <Dashboard /> : <Navigate to="/login" replace={true} />} />
       </Routes>
 
-      <Footer />
+      {/* <Footer /> */}
 
       <WhatsAppChat />
 
