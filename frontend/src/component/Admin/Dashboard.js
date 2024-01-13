@@ -23,25 +23,27 @@ const Dashboard = () => {
             <p>Total Amount</p>
             <p className="currency">PKR 13231.</p>
           </div>
+
           <div className="dashboardSummaryBox">
             <Link to="/admin/products" className="dashboardLink">
-              <p>Products</p>
+              <p className="dashboardLinkText">Products</p>
             </Link>
             <Link to="/admin/orders" className="dashboardLink">
-              <p>Orders</p>
+              <p className="dashboardLinkText">Orders</p>
             </Link>
             <Link to="/admin/users" className="dashboardLink">
-              <p>Users</p>
+              <p className="dashboardLinkText">Users</p>
             </Link>
           </div>
+
         </div>
 
         <div className="lineChart">
-          
+
         </div>
 
         <div className="doughnutChart">
-          
+
         </div>
       </div>
     </div>
