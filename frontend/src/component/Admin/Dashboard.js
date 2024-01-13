@@ -14,26 +14,24 @@ const Dashboard = () => {
       <Sidebar />
 
       <div className="dashboardContainer">
-        <Typography component="h1">Dashboard</Typography>
+        <Typography component="h1" className="dashboardTitle">
+          Dashboard
+        </Typography>
 
         <div className="dashboardSummary">
-          <div>
-            <p>
-              Total Amount <br /> PKR
-            </p>
+          <div className="dashboardSummaryItem">
+            <p>Total Amount</p>
+            <p className="currency">PKR 13231.</p>
           </div>
-          <div className="dashboardSummaryBox2">
-            <Link to="/admin/products">
-              <p>Product</p>
-              
+          <div className="dashboardSummaryBox">
+            <Link to="/admin/products" className="dashboardLink">
+              <p>Products</p>
             </Link>
-            <Link to="/admin/orders">
+            <Link to="/admin/orders" className="dashboardLink">
               <p>Orders</p>
-          
             </Link>
-            <Link to="/admin/users">
+            <Link to="/admin/users" className="dashboardLink">
               <p>Users</p>
-              
             </Link>
           </div>
         </div>
