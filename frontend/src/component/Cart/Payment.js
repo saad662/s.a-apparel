@@ -2,7 +2,6 @@ import React, { Fragment, useEffect, useRef } from "react";
 import CheckoutSteps from "../Cart/CheckoutSteps";
 import { useSelector, useDispatch } from "react-redux";
 import MetaData from "../layout/MetaData";
-import { Typography } from "antd";
 import { toast } from 'react-toastify';
 import axios from "axios";
 import "./Payment.css";
@@ -124,7 +123,7 @@ const Payment = () => {
             <CheckoutSteps activeStep={2} />
             <div className="paymentContainer">
                 <form className="paymentForm" onSubmit={(e) => submitHandler(e)}>
-                    <Typography>Card Info</Typography>
+                    <h1>Pay with Stripe</h1>
                     <div>
                         <CreditCardOutlined />
                         <CardNumberElement className="paymentInput" />

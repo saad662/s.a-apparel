@@ -20,8 +20,14 @@ const ProductList = () => {
   const columns = [
     { title: "Product ID", dataIndex: "id", key: "id" },
     { title: "Name", dataIndex: "name", key: "name" },
-    { title: "Stock", dataIndex: "stock", key: "stock" },
-    { title: "Price", dataIndex: "price", key: "price" },
+    { title: "stock", dataIndex: "stock", key: "stock" },
+    {
+      title: "Price",
+      dataIndex: "price",
+      key: "price",
+      sorter: (a, b) => a.price - b.price,
+      sortDirections: ["ascend", "descend"],
+    },
     {
       title: "Actions",
       key: "actions",
@@ -46,7 +52,7 @@ const ProductList = () => {
     ? products.map((item) => ({
       key: item._id,
       id: item._id,
-      stock: item.Stock,
+      stock: item.stock,
       price: item.price,
       name: item.name,
     }))

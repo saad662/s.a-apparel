@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { toast } from 'react-toastify';
 import MetaData from "../layout/MetaData";
 import { ExportOutlined } from '@ant-design/icons';
-import { Table, Typography,Tooltip } from "antd";
+import { Table, Typography, Tooltip } from "antd";
 
 const MyOrders = () => {
     const dispatch = useDispatch();
@@ -51,10 +51,10 @@ const MyOrders = () => {
             sortDirections: ["ascend", "descend"],
         },
         {
-            title: "Amount", 
-            dataIndex: "amount", 
-            key: "amount", 
-            width: 150, 
+            title: "Amount",
+            dataIndex: "amount",
+            key: "amount",
+            width: 150,
             sorter: (a, b) => a.amount - b.amount,
             sortDirections: ["ascend", "descend"],
         },
@@ -64,9 +64,9 @@ const MyOrders = () => {
             width: 185,
             render: (_, record) => (
                 <Tooltip title="View Order">
-                <Link to={`/order/${record.id}`}>
-                    <ExportOutlined />
-                </Link>
+                    <Link to={`/order/${record.id}`}>
+                        <ExportOutlined />
+                    </Link>
                 </Tooltip>
             ),
         },
