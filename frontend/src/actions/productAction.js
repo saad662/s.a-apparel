@@ -13,9 +13,9 @@ import {
     ALL_REVIEW_REQUEST,
     ALL_REVIEW_SUCCESS,
     ALL_REVIEW_FAIL,
-    // ADMIN_PRODUCT_REQUEST,
-    // ADMIN_PRODUCT_SUCCESS,
-    // ADMIN_PRODUCT_FAIL,
+    ADMIN_PRODUCT_REQUEST,
+    ADMIN_PRODUCT_SUCCESS,
+    ADMIN_PRODUCT_FAIL,
     // NEW_PRODUCT_REQUEST,
     // NEW_PRODUCT_SUCCESS,
     // NEW_PRODUCT_FAIL,
@@ -145,7 +145,7 @@ export const getAllReviews = (id) => async (dispatch) => {
         });
     }
 };
-/*
+
 
 // Get All Products For Admin
 export const getAdminProduct = () => async (dispatch) => {
@@ -165,6 +165,8 @@ export const getAdminProduct = () => async (dispatch) => {
         });
     }
 };
+
+/*
 
 // Create Product
 export const createProduct = (productData) => async (dispatch) => {
