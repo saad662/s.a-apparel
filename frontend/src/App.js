@@ -36,6 +36,14 @@ import ChatBot from "./component/ChatBot/ChatBot.js";
 import About from "./component/About/AboutPage.js";
 import Contact from "./component/Contact/Contact.js";
 import Dashboard from './component/Admin/Dashboard.js';
+import ProductList from './component/Admin/ProductList.js';
+import NewProduct from './component/Admin/NewProduct.js';
+import UpdateProduct from './component/Admin/UpdateProduct.js';
+import OrderList from './component/Admin/OrderList.js';
+import ProcessOrder from './component/Admin/ProcessOrder.js';
+import UsersList from './component/Admin/UsersList.js';
+import UpdateUser from './component/Admin/UpdateUser.js';
+import ProductReviews from './component/Admin/ProductReviews.js';
 
 function App() {
 
@@ -144,6 +152,23 @@ function App() {
         <Route path="/order/:id" element={isAuthenticated ? <OrderDetails /> : <Navigate to="/login" replace={true} />} />
 
         <Route path="/admin/dashboard" element={isAuthenticated ? <Dashboard /> : <Navigate to="/login" replace={true} />} />
+
+        <Route path="/admin/products" element={isAuthenticated ? <ProductList /> : <Navigate to="/login" replace={true} />} />
+
+        <Route path="/admin/product" element={isAuthenticated ? <NewProduct /> : <Navigate to="/login" replace={true} />} />
+
+        <Route path="/admin/product/:id" element={isAuthenticated ? <UpdateProduct /> : <Navigate to="/login" replace={true} />} />
+
+        <Route path="/admin/orders" element={isAuthenticated ? <OrderList /> : <Navigate to="/login" replace={true} />} />
+        
+        <Route path="/admin/order/:id" element={isAuthenticated ? <ProcessOrder /> : <Navigate to="/login" replace={true} />} />
+
+        <Route path="/admin/users" element={isAuthenticated ? <UsersList /> : <Navigate to="/login" replace={true} />} />
+
+        <Route path="/admin/user/:id" element={isAuthenticated ? <UpdateUser /> : <Navigate to="/login" replace={true} />} />
+
+        <Route path="/admin/reviews" element={isAuthenticated ? <ProductReviews /> : <Navigate to="/login" replace={true} />} />
+
       </Routes>
 
       {/* <Footer /> */}
