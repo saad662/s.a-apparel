@@ -16,9 +16,9 @@ import {
     ADMIN_PRODUCT_REQUEST,
     ADMIN_PRODUCT_SUCCESS,
     ADMIN_PRODUCT_FAIL,
-    // NEW_PRODUCT_REQUEST,
-    // NEW_PRODUCT_SUCCESS,
-    // NEW_PRODUCT_FAIL,
+    NEW_PRODUCT_REQUEST,
+    NEW_PRODUCT_SUCCESS,
+    NEW_PRODUCT_FAIL,
     // UPDATE_PRODUCT_REQUEST,
     // UPDATE_PRODUCT_SUCCESS,
     // UPDATE_PRODUCT_FAIL,
@@ -166,7 +166,7 @@ export const getAdminProduct = () => async (dispatch) => {
     }
 };
 
-/*
+
 
 // Create Product
 export const createProduct = (productData) => async (dispatch) => {
@@ -194,6 +194,8 @@ export const createProduct = (productData) => async (dispatch) => {
         });
     }
 };
+
+/*
 
 // Update Product
 export const updateProduct = (id, productData) => async (dispatch) => {

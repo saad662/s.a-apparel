@@ -4,7 +4,7 @@ import { composeWithDevTools } from "redux-devtools-extension"; // DevTools for 
 
 import {
     productsReducer,         // Handles fetching a list of products
-    // newProductReducer,       // Handles creating new products
+    newProductReducer,       // Handles creating new products
     newReviewReducer,        // Handles creating new reviews for products
     productDetailsReducer,   // Handles fetching details of a specific product
     // productReducer,          // Handles fetching a list of products
@@ -42,7 +42,7 @@ const reducer = combineReducers({
     myOrders: myOrdersReducer,             // Manages user-specific order list
     orderDetails: orderDetailsReducer,     // Manages detailed information about an order
     newReview: newReviewReducer,           // Manages the creation of new product reviews
-    // newProduct: newProductReducer,         // Manages the creation of new products
+    newProduct: newProductReducer,         // Manages the creation of new products
     // product: productReducer,               // Manages a list of products
     // allOrders: allOrdersReducer,           // Manages a list of all orders
     // order: orderReducer,                   // Manages a list of orders
