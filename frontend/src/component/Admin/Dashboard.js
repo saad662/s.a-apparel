@@ -1,21 +1,39 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Dashboard.css";
 import Sidebar from "./Sidebar.js";
 import { Typography } from "antd";
 import MetaData from "../layout/MetaData";
 import { Link } from "react-router-dom";
-// import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { getAdminProduct } from "../../actions/productAction";
 import { PieChart, Pie, Cell } from "recharts";
 import { VictoryChart, VictoryLine } from 'victory';
 
 const Dashboard = () => {
+  const dispatch = useDispatch();
+
+  const { products } = useSelector((state) => state.products);
+
+  const COLORS = ["#00A6B4", "#6800B4"]; //for pie chart
+
+  let outOfStock = 0;
+
+  products &&
+    products.forEach((item) => {
+      if (item.stock === 0) {
+        outOfStock += 1;
+      }
+    });
 
   const pieChartData = [
-    { name: "Out of Stock", value: 5 },
-    { name: "In Stock", value: 10 - 5 },
+    { name: "Out of Stock", value: outOfStock },
+    { name: "In Stock", value: products.length - outOfStock },
   ];
 
-  const COLORS = ["#00A6B4", "#6800B4"];
+
+  useEffect(() => {
+    dispatch(getAdminProduct());
+  }, [dispatch]);
 
   return (
     <div className="dashboard">
@@ -48,7 +66,7 @@ const Dashboard = () => {
         </div>
 
         <div className="lineChart">
-        <VictoryChart>
+          <VictoryChart>
             <VictoryLine
               data={[
                 { x: 0, y: 0 },
@@ -59,6 +77,7 @@ const Dashboard = () => {
         </div>
 
         <div className="doughnutChart">
+          <h2>Product Stock</h2>
           <PieChart width={400} height={300}>
             <Pie
               data={pieChartData}
@@ -75,8 +94,16 @@ const Dashboard = () => {
               ))}
             </Pie>
           </PieChart>
-        </div>
 
+        </div>
+        <div className="indicator">
+          <div className="colorBox" style={{ backgroundColor: COLORS[0] }} />
+          <p>Out of Stock Products</p>
+        </div>
+        <div className="indicator">
+          <div className="colorBox" style={{ backgroundColor: COLORS[1] }} />
+          <p>Stocked Products</p>
+        </div>
       </div>
     </div>
   );
