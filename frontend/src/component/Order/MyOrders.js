@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { toast } from 'react-toastify';
 import MetaData from "../layout/MetaData";
 import { ExportOutlined } from '@ant-design/icons';
-import { Table, Typography } from "antd";
+import { Table, Typography,Tooltip } from "antd";
 
 const MyOrders = () => {
     const dispatch = useDispatch();
@@ -63,9 +63,11 @@ const MyOrders = () => {
             key: "actions",
             width: 185,
             render: (_, record) => (
+                <Tooltip title="View Order">
                 <Link to={`/order/${record.id}`}>
                     <ExportOutlined />
                 </Link>
+                </Tooltip>
             ),
         },
     ];

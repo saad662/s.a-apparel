@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect } from "react";
-import { Table, Button } from "antd";
+import { Table, Button, Tooltip } from "antd";
 import MetaData from "../layout/MetaData";
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -27,13 +27,16 @@ const ProductList = () => {
       key: "actions",
       render: (text, record) => (
         <Fragment>
-          <Link to={`/admin/product/${record.id}`}>
-            <EditOutlined />
-          </Link>
-          <Button onClick={() => deleteProductHandler(record.id)}>
-            <DeleteOutlined />
-          </Button>
-
+          <Tooltip title="Edit Product">
+            <Link to={`/admin/product/${record.id}`}>
+              <EditOutlined />
+            </Link>
+          </Tooltip>
+          <Tooltip title="Delete Product">
+            <Button onClick={() => deleteProductHandler(record.id)} className="actionButton">
+              <DeleteOutlined />
+            </Button>
+          </Tooltip>
         </Fragment>
       ),
     },
