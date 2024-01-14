@@ -38,14 +38,14 @@ const getAllProducts = catchAsyncErrors(async (req, res, next) => {
 });
 
 // Get All Product (Admin)
-const getAdminProducts = catchAsyncErrors(async (req, res, next) => {
-    const products = await Product.find();
+// const getAdminProducts = catchAsyncErrors(async (req, res, next) => {
+//     const products = await Product.find();
 
-    res.status(200).json({
-        success: true,
-        products,
-    });
-});
+//     res.status(200).json({
+//         success: true,
+//         products,
+//     });
+// });
 
 // Get all products.
 const getProducts = catchAsyncErrors(async (req, res, next) => {
@@ -235,5 +235,5 @@ module.exports = {
     getAllProductReviews,
     deleteProductReview,
     getProducts,
-    getAdminProducts
+    // getAdminProducts
 };

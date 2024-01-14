@@ -9,7 +9,7 @@ const {
     getAllProductReviews,
     deleteProductReview,
     getProducts,
-    getAdminProducts
+    // getAdminProducts
 } = require("../controllers/productController");
 
 const { isAuthenticatedUser, authorizedRoles } = require("../middleware/auth");
@@ -19,7 +19,7 @@ router.route("/products").get(getAllProducts);
 router.route("/Allproducts").get(getProducts);
 
 router.route("/admin/product/new").post(isAuthenticatedUser, authorizedRoles("admin"), createProduct);
-router.route("/admin/products").get(isAuthenticatedUser, authorizedRoles("admin"), getAdminProducts);
+// router.route("/admin/products").get(isAuthenticatedUser, authorizedRoles("admin"), getAdminProducts);
 
 router.route("/admin/product/:id")
     .put(isAuthenticatedUser, authorizedRoles("admin"), updateProduct)
