@@ -57,10 +57,36 @@
     color: rgba(0, 0, 0, 0.623);
 }
 
-#createProductFormFile>input {
-    display: flex;
-    padding: 0%;
+#createProductFormFile {
+    position: relative;
 }
+
+#createProductFormFile > input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+
+.fileInputLabel {
+    cursor: pointer;
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #3498db;
+    border: 1px solid #2980b9;
+    border-radius: 5px;
+  }
+  
+  .fileInputLabel:hover {
+    background-color: #2980b9;
+  }
 
 #createProductFormFile>input::file-selector-button {
     cursor: pointer;
