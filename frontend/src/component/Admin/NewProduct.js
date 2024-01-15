@@ -19,8 +19,8 @@ const NewProduct = () => {
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
   const [stock, setstock] = useState(0);
-  // const [images, setImages] = useState([]);
-  // const [imagesPreview, setImagesPreview] = useState([]);
+  const [images, setImages] = useState([]);
+  const [imagesPreview, setImagesPreview] = useState([]);
 
   const categories = [
     "MEN",
@@ -58,33 +58,33 @@ const NewProduct = () => {
     myForm.set("category", category);
     myForm.set("stock", stock);
 
-    // images.forEach((image) => {
-    //   myForm.append("images", image);
-    // });
+    images.forEach((image) => {
+      myForm.append("images", image);
+    });
 
     console.log("Form data:", myForm);
     dispatch(createProduct(myForm));
   };
 
-  // const createProductImagesChange = (e) => {
-  //   const files = Array.from(e.target.files);
+  const createProductImagesChange = (e) => {
+    const files = Array.from(e.target.files);
 
-  //   setImages([]);
-  //   setImagesPreview([]);
+    setImages([]);
+    setImagesPreview([]);
 
-  //   files.forEach((file) => {
-  //     const reader = new FileReader();
+    files.forEach((file) => {
+      const reader = new FileReader();
 
-  //     reader.onload = () => {
-  //       if (reader.readyState === 2) {
-  //         setImagesPreview((old) => [...old, reader.result]);
-  //         setImages((old) => [...old, reader.result]);
-  //       }
-  //     };
+      reader.onload = () => {
+        if (reader.readyState === 2) {
+          setImagesPreview((old) => [...old, reader.result]);
+          setImages((old) => [...old, reader.result]);
+        }
+      };
 
-  //     reader.readAsDataURL(file);
-  //   });
-  // };
+      reader.readAsDataURL(file);
+    });
+  };
 
   return (
     <Fragment>
@@ -153,7 +153,7 @@ const NewProduct = () => {
               />
             </div>
 
-            {/* <div id="createProductFormFile">
+            <div id="createProductFormFile">
               <label htmlFor="imageInput" className="fileInputLabel">
                 Choose Images
               </label>
@@ -165,13 +165,13 @@ const NewProduct = () => {
                 onChange={createProductImagesChange}
                 multiple
               />
-            </div> */}
+            </div>
 
-            {/* <div id="createProductFormImage">
+            <div id="createProductFormImage">
               {imagesPreview.map((image, index) => (
                 <img key={index} src={image} alt="Product Preview" />
               ))}
-            </div> */}
+            </div>
 
             <button
               id="createProductBtn"
