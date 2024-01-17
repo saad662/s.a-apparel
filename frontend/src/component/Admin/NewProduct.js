@@ -48,8 +48,6 @@ const NewProduct = () => {
   const createProductSubmitHandler = (e) => {
     e.preventDefault();
 
-    console.log("Submitting product...");
-
     const myForm = new FormData();
 
     myForm.set("name", name);
@@ -62,7 +60,6 @@ const NewProduct = () => {
       myForm.append("images", image);
     });
 
-    console.log("Form data:", myForm);
     dispatch(createProduct(myForm));
   };
 
