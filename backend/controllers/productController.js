@@ -9,10 +9,10 @@ const createProduct = catchAsyncErrors(
     async (req, res) => {
         let images = [];
 
-        if (typeof req.body.images === "string") {
-            images.push(req.body.images);
-        } else {
+        if (req.body.images instanceof Array) {
             images = req.body.images;
+        } else if (typeof req.body.images === "string") {
+            images.push(req.body.images);
         }
 
         const imagesLinks = [];
@@ -33,7 +33,7 @@ const createProduct = catchAsyncErrors(
         const product = await Product.create(req.body);
 
         res.status(201).json({
-            sucess: true,
+            success: true,
             product
         });
     }
