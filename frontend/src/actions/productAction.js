@@ -22,9 +22,9 @@ import {
     DELETE_PRODUCT_REQUEST,
     DELETE_PRODUCT_SUCCESS,
     DELETE_PRODUCT_FAIL,
-    // UPDATE_PRODUCT_REQUEST,
-    // UPDATE_PRODUCT_SUCCESS,
-    // UPDATE_PRODUCT_FAIL,
+    UPDATE_PRODUCT_REQUEST,
+    UPDATE_PRODUCT_SUCCESS,
+    UPDATE_PRODUCT_FAIL,
     // DELETE_REVIEW_REQUEST,
     // DELETE_REVIEW_SUCCESS,
     // DELETE_REVIEW_FAIL,
@@ -213,8 +213,6 @@ export const deleteProduct = (id) => async (dispatch) => {
     }
 };
 
-/*
-
 // Update Product
 export const updateProduct = (id, productData) => async (dispatch) => {
     try {
@@ -224,11 +222,7 @@ export const updateProduct = (id, productData) => async (dispatch) => {
             headers: { "Content-Type": "application/json" },
         };
 
-        const { data } = await axios.put(
-            `/api/v1/admin/product/${id}`,
-            productData,
-            config
-        );
+        const { data } = await axios.put(`/api/v1/admin/product/${id}`, productData, config);
 
         dispatch({
             type: UPDATE_PRODUCT_SUCCESS,
@@ -242,6 +236,7 @@ export const updateProduct = (id, productData) => async (dispatch) => {
     }
 };
 
+/*
 
 // Delete Review of a Product
 export const deleteReviews = (reviewId, productId) => async (dispatch) => {
