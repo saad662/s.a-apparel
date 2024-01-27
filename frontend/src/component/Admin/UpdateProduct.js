@@ -181,15 +181,13 @@ const UpdateProduct = ({ match }) => {
               />
             </div>
 
-            <div id="createProductFormFile">
-              <input
-                type="file"
-                name="avatar"
-                accept="image/*"
-                onChange={updateProductImagesChange}
-                multiple
-              />
-            </div>
+            <input
+              type="file"
+              name="avatar"
+              accept="image/*"
+              onChange={updateProductImagesChange}
+              multiple
+            />
 
             <div id="createProductFormImage">
               {oldImages &&
