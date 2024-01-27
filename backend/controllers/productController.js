@@ -134,8 +134,12 @@ const deleteProduct = (
         if (!product) {
             return next(new ErrorHandler("Product not found", 404));
         }
-        //console.log(product);
-        //await product.remove();
+
+        // Deleting Images From Cloudinary
+        for (let i = 0; i < product.images.length; i++) {
+            await cloudinary.v2.uploader.destroy(product.images[i].public_id);
+        }
+
         await product.deleteOne();
         res.status(200).json({
             sucess: true,
