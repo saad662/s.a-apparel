@@ -5,15 +5,19 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   clearErrors,
   getAdminProduct,
+  deleteProduct,
 } from "../../actions/productAction";
 import SideBar from "./Sidebar";
 import { Link } from "react-router-dom";
 import "./ProductList.css";
 import { toast } from 'react-toastify';
+import { useNavigate } from "react-router-dom";
 import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
+import { DELETE_PRODUCT_RESET } from "../../constants/productConstants";
 
 const ProductList = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const { error, products } = useSelector((state) => state.products);
 
@@ -58,9 +62,13 @@ const ProductList = () => {
     }))
     : [];
 
+    const { error: deleteError, isDeleted } = useSelector(
+      (state) => state.product
+    );
 
-  const deleteProductHandler = (id) => {
-  };
+    const deleteProductHandler = (id) => {
+      dispatch(deleteProduct(id));
+    };  
 
   useEffect(() => {
     if (error) {
@@ -68,8 +76,19 @@ const ProductList = () => {
       dispatch(clearErrors());
     }
 
+    if (deleteError) {
+      toast.error(deleteError);
+      dispatch(clearErrors());
+    }
+
+    if (isDeleted) {
+      toast.success("Product Deleted Successfully");
+      navigate("/admin/dashboard");
+      dispatch({ type: DELETE_PRODUCT_RESET });
+    }
+
     dispatch(getAdminProduct());
-  }, [dispatch, error]);
+  }, [dispatch, error, deleteError, isDeleted, navigate]);
 
   return (
     <Fragment>

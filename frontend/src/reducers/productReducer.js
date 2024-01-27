@@ -23,14 +23,14 @@ import {
     NEW_PRODUCT_SUCCESS,
     NEW_PRODUCT_FAIL,
     NEW_PRODUCT_RESET,
-    // UPDATE_PRODUCT_REQUEST,
-    // UPDATE_PRODUCT_SUCCESS,
-    // UPDATE_PRODUCT_FAIL,
-    // UPDATE_PRODUCT_RESET,
-    // DELETE_PRODUCT_REQUEST,
-    // DELETE_PRODUCT_SUCCESS,
-    // DELETE_PRODUCT_FAIL,
-    // DELETE_PRODUCT_RESET,
+    UPDATE_PRODUCT_REQUEST,
+    UPDATE_PRODUCT_SUCCESS,
+    UPDATE_PRODUCT_FAIL,
+    UPDATE_PRODUCT_RESET,
+    DELETE_PRODUCT_REQUEST,
+    DELETE_PRODUCT_SUCCESS,
+    DELETE_PRODUCT_FAIL,
+    DELETE_PRODUCT_RESET,
     CLEAR_ERRORS,
 } from "../constants/productConstants";
 
@@ -233,7 +233,7 @@ export const newProductReducer = (state = { product: {} }, action) => {
     }
 };
 
-/*
+
 export const productReducer = (state = {}, action) => {
     switch (action.type) {
         case DELETE_PRODUCT_REQUEST:
@@ -281,9 +281,3 @@ export const productReducer = (state = {}, action) => {
             return state;
     }
 };
-
-
-
-
-
-*/

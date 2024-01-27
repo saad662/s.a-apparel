@@ -7,7 +7,7 @@ import {
     newProductReducer,       // Handles creating new products
     newReviewReducer,        // Handles creating new reviews for products
     productDetailsReducer,   // Handles fetching details of a specific product
-    // productReducer,          // Handles fetching a list of products
+    productReducer,          // Handles fetching a list of products
     productReviewsReducer,   // Handles fetching reviews for a product
     reviewReducer,           // Handles fetching a specific review
 
@@ -43,7 +43,7 @@ const reducer = combineReducers({
     orderDetails: orderDetailsReducer,     // Manages detailed information about an order
     newReview: newReviewReducer,           // Manages the creation of new product reviews
     newProduct: newProductReducer,         // Manages the creation of new products
-    // product: productReducer,               // Manages a list of products
+    product: productReducer,               // Manages a list of products
     // allOrders: allOrdersReducer,           // Manages a list of all orders
     // order: orderReducer,                   // Manages a list of orders
     // allUsers: allUsersReducer,             // Manages a list of all users
@@ -61,6 +61,9 @@ let initialState = {
         shippingInfo: localStorage.getItem("shippingInfo")
             ? JSON.parse(localStorage.getItem("shippingInfo"))
             : {},
+    },
+    product: {
+        isDeleted: false,
     },
 };
 
