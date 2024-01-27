@@ -62,12 +62,12 @@ const ProductList = () => {
     }))
     : [];
 
-    const { error: deleteError, isDeleted } = useSelector(
-      (state) => state.product
-    );
+    const { error: deleteError, isDeleted } = useSelector((state) => state.product);
 
     const deleteProductHandler = (id) => {
       dispatch(deleteProduct(id));
+      toast.success("Product Deleted Successfully");
+      navigate("/admin/dashboard");
     };  
 
   useEffect(() => {
@@ -82,8 +82,6 @@ const ProductList = () => {
     }
 
     if (isDeleted) {
-      toast.success("Product Deleted Successfully");
-      navigate("/admin/dashboard");
       dispatch({ type: DELETE_PRODUCT_RESET });
     }
 

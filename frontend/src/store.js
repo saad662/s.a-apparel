@@ -62,9 +62,6 @@ let initialState = {
             ? JSON.parse(localStorage.getItem("shippingInfo"))
             : {},
     },
-    product: {
-        isDeleted: false,
-    },
 };
 
 // Middleware setup 
