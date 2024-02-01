@@ -49,7 +49,7 @@ const ProcessOrder = () => {
     }
 
     dispatch(getOrderDetails(id));
-  }, [dispatch, error,id, isUpdated, updateError]);
+  }, [dispatch, error, id, isUpdated, updateError]);
 
   return (
     <Fragment>
@@ -68,6 +68,7 @@ const ProcessOrder = () => {
             >
               <div>
                 <div className="confirmshippingArea">
+                <h1>Order Details</h1>
                   <h2>Shipping Info</h2>
                   <div className="orderDetailsContainerBox">
                     <div>
@@ -78,7 +79,7 @@ const ProcessOrder = () => {
                     </div>
                     <div>
                       <p>Address:  {order.shippingInfo &&
-                          `${order.shippingInfo.address}, ${order.shippingInfo.city}, ${order.shippingInfo.state}, ${order.shippingInfo.postalCode}, ${order.shippingInfo.country}`}</p>
+                        `${order.shippingInfo.address}, ${order.shippingInfo.city}, ${order.shippingInfo.state}, ${order.shippingInfo.postalCode}, ${order.shippingInfo.country}`}</p>
                     </div>
                   </div>
                   <h2>Payment</h2>
@@ -100,7 +101,10 @@ const ProcessOrder = () => {
                     </div>
 
                     <div>
-                      <p>Amount: {order.totalPrice && order.totalPrice}</p>
+                      <p>Items Price: PKR {order.itemsPrice && order.itemsPrice}</p>
+                      <p>Tax: PKR {order.taxPrice && order.taxPrice}</p>
+                      <p>Shipping: PKR {order.shippingPrice && order.shippingPrice}</p>
+                      <p>Total Amount: PKR {order.totalPrice && order.totalPrice}</p>
                     </div>
                   </div>
 
@@ -122,15 +126,15 @@ const ProcessOrder = () => {
                 <div className="confirmCartItems">
                   <h2>Your Cart Items:</h2>
                   <div className="confirmCartItemsContainer">
-                    {order.orderItems &&
-                      order.orderItems.map((item) => (
+                    {order.OrderItems &&
+                      order.OrderItems.map((item) => (
                         <div key={item.product}>
                           <img src={item.image} alt="Product" />
                           <Link to={`/product/${item.product}`}>
                             {item.name}
                           </Link>{" "}
                           <span>
-                            {item.quantity} X PKR{item.price} ={" "}
+                            {item.quantity} X {item.price} ={" "}
                             <b>PKR{item.price * item.quantity}</b>
                           </span>
                         </div>
