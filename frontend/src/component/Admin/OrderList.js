@@ -47,12 +47,11 @@ const OrderList = () => {
   }, [dispatch, navigate, error, deleteError, isDeleted]);
 
   const columns = [
-    { title: "Order ID", dataIndex: "id", key: "id", width: 300 },
+    { title: "Order ID", dataIndex: "id", key: "id" },
     {
       title: "Status",
       dataIndex: "status",
       key: "status",
-      width: 150,
       render: (text) => (
         <span className={text === "Delivered" ? "greenColor" : "redColor"}>
           {text}
@@ -63,7 +62,6 @@ const OrderList = () => {
       title: "Items Qty",
       dataIndex: "itemsQty",
       key: "itemsQty",
-      width: 150,
       sorter: (a, b) => a.itemsQty - b.itemsQty,
       sortDirections: ["ascend", "descend"]
     },
@@ -71,22 +69,21 @@ const OrderList = () => {
       title: "Amount",
       dataIndex: "amount",
       key: "amount",
-      width: 270,
       sorter: (a, b) => a.amount - b.amount,
       sortDirections: ["ascend", "descend"]
     },
     {
       title: "Actions",
       key: "actions",
-      width: 150,
       render: (text, record) => (
         <Fragment>
-          <Tooltip title="Edit Product">
+          <Tooltip title="Edit Order">
             <Link to={`/admin/order/${record.id}`}>
               <EditOutlined />
             </Link>
           </Tooltip>
-          <Tooltip title="Delete Product">
+          <span style={{ marginRight: '30px' }}></span>
+          <Tooltip title="Delete Order">
             <Button onClick={() => deleteOrderHandler(record.id)}>
               <DeleteOutlined />
             </Button>
