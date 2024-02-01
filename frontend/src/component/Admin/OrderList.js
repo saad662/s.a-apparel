@@ -3,7 +3,7 @@ import "./ProductList.css";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
-import { Table, Button } from "antd";
+import { Table, Button, Tooltip } from "antd";
 import MetaData from "../layout/MetaData";
 import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
 import SideBar from "./Sidebar";
@@ -59,20 +59,38 @@ const OrderList = () => {
         </span>
       ),
     },
-    { title: "Items Qty", dataIndex: "itemsQty", key: "itemsQty", width: 150 },
-    { title: "Amount", dataIndex: "amount", key: "amount", width: 270 },
+    {
+      title: "Items Qty",
+      dataIndex: "itemsQty",
+      key: "itemsQty",
+      width: 150,
+      sorter: (a, b) => a.itemsQty - b.itemsQty,
+      sortDirections: ["ascend", "descend"]
+    },
+    {
+      title: "Amount",
+      dataIndex: "amount",
+      key: "amount",
+      width: 270,
+      sorter: (a, b) => a.amount - b.amount,
+      sortDirections: ["ascend", "descend"]
+    },
     {
       title: "Actions",
       key: "actions",
       width: 150,
       render: (text, record) => (
         <Fragment>
-          <Link to={`/admin/order/${record.id}`}>
-            <EditOutlined />
-          </Link>
-          <Button onClick={() => deleteOrderHandler(record.id)}>
-            <DeleteOutlined />
-          </Button>
+          <Tooltip title="Edit Product">
+            <Link to={`/admin/order/${record.id}`}>
+              <EditOutlined />
+            </Link>
+          </Tooltip>
+          <Tooltip title="Delete Product">
+            <Button onClick={() => deleteOrderHandler(record.id)}>
+              <DeleteOutlined />
+            </Button>
+          </Tooltip>
         </Fragment>
       ),
     },
