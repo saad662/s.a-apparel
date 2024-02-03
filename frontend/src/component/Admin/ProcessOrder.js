@@ -68,7 +68,11 @@ const ProcessOrder = () => {
             >
               <div>
                 <div className="confirmshippingArea">
-                <h1>Order Details</h1>
+                  <h1>Order Details</h1>
+                  <div>
+                    <p>Order Number: {order._id && order._id}</p>
+                    <p>Order Date: {order.createdAt && new Date(order.createdAt).toLocaleString()}</p>
+                  </div>
                   <h2>Shipping Info</h2>
                   <div className="orderDetailsContainerBox">
                     <div>
@@ -105,6 +109,7 @@ const ProcessOrder = () => {
                       <p>Tax: PKR {order.taxPrice && order.taxPrice}</p>
                       <p>Shipping: PKR {order.shippingPrice && order.shippingPrice}</p>
                       <p>Total Amount: PKR {order.totalPrice && order.totalPrice}</p>
+                      <p>Stripe Payment id: {order.paymentInfo.id && order.paymentInfo.id}</p>
                     </div>
                   </div>
 
@@ -171,9 +176,6 @@ const ProcessOrder = () => {
                   <Button
                     id="createProductBtn"
                     type="submit"
-                    disabled={
-                      loading ? true : false || status === "" ? true : false
-                    }
                   >
                     Process
                   </Button>
