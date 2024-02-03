@@ -47,7 +47,7 @@ const OrderList = () => {
   }, [dispatch, navigate, error, deleteError, isDeleted]);
 
   const columns = [
-    { key: "id", title: "Order ID", dataIndex: "id" },
+    { title: "Order ID", dataIndex: "id", key: "id" },
     {
       title: "Status",
       dataIndex: "status",
@@ -95,7 +95,6 @@ const OrderList = () => {
 
   const data = orders
     ? orders.map((item) => ({
-      key: item._id,
       id: item._id,
       itemsQty: item.OrderItems.length, // Assuming you want the number of items
       amount: item.totalPrice, // Assuming 'itemsPrice' is the correct property for total price

@@ -69,7 +69,7 @@ const ProcessOrder = () => {
                 <div className="confirmshippingArea">
                   <h1>Order Details</h1>
                   <div>
-                    <p>Order Number: {order && order._id ? order._id : 'N/A'}</p>
+                    <p>Order Number: {order && order._id}</p>
                     <p>Order Date: {order.createdAt && new Date(order.createdAt).toLocaleString()}</p>
                   </div>
                   <h2>Shipping Info</h2>
@@ -175,6 +175,9 @@ const ProcessOrder = () => {
                   <button
                     id="createProductBtn"
                     type="submit"
+                    disabled={
+                      loading ? true : false || status === "" ? true : false
+                    }
                   >
                     Process
                   </button>
