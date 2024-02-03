@@ -30,6 +30,7 @@ import OrderSuccess from "./component/Cart/OrderSuccess.js";
 import MyOrders from "./component/Order/MyOrders.js";
 import OrderDetails from "./component/Order/OrderDetails.js";
 import Modal from "./component/Modal/Modal.js";
+import NotFound from "./component/NotFound/NotFound.js";
 // import WebBanner from "./component/WebBanner/WebBanner.js";
 import CalloutBanner from "./component/Banner/CalloutBanner.js";
 import ChatBot from "./component/ChatBot/ChatBot.js";
@@ -168,6 +169,8 @@ function App() {
         <Route path="/admin/user/:id" element={isAuthenticated ? <UpdateUser /> : <Navigate to="/login" replace={true} />} />
 
         <Route path="/admin/reviews" element={isAuthenticated ? <ProductReviews /> : <Navigate to="/login" replace={true} />} />
+
+        <Route path="*" element={<NotFound />} />
 
       </Routes>
 
