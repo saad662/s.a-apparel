@@ -18,7 +18,13 @@ const newOrder = catchAsyncErrors(
             shippingInfo, OrderItems, user, paymentInfo, itemsPrice, taxPrice, shippingPrice, totalPrice,
             orderNotes, shippingMethod, paidAt: new Date()
         });
+
         await order.save();
+
+        for (const item of OrderItems) {
+            await updateStock(item.product, item.quantity);
+        }
+        
         res.status(201).json({
             success: true,
             order,
@@ -26,6 +32,14 @@ const newOrder = catchAsyncErrors(
     }
 );
 
+// Update product stock by product ID and quantity
+async function updateStock(id, quantity) {
+    const product = await Product.findById(id);
+
+    product.stock -= quantity;
+
+    await product.save({ validateBeforeSave: false });
+}
 
 // Get details of a single order (User)
 const getSingleOrder = catchAsyncErrors(
@@ -99,14 +113,6 @@ const updateOrder = catchAsyncErrors(async (req, res, next) => {
     });
 });
 
-// Update product stock by product ID and quantity
-async function updateStock(id, quantity) {
-    const product = await Product.findById(id);
-
-    product.stock -= quantity;
-
-    await product.save({ validateBeforeSave: false });
-}
 
 // Delete an order (Admin)
 const deleteOrder = catchAsyncErrors(
