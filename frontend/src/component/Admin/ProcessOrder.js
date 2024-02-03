@@ -173,12 +173,12 @@ const ProcessOrder = () => {
                     </select>
                   </div>
 
-                  <Button
+                  <button
                     id="createProductBtn"
                     type="submit"
                   >
                     Process
-                  </Button>
+                  </button>
                 </form>
               </div>
             </div>

@@ -87,12 +87,6 @@ const updateOrder = catchAsyncErrors(async (req, res, next) => {
         return next(new ErrorHander("You have already delivered this order", 400));
     }
 
-    if (req.body.status === "Shipped" && order.OrderItems.length > 0) {
-        for (const orderItem of order.OrderItems) {
-            await updateStock(orderItem.product, orderItem.quantity);
-        }
-    }
-
     order.orderStatus = req.body.status;
 
     if (req.body.status === "Delivered") {
