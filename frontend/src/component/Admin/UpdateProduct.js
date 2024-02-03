@@ -207,7 +207,7 @@ const UpdateProduct = ({ match }) => {
               type="submit"
               disabled={loading ? true : false}
             >
-              Create
+              Update Product
             </button>
           </form>
         </div>
