@@ -6,6 +6,7 @@ import MetaData from "../layout/MetaData";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { getAdminProduct } from "../../actions/productAction";
+import { getAllOrders } from "../../actions/orderAction.js";
 import { PieChart, Pie, Cell } from "recharts";
 import { VictoryChart, VictoryLine } from 'victory';
 
@@ -13,6 +14,7 @@ const Dashboard = () => {
   const dispatch = useDispatch();
 
   const { products } = useSelector((state) => state.products);
+  const { orders } = useSelector((state) => state.allOrders);
 
   const COLORS = ["#00A6B4", "#6800B4"]; //for pie chart
 
@@ -33,6 +35,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     dispatch(getAdminProduct());
+    dispatch(getAllOrders());
   }, [dispatch]);
 
   return (
@@ -57,7 +60,7 @@ const Dashboard = () => {
               <p></p>
             </Link>
             <Link to="/admin/orders" className="dashboardLink">
-              <p className="dashboardLinkText">400 Orders</p>
+              <p className="dashboardLinkText">{orders && orders.length} Orders</p>
             </Link>
             <Link to="/admin/users" className="dashboardLink">
               <p className="dashboardLinkText">400 Users</p>
