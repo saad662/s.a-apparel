@@ -14,10 +14,10 @@ import {
 } from "./reducers/productReducer";
 
 import {
-    profileReducer,            // Handles fetching user profile data
-    // allUsersReducer,        // Handles fetching a list of all users
+    profileReducer,         // Handles fetching user profile data
+    allUsersReducer,        // Handles fetching a list of all users
     forgotPasswordReducer,  // Handles the process of resetting a forgotten password 
-    // userDetailsReducer,     // Handles fetching details of a specific user
+    userDetailsReducer,     // Handles fetching details of a specific user
     userReducer,            // Handles user authentication and user-related actions
 } from "./reducers/userReducer";
 
@@ -46,8 +46,8 @@ const reducer = combineReducers({
     product: productReducer,               // Manages a list of products
     allOrders: allOrdersReducer,           // Manages a list of all orders
     order: orderReducer,                   // Manages a list of orders
-    // allUsers: allUsersReducer,             // Manages a list of all users
-    // userDetails: userDetailsReducer,       // Manages detailed information about a user
+    allUsers: allUsersReducer,             // Manages a list of all users
+    userDetails: userDetailsReducer,       // Manages detailed information about a user
     productReviews: productReviewsReducer, // Manages product reviews
     review: reviewReducer,                 // Manages a specific product review
 });
