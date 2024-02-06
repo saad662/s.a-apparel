@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { getAdminProduct } from "../../actions/productAction";
 import { getAllOrders } from "../../actions/orderAction.js";
+import { getAllUsers } from "../../actions/userAction.js";
 import { PieChart, Pie, Cell } from "recharts";
 import { VictoryChart, VictoryLine } from 'victory';
 
@@ -15,6 +16,7 @@ const Dashboard = () => {
 
   const { products } = useSelector((state) => state.products);
   const { orders } = useSelector((state) => state.allOrders);
+  const { users } = useSelector((state) => state.allUsers);
 
   const COLORS = ["#00A6B4", "#6800B4"]; //for pie chart
 
@@ -32,10 +34,16 @@ const Dashboard = () => {
     { name: "In Stock", value: products.length - outOfStock },
   ];
 
+  let totalAmount = 0;
+  orders &&
+    orders.forEach((item) => {
+      totalAmount += item.totalPrice;
+    });
 
   useEffect(() => {
     dispatch(getAdminProduct());
     dispatch(getAllOrders());
+    dispatch(getAllUsers());
   }, [dispatch]);
 
   return (
@@ -51,7 +59,7 @@ const Dashboard = () => {
         <div className="dashboardSummary">
           <div className="dashboardSummaryItem">
             <p>Total Amount</p>
-            <p className="currency">PKR 13231.</p>
+            <p className="currency">PKR {totalAmount}.</p>
           </div>
 
           <div className="dashboardSummaryBox">
@@ -63,7 +71,7 @@ const Dashboard = () => {
               <p className="dashboardLinkText">{orders && orders.length} Orders</p>
             </Link>
             <Link to="/admin/users" className="dashboardLink">
-              <p className="dashboardLinkText">400 Users</p>
+              <p className="dashboardLinkText">{users && users.length} Users</p>
             </Link>
           </div>
         </div>
