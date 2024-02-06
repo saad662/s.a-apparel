@@ -25,9 +25,9 @@ import {
     UPDATE_PRODUCT_REQUEST,
     UPDATE_PRODUCT_SUCCESS,
     UPDATE_PRODUCT_FAIL,
-    // DELETE_REVIEW_REQUEST,
-    // DELETE_REVIEW_SUCCESS,
-    // DELETE_REVIEW_FAIL,
+    DELETE_REVIEW_REQUEST,
+    DELETE_REVIEW_SUCCESS,
+    DELETE_REVIEW_FAIL,
     CLEAR_ERRORS,
 } from "../constants/productConstants";
 
@@ -236,8 +236,6 @@ export const updateProduct = (id, productData) => async (dispatch) => {
     }
 };
 
-/*
-
 // Delete Review of a Product
 export const deleteReviews = (reviewId, productId) => async (dispatch) => {
     try {
@@ -258,8 +256,6 @@ export const deleteReviews = (reviewId, productId) => async (dispatch) => {
         });
     }
 };
-
-*/
 
 // Clearing Errors
 export const clearErrors = () => async (dispatch) => {
