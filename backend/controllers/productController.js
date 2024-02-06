@@ -241,46 +241,52 @@ const getAllProductReviews = catchAsyncErrors(
     }
 );
 
-// Delete a review for a product.
-const deleteProductReview = catchAsyncErrors(
-    async (req, res, next) => {
-        const productId = req.query.id;
-        const reviewId = req.query.reviewId;
+// Delete Review
+const deleteReview = catchAsyncErrors(async (req, res, next) => {
+    const product = await Product.findById(req.query.productId);
 
-        const product = await Product.findById(productId);
-
-        if (!product) {
-            return next(new ErrorHandler("Product not found", 404));
-        }
-
-        const reviewIndex = product.reviews.findIndex(
-            (review) => review._id.toString() === reviewId
-        );
-
-        if (reviewIndex === -1) {
-            return next(new ErrorHandler("Review not found", 404));
-        }
-
-        product.reviews.splice(reviewIndex, 1);
-        product.numOfReviews = product.reviews.length;
-
-        // Recalculate the average rating for the product
-        if (product.reviews.length === 0) {
-            product.ratings = 0;
-        } else {
-            product.ratings =
-                product.reviews.reduce((acc, review) => review.rating + acc, 0) /
-                product.reviews.length;
-        }
-
-        await product.save({ validateBeforeSave: false });
-
-        res.status(200).json({
-            success: true,
-            message: "Review deleted successfully",
-        });
+    if (!product) {
+        return next(new ErrorHandler("Product not found", 404));
     }
-);
+
+    const reviews = product.reviews.filter(
+        (rev) => rev._id.toString() !== req.query.id.toString()
+    );
+
+    let avg = 0;
+
+    reviews.forEach((rev) => {
+        avg += rev.rating;
+    });
+
+    let ratings = 0;
+
+    if (reviews.length === 0) {
+        ratings = 0;
+    } else {
+        ratings = avg / reviews.length;
+    }
+
+    const numOfReviews = reviews.length;
+
+    await Product.findByIdAndUpdate(
+        req.query.productId,
+        {
+            reviews,
+            ratings,
+            numOfReviews,
+        },
+        {
+            new: true,
+            runValidators: true,
+            useFindAndModify: false,
+        }
+    );
+
+    res.status(200).json({
+        success: true,
+    });
+});
 
 module.exports = {
     getAllProducts,
@@ -290,7 +296,7 @@ module.exports = {
     getProduct,
     createProductReview,
     getAllProductReviews,
-    deleteProductReview,
+    deleteReview,
     getProducts,
     // getAdminProducts
 };
