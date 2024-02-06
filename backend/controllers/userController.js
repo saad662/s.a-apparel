@@ -311,6 +311,10 @@ const deleteUser = catchAsyncErrors(
             return next(new ErrorHandler(`User not found with ID: ${id}`, 404));
         }
 
+        const imageId = user.avatar.public_id;
+
+        await cloudinary.v2.uploader.destroy(imageId);
+
         res.status(200).json({
             success: true,
             message: `User with ID: ${id} has been deleted.`,
