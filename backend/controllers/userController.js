@@ -299,28 +299,26 @@ const updateRole = catchAsyncErrors(
     }
 );
 
-// Delete a user (Admin only).
-const deleteUser = catchAsyncErrors(
-    async (req, res, next) => {
-        const { id } = req.params;
+const deleteUser = catchAsyncErrors(async (req, res, next) => {
+    const user = await User.findById(req.params.id);
 
-        // Find the user by ID and delete it
-        const user = await User.deleteOne({ _id: id });
-
-        if (user.deletedCount === 0) {
-            return next(new ErrorHandler(`User not found with ID: ${id}`, 404));
-        }
-
-        const imageId = user.avatar.public_id;
-
-        await cloudinary.v2.uploader.destroy(imageId);
-
-        res.status(200).json({
-            success: true,
-            message: `User with ID: ${id} has been deleted.`,
-        });
+    if (!user) {
+        return next(
+            new ErrorHandler(`User does not exist with Id: ${req.params.id}`, 400)
+        );
     }
-);
+
+    const imageId = user.avatar.public_id;
+
+    await cloudinary.v2.uploader.destroy(imageId);
+
+    await user.deleteOne();
+
+    res.status(200).json({
+        success: true,
+        message: "User Deleted Successfully",
+    });
+});
 
 module.exports = {
     registerUser,
