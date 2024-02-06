@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import webfont from "webfontloader";
 import Header from "./component/layout/Header/Header.js"
-// import Footer from "./component/layout/Footer/Footer.js"
+import Footer from "./component/layout/Footer/Footer.js"
 import Home from "./component/Home/Home.js"
 import WhatsAppChat from "./component/WhatsAppChat/WhatsAppChat.js"
 import ProductDetails from "./component/Product/ProductDetails";
@@ -174,7 +174,7 @@ function App() {
 
       </Routes>
 
-      {/* <Footer /> */}
+      <Footer />
 
       <WhatsAppChat />
 
