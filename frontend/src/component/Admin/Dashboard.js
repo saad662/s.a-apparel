@@ -59,7 +59,7 @@ const Dashboard = () => {
         <div className="dashboardSummary">
           <div className="dashboardSummaryItem">
             <p>Total Amount</p>
-            <p className="currency">PKR {totalAmount}.</p>
+            <p className="currency">PKR {totalAmount.toLocaleString()}.</p>
           </div>
 
           <div className="dashboardSummaryBox">
