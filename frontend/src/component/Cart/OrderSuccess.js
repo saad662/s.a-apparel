@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import CheckCircleFilled from "@ant-design/icons/CheckCircleFilled";
-import { Typography, Button } from "antd";
+import { Typography } from "antd";
 import { Link } from "react-router-dom";
 import "./OrderSuccess.css";
 
@@ -17,10 +17,10 @@ const OrderSuccess = () => {
         Thank you for shopping with us! Your order is confirmed, and we're
         preparing it for shipment.
       </Typography.Text>
-      <Link to="/orders">
-        <Button type="primary" className="viewOrdersBtn">
+      <Link to="/account">
+        <button type="primary" className="viewOrdersBtn">
           View Orders
-        </Button>
+        </button>
       </Link>
     </div>
   );
