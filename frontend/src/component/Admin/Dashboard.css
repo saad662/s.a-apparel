@@ -3,7 +3,8 @@
     max-width: 100%;
     display: grid;
     grid-template-columns: 1fr 5fr;
-    position: absolute;
+    position: relative;
+    
 }
 .dashboardContainer {
     border-left: 1px solid rgba(0, 0, 0, 0.13);
