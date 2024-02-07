@@ -84,7 +84,9 @@ const forgotPassword = catchAsyncErrors(
 
         // Create reset password URL
         // const resetPasswordUrl = `${req.protocol}://${req.get("host")}/api/v1/password/reset/${resetToken}`;
-        const resetPasswordUrl = `${process.env.FRONTEND_URL}/password/reset/${resetToken}`;
+        const resetPasswordUrl = `${req.protocol}://${req.get(
+            "host"
+        )}/password/reset/${resetToken}`;
 
         // Get the user's IP address
         const ipAddress = req.ip;

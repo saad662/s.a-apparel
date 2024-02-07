@@ -65,7 +65,7 @@ const AboutPage = () => {
                     We value your feedback and suggestions. If you have any questions or inquiries, feel free to reach out to us.
                 </p>
                 <p className="contact-email">Email: saadamin662@gmail.com</p>
-                <p className="contact-github">GitHub: <a href="https://github.com/saad662/ecommerce-mern-first" target="_blank" rel="noopener noreferrer">github.com/saad662</a></p>
+                <p className="contact-github">GitHub: <a href="https://github.com/saad662/s.a-apparel" target="_blank" rel="noopener noreferrer">github.com/saad662</a></p>
             </div>
         </div>
     );

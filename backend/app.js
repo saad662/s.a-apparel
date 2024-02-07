@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 const fileUpload = require("express-fileupload");
 const dotenv = require("dotenv");
 const app = express();
+const path = require("path");
 
 // Load environment variables from .env file
 dotenv.config({ path: "backend/config/.env" });
@@ -29,6 +30,12 @@ app.use("/api/v1", user);
 app.use("/api/v1", order);
 app.use("/api/v1", payment);
 app.use("/api/v1", subscriptionRoutes);
+
+app.use(express.static(path.join(__dirname, "../frontend/build")));
+
+app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "../frontend/build/index.html"));
+});
 
 // Apply error handling middleware
 app.use(errorMiddleware);
