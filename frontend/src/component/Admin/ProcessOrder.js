@@ -1,22 +1,27 @@
 import React, { Fragment, useEffect, useState } from "react";
 import MetaData from "../layout/MetaData";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import SideBar from "./Sidebar";
 import {
-  getOrderDetails,
   clearErrors,
   updateOrder,
 } from "../../actions/orderAction";
+import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import Loader from "../layout/Loader/Loader";
 import { toast } from 'react-toastify';
 import { ClusterOutlined } from "@ant-design/icons";
+import axios from 'axios';
+
 import { UPDATE_ORDER_RESET } from "../../constants/orderConstants";
 import "./ProcessOrder.css";
 
-const ProcessOrder = () => {
-  const { order, error, loading } = useSelector((state) => state.orderDetails);
+const ProcessOrder = ({ match }) => {
   const { error: updateError, isUpdated } = useSelector((state) => state.order);
+  const [order, setOrder] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
   const { id } = useParams();
 
   const updateOrderSubmitHandler = (e) => {
@@ -47,7 +52,19 @@ const ProcessOrder = () => {
       dispatch({ type: UPDATE_ORDER_RESET });
     }
 
-    dispatch(getOrderDetails(id));
+    const fetchOrderDetails = async () => {
+      try {
+        setLoading(true);
+        const { data } = await axios.get(`/api/v1/order/${id}`);
+        setOrder(data.order);
+        setLoading(false);
+      } catch (error) {
+        setError(error.response.data.message);
+        setLoading(false);
+      }
+    };
+
+    fetchOrderDetails();
   }, [dispatch, error, id, isUpdated, updateError]);
 
   return (
