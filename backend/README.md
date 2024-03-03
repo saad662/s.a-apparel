@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>S.A-Apparel Backend README</title>
 </head>
 <body>
-    <h1>s.a-apparel Backend</h1>
+    <h1>S.A-Apparel Backend README</h1>
     <p>This is the backend for the s.a-apparel project. It provides APIs for managing products, users, orders, payments, and subscriptions.</p>
     <h2>Installation</h2>
     <ol>
         <li>Clone the repository:</li>
-        <code>git clone &lt;https://github.com/saad662/s.a-apparel/&gt;</code>
+        <code>git clone https://github.com/saad662/s.a-apparel/</code>
         <li>Navigate to the backend directory:</li>
         <code>cd s.a-apparel/</code>
         <li>Install dependencies:</li>
