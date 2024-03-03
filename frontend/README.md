@@ -10,6 +10,8 @@
     <h2>Dependencies</h2>
     <p>The frontend of this project relies on the following dependencies:</p>
     <ul>
+        <li><code>react-spring-carousel</code>: Carousel component powered by react-spring.</li>
+        <li><code>react-toastify</code>: Notification library for React.</li>
         <li><code>@emailjs/browser</code>: Library for sending emails from JavaScript.</li>
         <li><code>@fortawesome/fontawesome-svg-core</code>: Library for scalable vector icons.</li>
         <li><code>@reduxjs/toolkit</code>: Toolkit for efficient Redux development.</li>
