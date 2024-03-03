@@ -11,7 +11,7 @@
     <h2>Installation</h2>
     <ol>
         <li>Clone the repository:</li>
-        <code>git clone &lt;repository-url&gt;</code>
+        <code>git clone &lt;https://github.com/saad662/s.a-apparel/&gt;</code>
         <li>Navigate to the backend directory:</li>
         <code>cd s.a-apparel/</code>
         <li>Install dependencies:</li>
