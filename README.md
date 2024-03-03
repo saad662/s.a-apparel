@@ -40,7 +40,7 @@
   </ol>
 
   <h2>Deployment</h2>
-  <p>The s.a-apparel project is deployed on Heroku and can be accessed at <a href="https://s-a-apparel-4f20345f3159.herokuapp.com/">https://s-a-apparel-4f20345f3159.herokuapp.com/</a>.</p>
+  <p>The s.a-apparel project is deployed on Heroku and can be accessed at <a href="https://s-a-apparel-4f20345f3159.herokuapp.com/">S-A-Apparel on Heroku</a>.</p>
 
   <h2>Repository Structure</h2>
   <p>For more detailed information about the backend and frontend components, refer to the respective README files:</p>
