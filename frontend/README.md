@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <h1>Frontend README</h1>
+    <h1>S.A-Apparel Frontend README</h1>
     <p>This README provides information about the frontend of the MERN stack project.</p>
     <h2>Dependencies</h2>
     <p>The frontend of this project relies on the following dependencies:</p>

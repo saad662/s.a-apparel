@@ -13,7 +13,7 @@
         <li>Clone the repository:</li>
         <code>git clone &lt;repository-url&gt;</code>
         <li>Navigate to the backend directory:</li>
-        <code>cd s.a-apparel/backend</code>
+        <code>cd s.a-apparel/</code>
         <li>Install dependencies:</li>
         <code>npm install</code>
     </ol>
@@ -21,8 +21,6 @@
     <p>Make sure to set up your environment variables by creating a <code>.env</code> file in the <code>backend/config</code> directory. Here are the essential variables you need to set:</p>
     <pre>PORT=DB_URI=STRIPE_API_KEY=STRIPE_SECRET_KEY=JWT_SECRET=JWT_EXPIRE=COOKIE_EXPIRE=SMPT_SERVICE=SMPT_MAIL=SMPT_PASSWORD=SMPT_HOST=SMPT_PORT=CLOUDINARY_NAME=CLOUDINARY_API_KEY=CLOUDINARY_API_SECRET=</pre>
     <h2>Usage</h2>
-    <p>To start the server, run:</p>
-    <code>npm start</code>
     <p>To run the server in development mode with nodemon, use:</p>
     <code>npm run dev</code>
     <h2>API Endpoints</h2>
@@ -35,6 +33,12 @@
     </ul>
     <h2>Error Handling</h2>
     <p>The server includes middleware for error handling. It returns appropriate error responses for different scenarios.</p>
+    <ul>
+        <li><strong>Error Handler Middleware:</strong> The server utilizes a dedicated middleware for error handling. This middleware intercepts any errors that occur during the processing of requests and generates appropriate error responses.</li>
+        <li><strong>Handling Various Errors:</strong> The error handler middleware is designed to handle a variety of errors that may occur during the execution of requests. It identifies common error scenarios such as invalid resource IDs, duplicate key violations, and issues with JSON Web Tokens (JWTs).</li>
+        <li><strong>Detailed Error Responses:</strong> When an error is encountered, the error handler middleware generates detailed error responses. These responses include the HTTP status code indicating the nature of the error (e.g., 400 for bad request, 404 for not found) and a descriptive error message providing context about the issue.</li>
+        <li><strong>Graceful Error Recovery:</strong> To ensure uninterrupted operation, the server employs mechanisms for graceful error recovery. It gracefully handles errors, preventing server crashes and maintaining the stability of the application.</li>
+    </ul>
     <h2>Database</h2>
     <p>The backend uses MongoDB as the database. Make sure to provide a valid MongoDB connection URI in the <code>.env</code> file.</p>
     <h2>Dependencies</h2>
