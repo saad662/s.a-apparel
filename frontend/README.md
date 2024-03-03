@@ -10,9 +10,21 @@
     <h2>Dependencies</h2>
     <p>The frontend of this project relies on the following dependencies:</p>
     <ul>
-        <li>@emailjs/browser</li>
-        <li>@fortawesome/fontawesome-svg-core</li>
-        <!-- Add more dependencies here -->
+        <li><code>@emailjs/browser</code>: Library for sending emails from JavaScript.</li>
+        <li><code>@fortawesome/fontawesome-svg-core</code>: Library for scalable vector icons.</li>
+        <li><code>@reduxjs/toolkit</code>: Toolkit for efficient Redux development.</li>
+        <li><code>@stripe/react-stripe-js</code>: React components for Stripe.js and Elements.</li>
+        <li><code>antd</code>: Design system for enterprise-level products.</li>
+        <li><code>axios</code>: Promise-based HTTP client for the browser and node.js.</li>
+        <li><code>chart.js</code>: Simple yet flexible JavaScript charting for designers & developers.</li>
+        <li><code>cloudinary</code>: Image and video management in the cloud.</li>
+        <li><code>mapbox-gl</code>: Interactive, customizable maps for web and mobile applications.</li>
+        <li><code>react-js-pagination</code>: React component for pagination.</li>
+        <li><code>react-toastify</code>: Notification library for React.</li>
+        <li><code>react-router-dom</code>: DOM bindings for React Router.</li>
+         <li><code>react-range</code>: Flexible and light-weight range slider library for React.</li>
+        <li><code>react-rating-stars-component</code>: Customizable star rating component for React.</li>
+        <li><code>react-spring-carousel</code>: Carousel component powered by react-spring.</li>
     </ul>
     <h2>Scripts</h2>
     <p>The following scripts are available:</p>
