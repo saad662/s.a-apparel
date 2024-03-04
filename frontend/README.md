@@ -35,6 +35,8 @@
         <li><code>build</code>: Builds the project for production.</li>
         <li><code>test</code>: Runs tests.</li>
     </ul>
+    <h2>!IMPORTANT Proxy</h2>
+    <p>Update the proxy in the frontend package.json with your own internet connection IPv4 address</p>
     <h2>Redux Store Setup</h2>
     <p>The Redux store is configured with middleware for handling asynchronous actions. It combines multiple reducers to manage the application's state.</p>
     <p>Initial state is defined with the shopping cart items and shipping information.</p>
