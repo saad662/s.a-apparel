@@ -23,7 +23,7 @@ const Header = () => {
 
   return (
     <div className={`header ${isOpen ? 'active' : ''}`}>
-      <div className="hamburger-icon" onClick={toggleNavbar}>
+      <div className="hamburger-icon" onClick={toggleNavbar} style={{marginTop:"20px"}}>
         {isOpen ? (
           <FontAwesomeIcon icon={faTimes} size="lg" />
         ) : (
@@ -76,7 +76,7 @@ const Header = () => {
       </div>
 
       <div className="content">
-        {/* Your website content goes here */}
+        
       </div>
     </div>
   );
